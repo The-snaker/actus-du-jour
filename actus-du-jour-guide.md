@@ -10,14 +10,19 @@
 ## Fichiers
 - index.html : tout le site (HTML, CSS, JS sans framework), modes PC/mobile, recherche, favoris, bouton d'actualisation.
 - collect.py : collecteur Python sans dépendance. Lit sources.json (flux RSS) + l'API YouTube, écrit news.json et rapport.txt.
-- sources.json : 8 catégories de flux RSS (15 max chacune).
+- sources.json : catégories de flux RSS (15 max chacune, sauf Esport). Options par source : "filtre":"esport" (ne garde que les articles qui parlent d'esport, sur 7 jours) et "max":N (nombre d'articles gardés pour cette source, 12 par défaut).
 - .github/workflows/daily.yml : GitHub Actions, cron « 7 */5 * * * » (00h07, 05h07, 10h07, 15h07, 20h07 UTC), lancement manuel possible, se relance aussi quand sources.json ou collect.py changent.
 - sw.js : cache hors ligne. Changer le numéro de version (const V) à chaque publication visible, sinon les visiteurs gardent l'ancienne version.
 - news.json et rapport.txt : produits par le robot ; rapport.txt liste chaque source OK / KO / VIDE. C'est le premier outil de débogage.
 
 ## Onglets (ordre voulu)
-Tout, Tendances Youtube, Politique française, Jeux-Vidéo, High-Tech, Cinéma, Sport (foot européen), Québec (centré Montréal), Aéronautique, Finance. L'ordre est celui des clés de SLUG dans index.html.
+Tout, Tendances Youtube, Politique française, Jeux-Vidéo, Esport, High-Tech, Cinéma, Sport (foot européen), Québec (centré Montréal), Aéronautique, Finance. L'ordre est celui des clés de SLUG dans index.html.
 - Tendances Youtube : 100 vidéos tendance en France via YouTube Data API v3 (chart=mostPopular, regionCode=FR). Ordre YouTube conservé, pas de regroupement par jour, exclu de « Tout ». Si l'appel échoue, le dernier classement est conservé.
+
+## Esport
+- Aucun flux RSS 100 % esport francophone fiable n'a été trouvé (la plupart sont morts ou bloqués). La catégorie = Team aAa (https://www.team-aaa.com/rss/full.xml, max 40) + de grands sites jeux vidéo/tech filtrés par mots-clés esport (regex FILTRE_ESPORT_* dans collect.py).
+- Écartés : Esports.gg (403 depuis GitHub, en anglais), VaKarM (site archivé), Millenium et Breakflip (flux introuvables ou en erreur). Pour ajouter un site : tester son flux, l'ajouter à "Esport" dans sources.json, relire rapport.txt.
+- Piège : certains flux « esport » renvoient en réalité tout le site (articles sans rapport) : toujours vérifier les titres dans news.json, et mettre le filtre si besoin.
 
 ## Affichage
 - PC : catégories en colonne à gauche (sticky). Mobile : les onglets passent à la ligne, tous visibles sans défiler, en haut de page (non collés).
