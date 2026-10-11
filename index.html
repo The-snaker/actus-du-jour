@@ -405,7 +405,7 @@ function onglets() {
     if (SLUG[n]) { b.dataset.c = SLUG[n]; b.append(el("i")); }
     const total = n === "Tout" ? tous().length : n === "Favoris" ? nb : data.categories[n].length;
     b.append(n + " ", el("small", "", total));
-    b.onclick = () => { vue = n; memoriserVue(); limite = PAGE; onglets(); rendre(); window.scrollTo({top: 0}); };
+    b.onclick = () => { vue = n; memoriserVue(); try { window.goatcounter && window.goatcounter.count({path: "/categorie/" + cleVue(n), title: n}); } catch (e) {} limite = PAGE; onglets(); rendre(); window.scrollTo({top: 0}); };
     nav.append(b);
   }
 }
@@ -654,5 +654,6 @@ setInterval(verifierEnArriere, 15 * 60 * 1000);
 document.addEventListener("visibilitychange", () => { if (!document.hidden) verifierEnArriere(); });
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
 </script>
+<script data-goatcounter="https://the-snaker.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
