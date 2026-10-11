@@ -32,8 +32,7 @@
     {"nom": "Xboxygen", "url": "https://www.xboxygen.com/spip.php?page=backend"}
   ],
   "Esport": [
-    {"nom": "Team aAa", "url": "https://www.team-aaa.com/rss/"},
-    {"nom": "Esports.gg", "url": "https://esports.gg/feed"},
+    {"nom": "Team aAa", "url": "https://www.team-aaa.com/rss/full.xml"},
     {"nom": "Jeuxvideo.com", "url": "https://www.jeuxvideo.com/rss/rss.xml", "filtre": "esport"},
     {"nom": "Gamekult", "url": "https://www.gamekult.com/feed.xml", "filtre": "esport"},
     {"nom": "Gameblog", "url": "https://www.gameblog.fr/rss.php", "filtre": "esport"},
