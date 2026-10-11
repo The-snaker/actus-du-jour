@@ -30,6 +30,9 @@ Tout, Tendances Youtube, Politique française, Jeux-Vidéo, Esport, High-Tech, C
 - Leçon : les descriptions YouTube contiennent des liens longs qui faisaient déborder les cartes et poussaient l'image hors écran. Les colonnes de grille utilisent minmax(0,1fr) et overflow-wrap:anywhere ; les liens sont retirés dans collect.py. En cas d'image « absente » sur mobile, vérifier d'abord le débordement avec le navigateur intégré (viewport mobile 375 px) avant de soupçonner l'URL de l'image.
 - Miniatures YouTube : hqdefault.jpg, avec adresses de secours (img.youtube.com, mqdefault) dans index.html.
 
+## Statistiques de visites
+- GoatCounter (gratuit, sans cookie) : tableau de bord https://the-snaker.goatcounter.com . Le script est en bas de index.html ; chaque changement de catégorie envoie aussi une visite virtuelle /categorie/<slug>. Pour ne pas compter ses propres visites : ouvrir le site avec la console et exécuter localStorage.skipgc='t'.
+
 ## Secrets et jetons (jamais dans le dépôt ni dans une conversation)
 - Secret GitHub YT_API_KEY (Settings > Secrets > Actions) : clé YouTube Data API v3. Claude ne peut pas le modifier (le proxy de session bloque les secrets) : l'utilisateur le fait.
 - Jeton GitHub optionnel, saisi dans les Réglages du site, stocké seulement dans le navigateur de l'utilisateur : permet au bouton d'actualisation de lancer une collecte immédiate (permission Actions : Read and write, limité à ce dépôt).
