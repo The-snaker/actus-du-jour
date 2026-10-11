@@ -1,6 +1,5 @@
-Rapport du 2026-10-11T20:04:12.034493+00:00
-Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/8 sources OK | Finance: 15/15 sources OK
-KO   [Aéronautique] AeroMorning - https://www.aeromorning.com/feed/ - ParseError: mismatched tag: line 46, column 2
+Rapport du 2026-10-11T20:05:35.728433+00:00
+Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
 OK   [Aéronautique] Aviation Magazine - 1 récent(s), 0 avec image
@@ -104,8 +103,8 @@ OK   [Sport] France Info Sport - 12 récent(s), 11 avec image
 OK   [Sport] Le Monde Football - 6 récent(s), 6 avec image
 OK   [Sport] Le Monde Sport - 12 récent(s), 12 avec image
 OK   [Sport] RMC Sport Football - 12 récent(s), 12 avec image
-OK   [Sport] RMC Sport Ligue 1 - 12 récent(s), 12 avec image
-OK   [Sport] RMC Sport Ligue des champions - 1 récent(s), 1 avec image
-OK   [Sport] RMC Sport Premier League - 10 récent(s), 9 avec image
+OK   [Sport] RMC Sport Ligue 1 - 12 récent(s), 11 avec image
+OK   [Sport] RMC Sport Ligue des champions - 0 récent(s), 0 avec image
+OK   [Sport] RMC Sport Premier League - 9 récent(s), 8 avec image
 OK   [Sport] RMC Sport Transferts - 3 récent(s), 3 avec image
 OK   [Sport] So Foot - 12 récent(s), 12 avec image
