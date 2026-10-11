@@ -18,7 +18,7 @@ if(!m)m=matchMedia("(min-width:900px)").matches?"pc":"mobile";document.documentE
 <style>
 :root{
   --fond:#F3F4F7; --carte:#FFFFFF; --encre:#131722; --doux:#5F6877; --filet:#E1E4EB;
-  --pol:#5A3BD1; --jeux:#A12FC1; --tech:#0B7A7A; --cine:#C21F5E; --sport:#D1401F; --qc:#1F5FBF; --aero:#8F6A00; --fin:#17703B; --tend:#C2410C;
+  --pol:#5A3BD1; --jeux:#A12FC1; --tech:#0B7A7A; --cine:#C21F5E; --sport:#D1401F; --qc:#1F5FBF; --aero:#8F6A00; --fin:#17703B; --tend:#C2410C; --esp:#6B7F00;
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
@@ -34,6 +34,7 @@ if(!m)m=matchMedia("(min-width:900px)").matches?"pc":"mobile";document.documentE
 [data-c=aero]{--cb:var(--aero);--c:var(--aero)}
 [data-c=fin]{--cb:var(--fin);--c:var(--fin)}
 [data-c=tend]{--cb:var(--tend);--c:var(--tend)}
+[data-c=esp]{--cb:var(--esp);--c:var(--esp)}
 [data-c=x]{--cb:#475063;--c:var(--doux)}
 @media (prefers-color-scheme:dark){
   [data-c=pol]{--c:#AE9BFF}
@@ -45,6 +46,7 @@ if(!m)m=matchMedia("(min-width:900px)").matches?"pc":"mobile";document.documentE
   [data-c=aero]{--c:#E8C34E}
   [data-c=fin]{--c:#62D690}
   [data-c=tend]{--c:#FDA26B}
+  [data-c=esp]{--c:#C6DD4B}
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -232,7 +234,7 @@ dialog .actions .principal{background:var(--encre);color:var(--fond);border-colo
 </dialog>
 
 <script>
-const SLUG = {"Tendances Youtube":"tend","Politique française":"pol","Jeux-Vidéo":"jeux","High-Tech":"tech","Cinéma":"cine","Sport":"sport","Québec":"qc","Aéronautique":"aero","Finance":"fin"};
+const SLUG = {"Tendances Youtube":"tend","Politique française":"pol","Jeux-Vidéo":"jeux","Esport":"esp","High-Tech":"tech","Cinéma":"cine","Sport":"sport","Québec":"qc","Aéronautique":"aero","Finance":"fin"};
 const ORDRE = Object.keys(SLUG);                       /* ordre des onglets */
 const ANCIENS_NOMS = {"Tendances":"Tendances Youtube","Politique":"Politique française","High Tech":"High-Tech"};   /* anciens noms de catégories */
 const PAGE = 30;
