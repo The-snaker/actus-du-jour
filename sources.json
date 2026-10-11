@@ -1,0 +1,36 @@
+{
+  "Politique": [
+    {"nom": "Le Monde", "url": "https://www.lemonde.fr/politique/rss_full.xml"},
+    {"nom": "Le Figaro", "url": "https://www.lefigaro.fr/rss/figaro_politique.xml"},
+    {"nom": "France Info", "url": "https://www.francetvinfo.fr/politique.rss"},
+    {"nom": "Libération", "url": "https://www.liberation.fr/arc/outboundfeeds/rss-all/category/politique/?outputType=xml"}
+  ],
+  "High Tech": [
+    {"nom": "Numerama", "url": "https://www.numerama.com/feed/"},
+    {"nom": "Frandroid", "url": "https://www.frandroid.com/feed"},
+    {"nom": "Journal du Geek", "url": "https://www.journaldugeek.com/feed/"},
+    {"nom": "Korben", "url": "https://korben.info/feed"},
+    {"nom": "Next", "url": "https://next.ink/feed/"},
+    {"nom": "Le Monde Pixels", "url": "https://www.lemonde.fr/pixels/rss_full.xml"},
+    {"nom": "Les Numériques", "url": "https://www.lesnumeriques.com/rss.xml"}
+  ],
+  "Cinéma": [
+    {"nom": "Allociné", "url": "https://www.allocine.fr/rss/news.xml"},
+    {"nom": "Le Monde Cinéma", "url": "https://www.lemonde.fr/cinema/rss_full.xml"},
+    {"nom": "Le Figaro Cinéma", "url": "https://www.lefigaro.fr/rss/figaro_cinema.xml"},
+    {"nom": "Première", "url": "https://www.premiere.fr/rss"},
+    {"nom": "Télérama Cinéma", "url": "https://www.telerama.fr/rss/cinema.xml"}
+  ],
+  "Aéronautique": [
+    {"nom": "Aerobuzz", "url": "https://www.aerobuzz.fr/feed/"},
+    {"nom": "Opex360", "url": "https://www.opex360.com/feed/"},
+    {"nom": "Air & Cosmos", "url": "https://air-cosmos.com/rss"},
+    {"nom": "Journal de l'Aviation", "url": "https://www.journal-aviation.com/rss"}
+  ],
+  "Finance": [
+    {"nom": "Le Monde Économie", "url": "https://www.lemonde.fr/economie/rss_full.xml"},
+    {"nom": "Le Figaro Économie", "url": "https://www.lefigaro.fr/rss/figaro_economie.xml"},
+    {"nom": "Les Echos", "url": "https://www.lesechos.fr/rss/rss_finance-marches.xml"},
+    {"nom": "BFM Business", "url": "https://www.bfmtv.com/rss/economie/"}
+  ]
+}

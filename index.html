@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1B2430">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<title>Actus du jour</title>
+<style>
+:root{
+  --fond:#EEF1F4; --carte:#FFFFFF; --encre:#1B2430; --doux:#5B6675; --filet:#D9DFE6;
+  --Politique:#2F4B9B; --HighTech:#0E7C86; --Cinéma:#A3366B; --Aéronautique:#C26A12; --Finance:#2E7D43;
+}
+@media (prefers-color-scheme:dark){
+  :root{--fond:#12171E; --carte:#1B2430; --encre:#EAEFF4; --doux:#9AA6B5; --filet:#2B3646;
+    --Politique:#8FA8F2; --HighTech:#5CC6CF; --Cinéma:#EE8FBC; --Aéronautique:#F0A760; --Finance:#7BCB8F;}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fond);color:var(--encre);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  padding-bottom:env(safe-area-inset-bottom,0)}
+header{position:sticky;top:0;z-index:2;background:var(--fond);padding:env(safe-area-inset-top,0) 0 0;border-bottom:1px solid var(--filet)}
+.titre{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 16px 4px;max-width:720px;margin:0 auto}
+h1{margin:0;font:700 26px/1.1 Georgia,"Times New Roman",serif;letter-spacing:-.01em}
+#maj{font-size:13px;color:var(--doux);text-align:right}
+nav{display:flex;gap:8px;overflow-x:auto;padding:8px 16px 12px;max-width:720px;margin:0 auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:none;display:flex;align-items:center;gap:7px;border:1px solid var(--filet);background:var(--carte);color:var(--encre);
+  font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;cursor:pointer}
+nav button i{width:9px;height:9px;border-radius:50%;background:var(--c,var(--encre))}
+nav button small{color:var(--doux)}
+nav button[aria-pressed=true]{background:var(--encre);color:var(--fond);border-color:var(--encre)}
+nav button[aria-pressed=true] small{color:inherit;opacity:.75}
+nav button:focus-visible,a:focus-visible{outline:3px solid var(--c,var(--encre));outline-offset:2px}
+main{max-width:720px;margin:0 auto;padding:4px 16px 40px}
+h2{font:600 14px/1 system-ui,sans-serif;color:var(--doux);margin:22px 0 8px}
+a.art{display:block;background:var(--carte);border:1px solid var(--filet);border-left:5px solid var(--c);border-radius:6px;
+  padding:12px 14px;margin-bottom:8px;color:inherit;text-decoration:none}
+a.art:active{background:var(--filet)}
+.ligne{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--doux)}
+.ligne b{color:var(--c);font-weight:600}
+.art h3{margin:4px 0 4px;font:600 18px/1.28 Georgia,"Times New Roman",serif}
+.art p{margin:0;font-size:14px;color:var(--doux);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.etat{text-align:center;color:var(--doux);padding:48px 16px}
+.etat button{margin-top:12px;font:inherit;padding:9px 18px;border-radius:6px;border:1px solid var(--encre);background:var(--encre);color:var(--fond);cursor:pointer}
+@media (prefers-reduced-motion:no-preference){a.art{transition:background .15s}}
+</style>
+</head>
+<body>
+<header>
+  <div class="titre"><h1>Actus du jour</h1><span id="maj"></span></div>
+  <nav id="onglets" aria-label="Catégories"></nav>
+</header>
+<main id="liste" aria-live="polite"><div class="etat">Chargement des actualités…</div></main>
+<script>
+const CLASSES = {"Politique":"Politique","High Tech":"HighTech","Cinéma":"Cinéma","Aéronautique":"Aéronautique","Finance":"Finance"};
+let data = null, choix = "Tout";
+
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+const jourDe = d => d.toLocaleDateString("fr-FR", {year:"numeric", month:"numeric", day:"numeric"});
+
+function etiquetteJour(d) {
+  const auj = new Date(), hier = new Date(Date.now() - 864e5);
+  if (jourDe(d) === jourDe(auj)) return "Aujourd’hui";
+  if (jourDe(d) === jourDe(hier)) return "Hier";
+  const t = d.toLocaleDateString("fr-FR", {weekday:"long", day:"numeric", month:"long"});
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+function ilYA(d) {
+  const m = Math.round((Date.now() - d) / 6e4);
+  if (m < 1) return "à l’instant";
+  if (m < 60) return `il y a ${m} min`;
+  if (m < 1440) return `il y a ${Math.floor(m / 60)} h`;
+  return d.toLocaleTimeString("fr-FR", {hour:"2-digit", minute:"2-digit"});
+}
+function tous() {
+  return Object.entries(data.categories).flatMap(([cat, l]) => l.map(a => ({...a, cat})))
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+function onglets() {
+  const nav = document.getElementById("onglets"); nav.replaceChildren();
+  const noms = ["Tout", ...Object.keys(data.categories)];
+  for (const n of noms) {
+    const b = el("button"); b.setAttribute("aria-pressed", n === choix);
+    if (n !== "Tout") { b.style.setProperty("--c", `var(--${CLASSES[n] || "Politique"})`); b.append(el("i")); }
+    const nb = n === "Tout" ? tous().length : data.categories[n].length;
+    b.append(n + " ", el("small", "", nb));
+    b.onclick = () => { choix = n; onglets(); liste(); window.scrollTo(0, 0); };
+    nav.append(b);
+  }
+}
+function liste() {
+  const zone = document.getElementById("liste"); zone.replaceChildren();
+  const arts = choix === "Tout" ? tous() : (data.categories[choix] || []).map(a => ({...a, cat: choix}));
+  if (!arts.length) { zone.append(el("div", "etat", "Aucun article dans cette catégorie pour le moment.")); return; }
+  let jour = "";
+  for (const a of arts) {
+    const d = new Date(a.date), j = etiquetteJour(d);
+    if (j !== jour) { zone.append(el("h2", "", j)); jour = j; }
+    if (!/^https?:\/\//.test(a.lien)) continue;
+    const lien = el("a", "art"); lien.href = a.lien; lien.target = "_blank"; lien.rel = "noopener noreferrer";
+    lien.style.setProperty("--c", `var(--${CLASSES[a.cat] || "Politique"})`);
+    const l1 = el("div", "ligne"); l1.append(el("b", "", a.source + (choix === "Tout" ? " — " + a.cat : "")), el("span", "", ilYA(d)));
+    lien.append(l1, el("h3", "", a.titre));
+    if (a.extrait) lien.append(el("p", "", a.extrait));
+    zone.append(lien);
+  }
+}
+function erreur() {
+  const zone = document.getElementById("liste"); zone.replaceChildren();
+  const e = el("div", "etat", "Impossible de charger les actualités. Vérifie ta connexion, puis réessaie.");
+  const b = el("button", "", "Réessayer"); b.onclick = charger; e.append(el("br"), b); zone.append(e);
+}
+async function charger() {
+  try {
+    const r = await fetch("news.json", {cache: "no-cache"});
+    if (!r.ok) throw new Error(r.status);
+    data = await r.json();
+    const g = new Date(data.genere_le);
+    document.getElementById("maj").textContent = "Mis à jour le " + g.toLocaleDateString("fr-FR", {day:"numeric", month:"long"}) +
+      " à " + g.toLocaleTimeString("fr-FR", {hour:"2-digit", minute:"2-digit"});
+    onglets(); liste();
+  } catch (e) { erreur(); }
+}
+charger();
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+</script>
+</body>
+</html>
