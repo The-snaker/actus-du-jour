@@ -27,6 +27,20 @@ RE_IMG = re.compile(r"""<img[^>]+?(?:data-src|src)\s*=\s*["']([^"']+)["']""", re
 EXT_IMAGE = re.compile(r"\.(jpe?g|png|webp|avif|gif)(\?|$)", re.I)
 
 
+# Catégorie Esport : on garde, dans de grands flux jeux vidéo, uniquement les articles qui parlent d'esport.
+FILTRE_ESPORT_MINUSCULES = re.compile(
+    r"e-?sport|league of legends|valorant|counter-?strike|rocket league|karmine|team vitality|gentle mates|"
+    r"riot games|dota 2|overwatch champions|call of duty league|rainbow six (?:siege )?(?:major|tournoi|pro league)|"
+    r"worlds 20\d\d|tournoi (?:pro|international)|ligue pro|lan party|\bcs ?2\b|\bt1 faker\b|\bfaker\b", re.I)
+FILTRE_ESPORT_CASSE = re.compile(r"\b(?:LoL|LEC|LCK|LCS|VCT|IEM|BLAST|ESL|EWC|CS2|CS:GO|LFL|EVO)\b")
+FENETRE_FILTRE_HEURES = 168   # les flux filtrés sont rares : on remonte à 7 jours
+
+
+def parle_esport(article):
+    texte = f"{article['titre']} {article['extrait']}"
+    return bool(FILTRE_ESPORT_MINUSCULES.search(texte) or FILTRE_ESPORT_CASSE.search(texte))
+
+
 def nettoyer(texte):
     texte = html.unescape(re.sub(r"<[^>]+>", " ", texte or ""))
     return re.sub(r"\s+", " ", texte).strip()
@@ -224,8 +238,12 @@ def main():
     sortie = {c: [] for c in sources}
     rapport, ok_par_cat = [], {c: 0 for c in sources}
     for categorie, source, articles, erreur in resultats:
-        recents = sorted((a for a in articles if a["date"] >= limite),
-                         key=lambda a: a["date"], reverse=True)[:MAX_PAR_SOURCE]
+        if source.get("filtre") == "esport":
+            seuil = datetime.now(timezone.utc) - timedelta(hours=FENETRE_FILTRE_HEURES)
+            retenus = [a for a in articles if a["date"] >= seuil and parle_esport(a)]
+        else:
+            retenus = [a for a in articles if a["date"] >= limite]
+        recents = sorted(retenus, key=lambda a: a["date"], reverse=True)[:MAX_PAR_SOURCE]
         if erreur:
             rapport.append(f"KO   [{categorie}] {source['nom']} - {source['url']} - {erreur}")
         elif not articles:
