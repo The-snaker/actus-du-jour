@@ -1,4 +1,4 @@
-Rapport du 2026-10-11T21:28:24.430343+00:00
+Rapport du 2026-10-11T21:44:35.060471+00:00
 Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
@@ -86,7 +86,7 @@ OK   [Québec] La Presse - 10 récent(s), 10 avec image
 OK   [Québec] La Presse Grand Montréal - 6 récent(s), 6 avec image
 OK   [Québec] La Presse Politique - 10 récent(s), 10 avec image
 OK   [Québec] Le Devoir - 12 récent(s), 0 avec image
-OK   [Québec] Le Devoir Politique - 10 récent(s), 0 avec image
+OK   [Québec] Le Devoir Politique - 9 récent(s), 0 avec image
 OK   [Québec] Le Journal de Montréal - 12 récent(s), 12 avec image
 OK   [Québec] Le Journal de Québec - 12 récent(s), 12 avec image
 OK   [Québec] Métro - 4 récent(s), 4 avec image
