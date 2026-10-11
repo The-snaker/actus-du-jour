@@ -1,5 +1,26 @@
-Rapport du 2026-10-11T21:44:35.060471+00:00
-Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
+Rapport du 2026-10-11T22:02:23.094226+00:00
+Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 3/25 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
+KO   [Esport] 01net Esport - https://www.01net.com/jeux-video/esport/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] 20 Minutes Esport - https://www.20minutes.fr/feeds/rss-esport.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Esport] Actugaming Esport - https://www.actugaming.net/esport/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] BFM Esport - https://www.bfmtv.com/rss/esport/ - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] Breakflip - https://www.breakflip.com/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] France Info Esport - https://www.francetvinfo.fr/sports/e-sport.rss - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] Frandroid Esport - https://www.frandroid.com/gaming/feed - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] Gameblog Esport - https://www.gameblog.fr/rss_esport.php - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] Gamekult Esport - https://www.gamekult.com/esport/feed.xml - HTTPError: HTTP Error 410: Gone
+KO   [Esport] Jeuxvideo.com Esport - https://www.jeuxvideo.com/rss/rss-esport.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] Journal du Gamer Esport - https://www.journaldugamer.com/esport/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] L'Express Esport - https://www.lexpress.fr/arc/outboundfeeds/rss/esport.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] L'Équipe Esport - https://www.lequipe.fr/rss/actu_rss_Esport.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Esport] Le Figaro Esport - https://www.lefigaro.fr/rss/figaro_esport.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] Le Monde Esport - https://www.lemonde.fr/esport/rss_full.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] Millenium - https://www.millenium.org/rss/news.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] Mobalytics FR - https://fr.dotesports.com/feed - URLError: <urlopen error [Errno 111] Connection refused>
+KO   [Esport] Numerama Esport - https://www.numerama.com/pop-culture/esport/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] RMC Sport Esport - https://rmcsport.bfmtv.com/rss/esport/ - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] Sportune Esport - https://www.sportune.fr/esport/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Esport] Team Vitality - https://www.vitality.gg/feed - ParseError: syntax error: line 1, column 0
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
 OK   [Aéronautique] Aviation Magazine - 1 récent(s), 0 avec image
@@ -22,6 +43,9 @@ OK   [Cinéma] Numerama Ciné - 3 récent(s), 3 avec image
 OK   [Cinéma] Télérama Cinéma - 9 récent(s), 9 avec image
 OK   [Cinéma] aVoir-aLire - 10 récent(s), 10 avec image
 OK   [Cinéma] Écran Large - 12 récent(s), 12 avec image
+OK   [Esport] Dexerto FR - 5 récent(s), 5 avec image
+OK   [Esport] Eclypsia - 0 récent(s), 0 avec image
+OK   [Esport] Les Numériques Esport - 12 récent(s), 12 avec image
 OK   [Finance] 20 Minutes Économie - 10 récent(s), 10 avec image
 OK   [Finance] Alternatives Économiques - 10 récent(s), 8 avec image
 OK   [Finance] BFM Business - 12 récent(s), 12 avec image
@@ -109,3 +133,4 @@ OK   [Sport] RMC Sport Premier League - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Transferts - 2 récent(s), 2 avec image
 OK   [Sport] So Foot - 12 récent(s), 12 avec image
 OK   [Tendances Youtube] YouTube Tendances France - 100 sujet(s)
+VIDE [Esport] Liberation Esport - https://www.liberation.fr/arc/outboundfeeds/rss-all/category/sports/esport/?outputType=xml - aucun article lisible
