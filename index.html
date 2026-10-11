@@ -11,7 +11,7 @@
 <style>
 :root{
   --fond:#F3F4F7; --carte:#FFFFFF; --encre:#131722; --doux:#5F6877; --filet:#E1E4EB;
-  --pol:#2E3FC4; --tech:#0B7A7A; --cine:#C21F5E; --aero:#B35300; --fin:#17703B;
+  --pol:#5A3BD1; --jeux:#A12FC1; --tech:#0B7A7A; --cine:#C21F5E; --sport:#D1401F; --qc:#1F5FBF; --aero:#8F6A00; --fin:#17703B;
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
@@ -19,16 +19,22 @@
   :root{--fond:#0E1117; --carte:#171B24; --encre:#EEF1F6; --doux:#9CA6B5; --filet:#262C38}
 }
 [data-c=pol]{--cb:var(--pol);--c:var(--pol)}
+[data-c=jeux]{--cb:var(--jeux);--c:var(--jeux)}
 [data-c=tech]{--cb:var(--tech);--c:var(--tech)}
 [data-c=cine]{--cb:var(--cine);--c:var(--cine)}
+[data-c=sport]{--cb:var(--sport);--c:var(--sport)}
+[data-c=qc]{--cb:var(--qc);--c:var(--qc)}
 [data-c=aero]{--cb:var(--aero);--c:var(--aero)}
 [data-c=fin]{--cb:var(--fin);--c:var(--fin)}
 [data-c=x]{--cb:#475063;--c:var(--doux)}
 @media (prefers-color-scheme:dark){
-  [data-c=pol]{--c:#9AA6FF}
+  [data-c=pol]{--c:#AE9BFF}
+  [data-c=jeux]{--c:#DC93F2}
   [data-c=tech]{--c:#52D3D3}
   [data-c=cine]{--c:#FF8DB6}
-  [data-c=aero]{--c:#FFAE5C}
+  [data-c=sport]{--c:#FF8F6B}
+  [data-c=qc]{--c:#7FB0FF}
+  [data-c=aero]{--c:#E8C34E}
   [data-c=fin]{--c:#62D690}
 }
 *{box-sizing:border-box}
@@ -160,7 +166,9 @@ main{padding-top:6px}
 <main class="cadre" id="liste" aria-live="polite"></main>
 
 <script>
-const SLUG = {"Politique":"pol","High Tech":"tech","Cinéma":"cine","Aéronautique":"aero","Finance":"fin"};
+const SLUG = {"Politique française":"pol","Jeux-Vidéo":"jeux","High-Tech":"tech","Cinéma":"cine","Sport":"sport","Québec":"qc","Aéronautique":"aero","Finance":"fin"};
+const ORDRE = Object.keys(SLUG);                       /* ordre des onglets */
+const ANCIENS_NOMS = {"Politique":"Politique française","High Tech":"High-Tech"};   /* anciens noms de catégories */
 const PAGE = 30;
 const ICONES = {
   recherche:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>',
@@ -174,6 +182,16 @@ const lire = (cle, defaut) => { try { return JSON.parse(localStorage.getItem(cle
 const ecrire = (cle, val) => { try { localStorage.setItem(cle, JSON.stringify(val)); } catch (e) {} };
 let lus = new Set(lire("actus:lus", []));
 let favoris = lire("actus:favoris", {});
+for (const f of Object.values(favoris)) if (ANCIENS_NOMS[f.cat]) f.cat = ANCIENS_NOMS[f.cat];
+
+/* Renomme les anciennes catégories et impose l'ordre des onglets */
+function normaliser(d) {
+  const brut = {};
+  for (const [nom, liste] of Object.entries(d.categories)) brut[ANCIENS_NOMS[nom] || nom] = liste;
+  const rang = n => (ORDRE.indexOf(n) + 1) || 99;
+  d.categories = Object.fromEntries(Object.entries(brut).sort((a, b) => rang(a[0]) - rang(b[0])));
+  return d;
+}
 
 const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
 const svg = nom => { const t = document.createElement("template"); t.innerHTML = ICONES[nom]; return t.content.firstChild; };
@@ -321,7 +339,7 @@ function rendre() {
     zone.append(b);
   }
   const nbSources = new Set(tous().map(a => a.source)).size;
-  zone.append(el("p", "pied-page", `${nbSources} sites français · mis à jour chaque matin`));
+  zone.append(el("p", "pied-page", `${nbSources} sources · mis à jour chaque matin`));
 }
 
 function squelette() {
@@ -349,7 +367,7 @@ async function charger() {
   try {
     const r = await fetch("news.json", {cache: "no-cache"});
     if (!r.ok) throw new Error(r.status);
-    data = await r.json();
+    data = normaliser(await r.json());
     if (vue !== "Tout" && vue !== "Favoris" && !data.categories[vue]) vue = "Tout";
     afficherMaj(); onglets(); rendre();
   } catch (e) { if (!data) erreur(); }
