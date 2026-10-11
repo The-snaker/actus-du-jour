@@ -1,0 +1,25 @@
+Rapport du 2026-10-11T19:17:38.459088+00:00
+KO  [Aéronautique] Air & Cosmos - https://air-cosmos.com/rss - HTTPError: HTTP Error 400: Bad Request
+KO  [Cinéma] Première - https://www.premiere.fr/rss - HTTPError: HTTP Error 403: Forbidden
+KO  [Finance] Les Echos - https://www.lesechos.fr/rss/rss_finance-marches.xml - HTTPError: HTTP Error 403: Forbidden
+OK  [Aéronautique] Aerobuzz - 9 article(s) récent(s)
+OK  [Aéronautique] Journal de l'Aviation - 10 article(s) récent(s)
+OK  [Aéronautique] Opex360 - 9 article(s) récent(s)
+OK  [Cinéma] Allociné - 19 article(s) récent(s)
+OK  [Cinéma] Le Figaro Cinéma - 7 article(s) récent(s)
+OK  [Cinéma] Le Monde Cinéma - 3 article(s) récent(s)
+OK  [Cinéma] Télérama Cinéma - 9 article(s) récent(s)
+OK  [Finance] BFM Business - 30 article(s) récent(s)
+OK  [Finance] Le Figaro Économie - 18 article(s) récent(s)
+OK  [Finance] Le Monde Économie - 20 article(s) récent(s)
+OK  [High Tech] Frandroid - 15 article(s) récent(s)
+OK  [High Tech] Journal du Geek - 30 article(s) récent(s)
+OK  [High Tech] Korben - 5 article(s) récent(s)
+OK  [High Tech] Le Monde Pixels - 14 article(s) récent(s)
+OK  [High Tech] Les Numériques - 40 article(s) récent(s)
+OK  [High Tech] Next - 14 article(s) récent(s)
+OK  [High Tech] Numerama - 15 article(s) récent(s)
+OK  [Politique] France Info - 18 article(s) récent(s)
+OK  [Politique] Le Figaro - 4 article(s) récent(s)
+OK  [Politique] Le Monde - 20 article(s) récent(s)
+OK  [Politique] Libération - 39 article(s) récent(s)
