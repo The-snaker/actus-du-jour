@@ -254,7 +254,7 @@ def main():
 
     try:
         sortie["Tendances Youtube"] = collecter_tendances()
-        etat = f"OK   [Tendances Youtube] YouTube Tendances France - {len(sortie['Tendances'])} sujet(s)"
+        etat = f"OK   [Tendances Youtube] YouTube Tendances France - {len(sortie['Tendances Youtube'])} sujet(s)"
         if not sortie["Tendances Youtube"]:
             raise ValueError("aucun sujet lisible")
     except Exception as e:
