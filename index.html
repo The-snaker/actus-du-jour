@@ -54,6 +54,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--c,var(--encre));outline-offset:2px;border-radius:6px}
 .cadre{max-width:1240px;margin:0 auto;padding:0 16px}
 html[data-mode=mobile] .cadre{max-width:480px}
+html[data-mode=mobile] .onglet{height:34px;padding:0 10px;font-size:13.5px}
 
 /* En-tête */
 .bandeau{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
@@ -69,28 +70,30 @@ h1{margin:0;font:700 clamp(30px,8vw,42px)/1 var(--serif);letter-spacing:-.02em}
 .tourne svg{animation:tour .8s linear infinite}
 @keyframes tour{to{transform:rotate(360deg)}}
 
-/* Barre collante : recherche + catégories */
-.barre{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--fond) 92%,transparent);
-  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--filet);
-  padding-top:env(safe-area-inset-top)}
+/* Recherche + catégories : tout visible sans défiler (mobile), colonne de gauche (ordinateur) */
+.barre{background:var(--fond);border-bottom:1px solid var(--filet)}
 #recherche{padding:10px 0 0}
 #recherche[hidden]{display:none}
 #q{width:100%;height:46px;border-radius:12px;border:1px solid var(--filet);background:var(--carte);color:var(--encre);
   font:inherit;padding:0 14px}
-nav{display:flex;gap:8px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
-nav::-webkit-scrollbar{display:none}
-html[data-mode=pc] nav{flex-wrap:wrap;overflow:visible}
-@media (hover:hover){
-  html[data-mode=mobile] nav{scrollbar-width:thin}
-  html[data-mode=mobile] nav::-webkit-scrollbar{display:block;height:6px}
-  html[data-mode=mobile] nav::-webkit-scrollbar-thumb{background:var(--filet);border-radius:3px}
-}
-.onglet{flex:none;display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:999px;
-  border:1px solid var(--filet);background:var(--carte);font-size:15px}
-.onglet i{width:10px;height:10px;border-radius:50%;background:var(--cb,var(--encre))}
-.onglet small{font-size:12px;color:var(--doux);font-variant-numeric:tabular-nums}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 0}
+.onglet{flex:none;display:flex;align-items:center;gap:7px;height:36px;padding:0 12px;border-radius:999px;
+  border:1px solid var(--filet);background:var(--carte);font-size:14px}
+.onglet i{width:9px;height:9px;border-radius:50%;background:var(--cb,var(--encre))}
+.onglet small{font-size:11.5px;color:var(--doux);font-variant-numeric:tabular-nums}
 .onglet[aria-pressed=true]{background:var(--encre);color:var(--fond);border-color:var(--encre)}
 .onglet[aria-pressed=true] small{color:inherit;opacity:.7}
+@media (min-width:700px){
+  html[data-mode=pc] body{display:grid;grid-template-columns:230px minmax(0,1fr);column-gap:28px;
+    max-width:1320px;margin:0 auto;padding:0 20px max(32px,env(safe-area-inset-bottom));align-items:start}
+  html[data-mode=pc] body>.cadre,html[data-mode=pc] main.cadre{grid-column:2;max-width:none;margin:0;padding:0}
+  html[data-mode=pc] .barre{grid-column:1;grid-row:1 / span 3;position:sticky;top:0;align-self:start;
+    max-height:100vh;overflow-y:auto;border-bottom:0;padding:max(18px,env(safe-area-inset-top)) 0 16px;scrollbar-width:thin}
+  html[data-mode=pc] .barre .cadre{max-width:none;padding:0}
+  html[data-mode=pc] nav{flex-direction:column;flex-wrap:nowrap;gap:6px;padding:14px 0 0}
+  html[data-mode=pc] .onglet{width:100%;height:42px;padding:0 14px;border-radius:12px;font-size:15px}
+  html[data-mode=pc] .onglet small{margin-left:auto}
+}
 
 /* Contenu */
 main{padding-top:6px}
@@ -241,6 +244,21 @@ const ICONES = {
 };
 let data = null, vue = "Tout", requete = "", limite = PAGE;
 
+/* La catégorie ouverte est gardée dans l'adresse (#...) : une actualisation de la page y reste */
+const cleVue = n => n === "Tout" ? "tout" : n === "Favoris" ? "favoris" : SLUG[n];
+function vueMemorisee() {
+  let cle = decodeURIComponent(location.hash.slice(1));
+  if (!cle) { try { cle = sessionStorage.getItem("actus:vue") || ""; } catch (e) {} }
+  if (cle === "favoris") return "Favoris";
+  return Object.keys(SLUG).find(n => SLUG[n] === cle) || "Tout";
+}
+function memoriserVue() {
+  const cle = cleVue(vue);
+  try { history.replaceState(null, "", location.pathname + location.search + (cle === "tout" ? "" : "#" + cle)); } catch (e) {}
+  try { sessionStorage.setItem("actus:vue", cle); } catch (e) {}
+}
+vue = vueMemorisee();
+
 /* Stockage léger (peut être indisponible : on ignore les erreurs) */
 const lire = (cle, defaut) => { try { return JSON.parse(localStorage.getItem(cle)) ?? defaut; } catch (e) { return defaut; } };
 const ecrire = (cle, val) => { try { localStorage.setItem(cle, JSON.stringify(val)); } catch (e) {} };
@@ -374,7 +392,7 @@ function onglets() {
     if (SLUG[n]) { b.dataset.c = SLUG[n]; b.append(el("i")); }
     const total = n === "Tout" ? tous().length : n === "Favoris" ? nb : data.categories[n].length;
     b.append(n + " ", el("small", "", total));
-    b.onclick = () => { vue = n; limite = PAGE; onglets(); rendre(); window.scrollTo({top: 0}); };
+    b.onclick = () => { vue = n; memoriserVue(); limite = PAGE; onglets(); rendre(); window.scrollTo({top: 0}); };
     nav.append(b);
   }
 }
