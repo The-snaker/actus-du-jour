@@ -1,5 +1,9 @@
 name: Mise à jour quotidienne
 on:
+  push:
+    paths:
+      - sources.json
+      - collect.py
   schedule:
     - cron: "0 5 * * *"
   workflow_dispatch:

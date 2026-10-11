@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Collecte les actualités (flux RSS/Atom) listées dans sources.json
-et écrit news.json (pour l'appli) et rapport.txt (flux en panne).
+et écrit news.json (pour l'appli) et rapport.txt (état de chaque source).
 Aucune dépendance externe."""
 import html
 import json
@@ -12,10 +12,18 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
-FENETRE_HEURES = 72      # on garde les 3 derniers jours
+FENETRE_HEURES = 72       # on garde les 3 derniers jours
 MAX_PAR_CATEGORIE = 150
-LONGUEUR_EXTRAIT = 220
-UA = "Mozilla/5.0 (compatible; ActusDuJour/1.0)"
+MAX_PAR_SOURCE = 12       # évite qu'un seul site occupe toute la page
+LONGUEUR_EXTRAIT = 240
+ENTETES = {
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+    "Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5",
+    "Accept-Language": "fr-FR,fr;q=0.9",
+}
+RE_IMG = re.compile(r"""<img[^>]+?(?:data-src|src)\s*=\s*["']([^"']+)["']""", re.I)
+EXT_IMAGE = re.compile(r"\.(jpe?g|png|webp|avif|gif)(\?|$)", re.I)
 
 
 def nettoyer(texte):
@@ -49,6 +57,47 @@ def nom_balise(el):
     return el.tag.rsplit("}", 1)[-1]
 
 
+def image_valide(url):
+    """Garde une adresse d'image https exploitable, sinon None."""
+    if not url:
+        return None
+    url = html.unescape(url.strip())
+    if url.startswith("//"):
+        url = "https:" + url
+    if url.startswith("http://"):
+        url = "https://" + url[7:]
+    if not url.startswith("https://"):
+        return None
+    if re.search(r"(pixel|1x1|spacer|blank|tracking|logo)", url, re.I):
+        return None
+    return url
+
+
+def trouver_image(el, html_brut):
+    """Cherche l'image d'un article : balises média, pièce jointe, puis <img> du texte."""
+    for c in el.iter():
+        k = nom_balise(c)
+        url = c.get("url") or c.get("href")
+        genre = (c.get("type") or c.get("medium") or "").lower()
+        if k in ("thumbnail",) and url:
+            return image_valide(url)
+        if k in ("content", "enclosure", "link") and url:
+            if genre.startswith("image") or (not genre and EXT_IMAGE.search(url)) \
+                    or (k == "link" and c.get("rel") == "enclosure" and genre.startswith("image")):
+                img = image_valide(url)
+                if img:
+                    return img
+        if k == "image" and c.text and c.text.strip().startswith(("http", "//")):
+            img = image_valide(c.text)
+            if img:
+                return img
+    for m in RE_IMG.finditer(html_brut or ""):
+        img = image_valide(m.group(1))
+        if img:
+            return img
+    return None
+
+
 def analyser(contenu):
     """Retourne la liste des articles d'un flux RSS ou Atom."""
     articles = []
@@ -69,18 +118,21 @@ def analyser(contenu):
         date = lire_date(champs.get("pubDate") or champs.get("published")
                          or champs.get("updated") or champs.get("date"))
         titre = nettoyer(champs.get("title"))
+        brut = " ".join(champs.get(k, "") for k in
+                        ("description", "summary", "encoded", "content"))
         extrait = nettoyer(champs.get("description") or champs.get("summary")
                            or champs.get("encoded") or champs.get("content"))
         if titre and lien and date:
             articles.append({"titre": titre, "lien": lien, "date": date,
-                             "extrait": couper(extrait, LONGUEUR_EXTRAIT)})
+                             "extrait": couper(extrait, LONGUEUR_EXTRAIT),
+                             "image": trouver_image(el, brut)})
     return articles
 
 
 def traiter(tache):
     categorie, source = tache
     try:
-        req = urllib.request.Request(source["url"], headers={"User-Agent": UA})
+        req = urllib.request.Request(source["url"], headers=ENTETES)
         with urllib.request.urlopen(req, timeout=20) as r:
             articles = analyser(r.read())
         return categorie, source, articles, None
@@ -99,19 +151,23 @@ def main():
 
     limite = datetime.now(timezone.utc) - timedelta(hours=FENETRE_HEURES)
     sortie = {c: [] for c in sources}
-    rapport = []
+    rapport, ok_par_cat = [], {c: 0 for c in sources}
     for categorie, source, articles, erreur in resultats:
-        recents = [a for a in articles if a["date"] >= limite]
+        recents = sorted((a for a in articles if a["date"] >= limite),
+                         key=lambda a: a["date"], reverse=True)[:MAX_PAR_SOURCE]
         if erreur:
-            rapport.append(f"KO  [{categorie}] {source['nom']} - {source['url']} - {erreur}")
+            rapport.append(f"KO   [{categorie}] {source['nom']} - {source['url']} - {erreur}")
         elif not articles:
             rapport.append(f"VIDE [{categorie}] {source['nom']} - {source['url']} - aucun article lisible")
         else:
-            rapport.append(f"OK  [{categorie}] {source['nom']} - {len(recents)} article(s) récent(s)")
+            ok_par_cat[categorie] += 1
+            avec_image = sum(1 for a in recents if a["image"])
+            rapport.append(f"OK   [{categorie}] {source['nom']} - {len(recents)} récent(s), {avec_image} avec image")
         for a in recents:
             sortie[categorie].append({
                 "source": source["nom"], "titre": a["titre"], "lien": a["lien"],
-                "extrait": a["extrait"], "date": a["date"].isoformat()})
+                "extrait": a["extrait"], "image": a["image"],
+                "date": a["date"].isoformat()})
 
     total = 0
     for categorie, liste in sortie.items():
@@ -126,15 +182,16 @@ def main():
         total += len(sortie[categorie])
 
     maintenant = datetime.now(timezone.utc).isoformat()
+    resume = " | ".join(f"{c}: {ok_par_cat[c]}/{len(sources[c])} sources OK" for c in sources)
     with open("rapport.txt", "w", encoding="utf-8") as f:
-        f.write(f"Rapport du {maintenant}\n" + "\n".join(sorted(rapport)) + "\n")
+        f.write(f"Rapport du {maintenant}\n{resume}\n" + "\n".join(sorted(rapport)) + "\n")
 
     if total == 0:
         print("Aucun article collecté : news.json conservé tel quel.")
         sys.exit(1)
     with open("news.json", "w", encoding="utf-8") as f:
-        json.dump({"genere_le": maintenant, "categories": sortie}, f, ensure_ascii=False, indent=1)
-    print(f"{total} articles collectés ({len(taches)} sources).")
+        json.dump({"genere_le": maintenant, "categories": sortie}, f, ensure_ascii=False, separators=(",", ":"))
+    print(f"{total} articles collectés ({len(taches)} sources). {resume}")
 
 
 if __name__ == "__main__":

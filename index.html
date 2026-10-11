@@ -3,68 +3,189 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1B2430">
+<meta name="theme-color" content="#F3F4F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1117" media="(prefers-color-scheme: dark)">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <title>Actus du jour</title>
 <style>
 :root{
-  --fond:#EEF1F4; --carte:#FFFFFF; --encre:#1B2430; --doux:#5B6675; --filet:#D9DFE6;
-  --Politique:#2F4B9B; --HighTech:#0E7C86; --Cinéma:#A3366B; --Aéronautique:#C26A12; --Finance:#2E7D43;
+  --fond:#F3F4F7; --carte:#FFFFFF; --encre:#131722; --doux:#5F6877; --filet:#E1E4EB;
+  --pol:#2E3FC4; --tech:#0B7A7A; --cine:#C21F5E; --aero:#B35300; --fin:#17703B;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 @media (prefers-color-scheme:dark){
-  :root{--fond:#12171E; --carte:#1B2430; --encre:#EAEFF4; --doux:#9AA6B5; --filet:#2B3646;
-    --Politique:#8FA8F2; --HighTech:#5CC6CF; --Cinéma:#EE8FBC; --Aéronautique:#F0A760; --Finance:#7BCB8F;}
+  :root{--fond:#0E1117; --carte:#171B24; --encre:#EEF1F6; --doux:#9CA6B5; --filet:#262C38}
+}
+[data-c=pol]{--cb:var(--pol);--c:var(--pol)}
+[data-c=tech]{--cb:var(--tech);--c:var(--tech)}
+[data-c=cine]{--cb:var(--cine);--c:var(--cine)}
+[data-c=aero]{--cb:var(--aero);--c:var(--aero)}
+[data-c=fin]{--cb:var(--fin);--c:var(--fin)}
+[data-c=x]{--cb:#475063;--c:var(--doux)}
+@media (prefers-color-scheme:dark){
+  [data-c=pol]{--c:#9AA6FF}
+  [data-c=tech]{--c:#52D3D3}
+  [data-c=cine]{--c:#FF8DB6}
+  [data-c=aero]{--c:#FFAE5C}
+  [data-c=fin]{--c:#62D690}
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--fond);color:var(--encre);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  padding-bottom:env(safe-area-inset-bottom,0)}
-header{position:sticky;top:0;z-index:2;background:var(--fond);padding:env(safe-area-inset-top,0) 0 0;border-bottom:1px solid var(--filet)}
-.titre{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 16px 4px;max-width:720px;margin:0 auto}
-h1{margin:0;font:700 26px/1.1 Georgia,"Times New Roman",serif;letter-spacing:-.01em}
-#maj{font-size:13px;color:var(--doux);text-align:right}
-nav{display:flex;gap:8px;overflow-x:auto;padding:8px 16px 12px;max-width:720px;margin:0 auto;scrollbar-width:none}
+body{margin:0;background:var(--fond);color:var(--encre);font:16px/1.45 var(--sans);
+  padding-bottom:max(32px,env(safe-area-inset-bottom))}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--c,var(--encre));outline-offset:2px;border-radius:6px}
+.cadre{max-width:1040px;margin:0 auto;padding:0 16px}
+
+/* En-tête */
+.bandeau{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+  padding:max(18px,env(safe-area-inset-top)) 0 10px}
+.date{margin:0 0 2px;font-size:14px;color:var(--doux)}
+h1{margin:0;font:700 clamp(30px,8vw,42px)/1 var(--serif);letter-spacing:-.02em}
+.etat-maj{margin:6px 0 0;font-size:13px;color:var(--doux)}
+.etat-maj.vieux{color:var(--aero);font-weight:600}
+.outils{display:flex;gap:6px}
+.rond{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--filet);background:var(--carte)}
+.rond svg,.fav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.rond[aria-pressed=true]{background:var(--encre);color:var(--fond);border-color:var(--encre)}
+.tourne svg{animation:tour .8s linear infinite}
+@keyframes tour{to{transform:rotate(360deg)}}
+
+/* Barre collante : recherche + catégories */
+.barre{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--fond) 92%,transparent);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--filet);
+  padding-top:env(safe-area-inset-top)}
+#recherche{padding:10px 0 0}
+#recherche[hidden]{display:none}
+#q{width:100%;height:46px;border-radius:12px;border:1px solid var(--filet);background:var(--carte);color:var(--encre);
+  font:inherit;padding:0 14px}
+nav{display:flex;gap:8px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
-nav button{flex:none;display:flex;align-items:center;gap:7px;border:1px solid var(--filet);background:var(--carte);color:var(--encre);
-  font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;cursor:pointer}
-nav button i{width:9px;height:9px;border-radius:50%;background:var(--c,var(--encre))}
-nav button small{color:var(--doux)}
-nav button[aria-pressed=true]{background:var(--encre);color:var(--fond);border-color:var(--encre)}
-nav button[aria-pressed=true] small{color:inherit;opacity:.75}
-nav button:focus-visible,a:focus-visible{outline:3px solid var(--c,var(--encre));outline-offset:2px}
-main{max-width:720px;margin:0 auto;padding:4px 16px 40px}
-h2{font:600 14px/1 system-ui,sans-serif;color:var(--doux);margin:22px 0 8px}
-a.art{display:block;background:var(--carte);border:1px solid var(--filet);border-left:5px solid var(--c);border-radius:6px;
-  padding:12px 14px;margin-bottom:8px;color:inherit;text-decoration:none}
-a.art:active{background:var(--filet)}
-.ligne{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--doux)}
-.ligne b{color:var(--c);font-weight:600}
-.art h3{margin:4px 0 4px;font:600 18px/1.28 Georgia,"Times New Roman",serif}
-.art p{margin:0;font-size:14px;color:var(--doux);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.etat{text-align:center;color:var(--doux);padding:48px 16px}
-.etat button{margin-top:12px;font:inherit;padding:9px 18px;border-radius:6px;border:1px solid var(--encre);background:var(--encre);color:var(--fond);cursor:pointer}
-@media (prefers-reduced-motion:no-preference){a.art{transition:background .15s}}
+.onglet{flex:none;display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:999px;
+  border:1px solid var(--filet);background:var(--carte);font-size:15px}
+.onglet i{width:10px;height:10px;border-radius:50%;background:var(--cb,var(--encre))}
+.onglet small{font-size:12px;color:var(--doux);font-variant-numeric:tabular-nums}
+.onglet[aria-pressed=true]{background:var(--encre);color:var(--fond);border-color:var(--encre)}
+.onglet[aria-pressed=true] small{color:inherit;opacity:.7}
+
+/* Contenu */
+main{padding-top:6px}
+.jour{margin:26px 0 10px;font:600 13px/1 var(--sans);letter-spacing:.02em;color:var(--doux)}
+.grille{display:grid;gap:10px}
+
+/* À la une */
+.hero{position:relative;margin-top:14px;border-radius:18px;overflow:hidden;background:#222}
+.hero a{display:block;position:relative;aspect-ratio:4/3.1;color:#fff;text-decoration:none}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .voile{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,10,16,.9) 0%,rgba(8,10,16,.55) 38%,rgba(8,10,16,0) 68%)}
+.hero .texte{position:absolute;left:0;right:0;bottom:0;padding:18px 16px 16px}
+.pastille{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--cb);color:#fff;font-size:12.5px;font-weight:600}
+.hero h2{margin:10px 0 0;font:700 clamp(22px,5.6vw,30px)/1.15 var(--serif);text-wrap:balance}
+.hero .heure{margin:8px 0 0;font-size:13px;opacity:.85}
+.hero .fav{position:absolute;top:10px;right:10px;background:rgba(10,12,18,.55);color:#fff;border-color:transparent}
+@media (min-width:760px){.hero a{aspect-ratio:21/9}.hero .texte{padding:28px 28px 24px;max-width:760px}}
+
+/* Cartes */
+.carte{background:var(--carte);border:1px solid var(--filet);border-radius:16px;padding:12px 12px 6px;
+  display:flex;flex-direction:column}
+.corps{display:grid;grid-template-columns:1fr 92px;gap:14px;color:inherit;text-decoration:none;align-items:start}
+.carte h3{margin:0;font:650 18px/1.27 var(--serif);text-wrap:pretty;
+  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.carte p{margin:6px 0 0;font-size:14.5px;line-height:1.4;color:var(--doux);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vignette{width:92px;height:92px;border-radius:12px;overflow:hidden;background:var(--filet)}
+.vignette img{width:100%;height:100%;object-fit:cover;display:block}
+.vignette.vide{display:grid;place-items:center;background:color-mix(in srgb,var(--cb) 16%,var(--carte));
+  font:700 34px/1 var(--serif);color:var(--c)}
+.pied{display:flex;align-items:center;gap:8px;min-height:44px;font-size:13px;color:var(--doux)}
+.pied .src{display:flex;align-items:center;gap:7px;min-width:0;color:var(--c);font-weight:600}
+.pied .src i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--cb)}
+.pied .src span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fav{margin-left:auto;flex:none;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;
+  border:1px solid transparent;background:transparent;color:var(--doux)}
+.fav[aria-pressed=true]{color:var(--c,var(--encre))}
+.fav[aria-pressed=true] svg{fill:currentColor}
+.hero .fav[aria-pressed=true]{color:#fff}
+.carte.lu h3{color:var(--doux);font-weight:500}
+.carte.lu .vignette{opacity:.55}
+@media (min-width:760px){
+  .grille{grid-template-columns:1fr 1fr;gap:14px}
+  .carte{padding:0 0 4px;overflow:hidden}
+  .carte .corps{grid-template-columns:1fr;gap:0}
+  .carte .vignette{order:-1;width:100%;height:auto;aspect-ratio:16/9;border-radius:0}
+  .carte .vignette.vide{display:none}
+  .carte .texte{padding:14px 16px 0}
+  .carte .pied{padding:0 8px 0 16px}
+  .carte h3{font-size:19px}
+}
+@media (hover:hover){.corps:hover h3{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}}
+
+/* États */
+.plus{display:block;margin:18px auto 0;height:46px;padding:0 24px;border-radius:999px;border:1px solid var(--encre);background:transparent}
+.etat{text-align:center;color:var(--doux);padding:56px 8px}
+.etat b{display:block;color:var(--encre);font:700 22px/1.2 var(--serif);margin-bottom:6px}
+.etat button{margin-top:16px;height:44px;padding:0 22px;border-radius:999px;border:0;background:var(--encre);color:var(--fond)}
+.sk{height:118px;border-radius:16px;background:var(--carte);border:1px solid var(--filet);margin-top:10px}
+@media (prefers-reduced-motion:no-preference){.sk{animation:pulse 1.4s ease-in-out infinite}
+  .tourne svg{animation-duration:.8s}}
+@keyframes pulse{50%{opacity:.5}}
+@media (prefers-reduced-motion:reduce){.tourne svg{animation:none}}
+.pied-page{margin:36px 0 0;text-align:center;font-size:13px;color:var(--doux)}
 </style>
 </head>
 <body>
-<header>
-  <div class="titre"><h1>Actus du jour</h1><span id="maj"></span></div>
-  <nav id="onglets" aria-label="Catégories"></nav>
-</header>
-<main id="liste" aria-live="polite"><div class="etat">Chargement des actualités…</div></main>
+<div class="cadre">
+  <header class="bandeau">
+    <div>
+      <p class="date" id="date"></p>
+      <h1>Actus du jour</h1>
+      <p class="etat-maj" id="maj"></p>
+    </div>
+    <div class="outils">
+      <button class="rond" id="btn-recherche" aria-label="Rechercher" aria-pressed="false" aria-controls="recherche"></button>
+      <button class="rond" id="btn-maj" aria-label="Actualiser"></button>
+    </div>
+  </header>
+</div>
+<div class="barre">
+  <div class="cadre">
+    <form id="recherche" role="search" hidden>
+      <input id="q" type="search" placeholder="Rechercher un sujet, un site…" aria-label="Rechercher dans les articles" autocomplete="off" enterkeyhint="search">
+    </form>
+    <nav id="onglets" aria-label="Catégories"></nav>
+  </div>
+</div>
+<main class="cadre" id="liste" aria-live="polite"></main>
+
 <script>
-const CLASSES = {"Politique":"Politique","High Tech":"HighTech","Cinéma":"Cinéma","Aéronautique":"Aéronautique","Finance":"Finance"};
-let data = null, choix = "Tout";
+const SLUG = {"Politique":"pol","High Tech":"tech","Cinéma":"cine","Aéronautique":"aero","Finance":"fin"};
+const PAGE = 30;
+const ICONES = {
+  recherche:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>',
+  maj:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 5v6h-6"/></svg>',
+  fav:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-4-6 4V5a1 1 0 0 1 1-1z"/></svg>'
+};
+let data = null, vue = "Tout", requete = "", limite = PAGE;
+
+/* Stockage léger (peut être indisponible : on ignore les erreurs) */
+const lire = (cle, defaut) => { try { return JSON.parse(localStorage.getItem(cle)) ?? defaut; } catch (e) { return defaut; } };
+const ecrire = (cle, val) => { try { localStorage.setItem(cle, JSON.stringify(val)); } catch (e) {} };
+let lus = new Set(lire("actus:lus", []));
+let favoris = lire("actus:favoris", {});
 
 const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
-const jourDe = d => d.toLocaleDateString("fr-FR", {year:"numeric", month:"numeric", day:"numeric"});
+const svg = nom => { const t = document.createElement("template"); t.innerHTML = ICONES[nom]; return t.content.firstChild; };
+const sansAccent = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const slug = cat => SLUG[cat] || "x";
+const httpsOk = u => typeof u === "string" && /^https?:\/\//.test(u);
+const jourDe = d => d.toLocaleDateString("fr-FR");
 
 function etiquetteJour(d) {
-  const auj = new Date(), hier = new Date(Date.now() - 864e5);
-  if (jourDe(d) === jourDe(auj)) return "Aujourd’hui";
-  if (jourDe(d) === jourDe(hier)) return "Hier";
-  const t = d.toLocaleDateString("fr-FR", {weekday:"long", day:"numeric", month:"long"});
+  if (jourDe(d) === jourDe(new Date())) return "Aujourd’hui";
+  if (jourDe(d) === jourDe(new Date(Date.now() - 864e5))) return "Hier";
+  const t = d.toLocaleDateString("fr-FR", {weekday: "long", day: "numeric", month: "long"});
   return t.charAt(0).toUpperCase() + t.slice(1);
 }
 function ilYA(d) {
@@ -72,59 +193,185 @@ function ilYA(d) {
   if (m < 1) return "à l’instant";
   if (m < 60) return `il y a ${m} min`;
   if (m < 1440) return `il y a ${Math.floor(m / 60)} h`;
-  return d.toLocaleTimeString("fr-FR", {hour:"2-digit", minute:"2-digit"});
+  return d.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
 }
 function tous() {
-  return Object.entries(data.categories).flatMap(([cat, l]) => l.map(a => ({...a, cat})))
+  return Object.entries(data.categories)
+    .flatMap(([cat, l]) => l.map(a => ({...a, cat})))
     .sort((a, b) => b.date.localeCompare(a.date));
 }
+function articlesDeLaVue() {
+  let l;
+  if (vue === "Favoris") l = Object.values(favoris).sort((a, b) => b.date.localeCompare(a.date));
+  else if (vue === "Tout") l = tous();
+  else l = (data.categories[vue] || []).map(a => ({...a, cat: vue}));
+  if (requete) {
+    const q = sansAccent(requete);
+    l = l.filter(a => sansAccent(`${a.titre} ${a.extrait || ""} ${a.source}`).includes(q));
+  }
+  return l;
+}
+
+/* Interactions */
+function basculerFavori(a, bouton) {
+  if (favoris[a.lien]) delete favoris[a.lien];
+  else {
+    favoris[a.lien] = {source: a.source, titre: a.titre, lien: a.lien, extrait: a.extrait, image: a.image, date: a.date, cat: a.cat};
+    const cles = Object.keys(favoris);
+    if (cles.length > 300) delete favoris[cles[0]];
+  }
+  ecrire("actus:favoris", favoris);
+  const actif = !!favoris[a.lien];
+  bouton.setAttribute("aria-pressed", actif);
+  bouton.setAttribute("aria-label", actif ? "Retirer des favoris" : "Ajouter aux favoris");
+  if (vue === "Favoris") rendre(); else onglets();
+}
+function marquerLu(a, carte) {
+  if (lus.has(a.lien)) return;
+  lus.add(a.lien);
+  ecrire("actus:lus", [...lus].slice(-2000));
+  if (carte) carte.classList.add("lu");
+}
+function boutonFavori(a) {
+  const b = el("button", "fav"); b.type = "button"; b.append(svg("fav"));
+  const actif = !!favoris[a.lien];
+  b.setAttribute("aria-pressed", actif);
+  b.setAttribute("aria-label", actif ? "Retirer des favoris" : "Ajouter aux favoris");
+  b.onclick = () => basculerFavori(a, b);
+  return b;
+}
+function image(src, alt) {
+  const i = new Image(); i.loading = "lazy"; i.decoding = "async"; i.alt = alt || "";
+  i.referrerPolicy = "no-referrer"; i.src = src;
+  return i;
+}
+
+/* Éléments d'affichage */
+function carteHero(a) {
+  const boite = el("div", "hero"); boite.dataset.c = slug(a.cat);
+  const lien = el("a"); lien.href = a.lien; lien.target = "_blank"; lien.rel = "noopener noreferrer";
+  const img = image(a.image, ""); img.onerror = () => boite.remove();
+  const texte = el("div", "texte");
+  texte.append(el("span", "pastille", `${a.cat} · ${a.source}`), el("h2", "", a.titre), el("p", "heure", ilYA(new Date(a.date))));
+  lien.append(img, el("div", "voile"), texte);
+  lien.addEventListener("click", () => marquerLu(a));
+  boite.append(lien, boutonFavori(a));
+  return boite;
+}
+function carte(a, afficherCat) {
+  const c = el("article", "carte" + (lus.has(a.lien) ? " lu" : "")); c.dataset.c = slug(a.cat);
+  const corps = el("a", "corps"); corps.href = a.lien; corps.target = "_blank"; corps.rel = "noopener noreferrer";
+  const texte = el("div", "texte"); texte.append(el("h3", "", a.titre));
+  if (a.extrait) texte.append(el("p", "", a.extrait));
+  const vign = el("div", "vignette");
+  if (httpsOk(a.image)) {
+    const img = image(a.image, "");
+    img.onerror = () => { vign.replaceChildren(a.source.charAt(0).toUpperCase()); vign.classList.add("vide"); };
+    vign.append(img);
+  } else { vign.classList.add("vide"); vign.textContent = a.source.charAt(0).toUpperCase(); }
+  corps.append(texte, vign);
+  corps.addEventListener("click", () => marquerLu(a, c));
+  corps.addEventListener("auxclick", () => marquerLu(a, c));
+  const src = el("span", "src"); src.append(el("i"), el("span", "", afficherCat ? `${a.source} · ${a.cat}` : a.source));
+  const pied = el("div", "pied"); pied.append(src, el("span", "", "· " + ilYA(new Date(a.date))), boutonFavori(a));
+  c.append(corps, pied);
+  return c;
+}
+
 function onglets() {
   const nav = document.getElementById("onglets"); nav.replaceChildren();
-  const noms = ["Tout", ...Object.keys(data.categories)];
+  const nb = Object.keys(favoris).length;
+  const noms = ["Tout", ...Object.keys(data.categories), "Favoris"];
   for (const n of noms) {
-    const b = el("button"); b.setAttribute("aria-pressed", n === choix);
-    if (n !== "Tout") { b.style.setProperty("--c", `var(--${CLASSES[n] || "Politique"})`); b.append(el("i")); }
-    const nb = n === "Tout" ? tous().length : data.categories[n].length;
-    b.append(n + " ", el("small", "", nb));
-    b.onclick = () => { choix = n; onglets(); liste(); window.scrollTo(0, 0); };
+    const b = el("button", "onglet"); b.type = "button"; b.setAttribute("aria-pressed", n === vue);
+    if (SLUG[n]) { b.dataset.c = SLUG[n]; b.append(el("i")); }
+    const total = n === "Tout" ? tous().length : n === "Favoris" ? nb : data.categories[n].length;
+    b.append(n + " ", el("small", "", total));
+    b.onclick = () => { vue = n; limite = PAGE; onglets(); rendre(); window.scrollTo({top: 0}); };
     nav.append(b);
   }
 }
-function liste() {
+
+function rendre() {
   const zone = document.getElementById("liste"); zone.replaceChildren();
-  const arts = choix === "Tout" ? tous() : (data.categories[choix] || []).map(a => ({...a, cat: choix}));
-  if (!arts.length) { zone.append(el("div", "etat", "Aucun article dans cette catégorie pour le moment.")); return; }
-  let jour = "";
-  for (const a of arts) {
-    const d = new Date(a.date), j = etiquetteJour(d);
-    if (j !== jour) { zone.append(el("h2", "", j)); jour = j; }
-    if (!/^https?:\/\//.test(a.lien)) continue;
-    const lien = el("a", "art"); lien.href = a.lien; lien.target = "_blank"; lien.rel = "noopener noreferrer";
-    lien.style.setProperty("--c", `var(--${CLASSES[a.cat] || "Politique"})`);
-    const l1 = el("div", "ligne"); l1.append(el("b", "", a.source + (choix === "Tout" ? " — " + a.cat : "")), el("span", "", ilYA(d)));
-    lien.append(l1, el("h3", "", a.titre));
-    if (a.extrait) lien.append(el("p", "", a.extrait));
-    zone.append(lien);
+  let arts = articlesDeLaVue();
+  if (!arts.length) {
+    const e = el("div", "etat");
+    if (requete) e.append(el("b", "", "Aucun résultat"), `Rien ne correspond à « ${requete} ».`);
+    else if (vue === "Favoris") e.append(el("b", "", "Pas encore de favori"), "Touche le marque-page d’un article pour le retrouver ici.");
+    else e.append(el("b", "", "Rien pour le moment"), "Aucun article récent dans cette catégorie.");
+    zone.append(e); return;
   }
+  const accueil = !requete && vue !== "Favoris";
+  if (accueil) {
+    const i = arts.findIndex(a => httpsOk(a.image) && Date.now() - new Date(a.date) < 36 * 36e5);
+    if (i >= 0) { zone.append(carteHero(arts[i])); arts = arts.filter((_, k) => k !== i); }
+  }
+  const visibles = arts.slice(0, limite);
+  let jour = "", grille = null;
+  for (const a of visibles) {
+    if (!httpsOk(a.lien)) continue;
+    const d = new Date(a.date), j = etiquetteJour(d);
+    if (j !== jour) { zone.append(el("h2", "jour", j)); grille = el("div", "grille"); zone.append(grille); jour = j; }
+    grille.append(carte(a, vue === "Tout" || vue === "Favoris"));
+  }
+  if (arts.length > limite) {
+    const b = el("button", "plus", `Afficher plus (${arts.length - limite})`); b.type = "button";
+    b.onclick = () => { limite += PAGE; rendre(); };
+    zone.append(b);
+  }
+  const nbSources = new Set(tous().map(a => a.source)).size;
+  zone.append(el("p", "pied-page", `${nbSources} sites français · mis à jour chaque matin`));
+}
+
+function squelette() {
+  const zone = document.getElementById("liste"); zone.replaceChildren();
+  for (let i = 0; i < 5; i++) zone.append(el("div", "sk"));
 }
 function erreur() {
   const zone = document.getElementById("liste"); zone.replaceChildren();
-  const e = el("div", "etat", "Impossible de charger les actualités. Vérifie ta connexion, puis réessaie.");
-  const b = el("button", "", "Réessayer"); b.onclick = charger; e.append(el("br"), b); zone.append(e);
+  const e = el("div", "etat"); e.append(el("b", "", "Chargement impossible"), "Vérifie ta connexion, puis réessaie.");
+  const b = el("button", "", "Réessayer"); b.type = "button"; b.onclick = charger; e.append(el("br"), b);
+  zone.append(e);
 }
+function afficherMaj() {
+  const g = new Date(data.genere_le), h = (Date.now() - g) / 36e5;
+  const p = document.getElementById("maj");
+  const heure = g.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
+  p.textContent = h > 36 ? `Dernière mise à jour : ${g.toLocaleDateString("fr-FR", {day: "numeric", month: "long"})} à ${heure}`
+                         : `Mis à jour à ${heure}`;
+  p.classList.toggle("vieux", h > 36);
+}
+
 async function charger() {
+  const b = document.getElementById("btn-maj"); b.classList.add("tourne");
+  if (!data) squelette();
   try {
     const r = await fetch("news.json", {cache: "no-cache"});
     if (!r.ok) throw new Error(r.status);
     data = await r.json();
-    const g = new Date(data.genere_le);
-    document.getElementById("maj").textContent = "Mis à jour le " + g.toLocaleDateString("fr-FR", {day:"numeric", month:"long"}) +
-      " à " + g.toLocaleTimeString("fr-FR", {hour:"2-digit", minute:"2-digit"});
-    onglets(); liste();
-  } catch (e) { erreur(); }
+    if (vue !== "Tout" && vue !== "Favoris" && !data.categories[vue]) vue = "Tout";
+    afficherMaj(); onglets(); rendre();
+  } catch (e) { if (!data) erreur(); }
+  b.classList.remove("tourne");
 }
+
+/* Mise en route */
+document.getElementById("date").textContent = (t => t.charAt(0).toUpperCase() + t.slice(1))(
+  new Date().toLocaleDateString("fr-FR", {weekday: "long", day: "numeric", month: "long"}));
+const btnR = document.getElementById("btn-recherche"), formR = document.getElementById("recherche"), champ = document.getElementById("q");
+btnR.append(svg("recherche"));
+document.getElementById("btn-maj").append(svg("maj"));
+document.getElementById("btn-maj").onclick = charger;
+btnR.onclick = () => {
+  const ouvrir = formR.hidden; formR.hidden = !ouvrir; btnR.setAttribute("aria-pressed", ouvrir);
+  if (ouvrir) champ.focus(); else { champ.value = ""; requete = ""; limite = PAGE; if (data) rendre(); }
+};
+formR.onsubmit = e => { e.preventDefault(); champ.blur(); };
+let minuteur;
+champ.oninput = () => { clearTimeout(minuteur); minuteur = setTimeout(() => { requete = champ.value.trim(); limite = PAGE; if (data) rendre(); }, 180); };
 charger();
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
 </script>
 </body>
 </html>
