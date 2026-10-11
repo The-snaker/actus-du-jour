@@ -1,9 +1,6 @@
-Rapport du 2026-10-11T22:10:31.454935+00:00
-Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 27/31 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
+Rapport du 2026-10-11T22:12:11.693015+00:00
+Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 27/28 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 KO   [Esport] Breakflip - https://www.breakflip.com/feed - HTTPError: HTTP Error 500: Internal Server Error
-KO   [Esport] Dexerto FR Esports - https://www.dexerto.fr/esports/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Esport] Journal du Geek Jeux vidéo - https://www.journaldugeek.com/jeux-video/feed/ - ParseError: syntax error: line 1, column 0
-KO   [Esport] Millenium - https://www.millenium.org/feed - HTTPError: HTTP Error 404: Not Found
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 9 avec image
 OK   [Aéronautique] Aviation Magazine - 1 récent(s), 0 avec image
