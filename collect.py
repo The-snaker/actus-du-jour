@@ -243,7 +243,7 @@ def main():
             retenus = [a for a in articles if a["date"] >= seuil and parle_esport(a)]
         else:
             retenus = [a for a in articles if a["date"] >= limite]
-        recents = sorted(retenus, key=lambda a: a["date"], reverse=True)[:MAX_PAR_SOURCE]
+        recents = sorted(retenus, key=lambda a: a["date"], reverse=True)[:source.get("max", MAX_PAR_SOURCE)]
         if erreur:
             rapport.append(f"KO   [{categorie}] {source['nom']} - {source['url']} - {erreur}")
         elif not articles:
