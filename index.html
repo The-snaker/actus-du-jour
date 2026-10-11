@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F3F4F7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E1117" media="(prefers-color-scheme: dark)">
+<script>
+/* Version PC ou mobile : adresse ?v=pc / ?v=mobile, sinon dernier choix, sinon selon l'écran */
+(function(){var m=null;try{var p=new URLSearchParams(location.search).get("v");
+if(p==="pc"||p==="mobile"){m=p;localStorage.setItem("actus:mode",JSON.stringify(p));}
+else{var s=JSON.parse(localStorage.getItem("actus:mode"));if(s==="pc"||s==="mobile")m=s;}}catch(e){}
+if(!m)m=matchMedia("(min-width:900px)").matches?"pc":"mobile";document.documentElement.dataset.mode=m;})();
+</script>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <title>Actus du jour</title>
@@ -43,7 +50,8 @@ body{margin:0;background:var(--fond);color:var(--encre);font:16px/1.45 var(--san
   padding-bottom:max(32px,env(safe-area-inset-bottom))}
 button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--c,var(--encre));outline-offset:2px;border-radius:6px}
-.cadre{max-width:1040px;margin:0 auto;padding:0 16px}
+.cadre{max-width:1240px;margin:0 auto;padding:0 16px}
+html[data-mode=mobile] .cadre{max-width:480px}
 
 /* En-tête */
 .bandeau{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
@@ -69,6 +77,12 @@ h1{margin:0;font:700 clamp(30px,8vw,42px)/1 var(--serif);letter-spacing:-.02em}
   font:inherit;padding:0 14px}
 nav{display:flex;gap:8px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
+html[data-mode=pc] nav{flex-wrap:wrap;overflow:visible}
+@media (hover:hover){
+  html[data-mode=mobile] nav{scrollbar-width:thin}
+  html[data-mode=mobile] nav::-webkit-scrollbar{display:block;height:6px}
+  html[data-mode=mobile] nav::-webkit-scrollbar-thumb{background:var(--filet);border-radius:3px}
+}
 .onglet{flex:none;display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:999px;
   border:1px solid var(--filet);background:var(--carte);font-size:15px}
 .onglet i{width:10px;height:10px;border-radius:50%;background:var(--cb,var(--encre))}
@@ -91,7 +105,7 @@ main{padding-top:6px}
 .hero h2{margin:10px 0 0;font:700 clamp(22px,5.6vw,30px)/1.15 var(--serif);text-wrap:balance}
 .hero .heure{margin:8px 0 0;font-size:13px;opacity:.85}
 .hero .fav{position:absolute;top:10px;right:10px;background:rgba(10,12,18,.55);color:#fff;border-color:transparent}
-@media (min-width:760px){.hero a{aspect-ratio:21/9}.hero .texte{padding:28px 28px 24px;max-width:760px}}
+@media (min-width:760px){html[data-mode=pc] .hero a{aspect-ratio:21/9}html[data-mode=pc] .hero .texte{padding:28px 28px 24px;max-width:760px}}
 
 /* Cartes */
 .carte{background:var(--carte);border:1px solid var(--filet);border-radius:16px;padding:12px 12px 6px;
@@ -116,16 +130,15 @@ main{padding-top:6px}
 .hero .fav[aria-pressed=true]{color:#fff}
 .carte.lu h3{color:var(--doux);font-weight:500}
 .carte.lu .vignette{opacity:.55}
-@media (min-width:760px){
-  .grille{grid-template-columns:1fr 1fr;gap:14px}
-  .carte{padding:0 0 4px;overflow:hidden}
-  .carte .corps{grid-template-columns:1fr;gap:0}
-  .carte .vignette{order:-1;width:100%;height:auto;aspect-ratio:16/9;border-radius:0}
-  .carte .vignette.vide{display:none}
-  .carte .texte{padding:14px 16px 0}
-  .carte .pied{padding:0 8px 0 16px}
-  .carte h3{font-size:19px}
-}
+html[data-mode=pc] .carte{padding:0 0 4px;overflow:hidden}
+html[data-mode=pc] .carte .corps{grid-template-columns:1fr;gap:0}
+html[data-mode=pc] .carte .vignette{order:-1;width:100%;height:auto;aspect-ratio:16/9;border-radius:0}
+html[data-mode=pc] .carte .vignette.vide{display:none}
+html[data-mode=pc] .carte .texte{padding:14px 16px 0}
+html[data-mode=pc] .carte .pied{padding:0 8px 0 16px}
+html[data-mode=pc] .carte h3{font-size:19px}
+@media (min-width:760px){html[data-mode=pc] .grille{grid-template-columns:1fr 1fr;gap:14px}}
+@media (min-width:1100px){html[data-mode=pc] .grille{grid-template-columns:repeat(3,1fr)}}
 @media (hover:hover){.corps:hover h3{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}}
 
 /* États */
@@ -139,6 +152,10 @@ main{padding-top:6px}
 @keyframes pulse{50%{opacity:.5}}
 @media (prefers-reduced-motion:reduce){.tourne svg{animation:none}}
 .pied-page{margin:36px 0 0;text-align:center;font-size:13px;color:var(--doux)}
+.versions{margin:10px 0 0;display:flex;justify-content:center;align-items:center;gap:6px;font-size:14px;color:var(--doux)}
+.versions button{height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--filet);background:var(--carte)}
+.versions button[aria-pressed=true]{background:var(--encre);color:var(--fond);border-color:var(--encre)}
+@media (max-width:380px){.rond{width:40px;height:40px}.outils{gap:4px}}
 </style>
 </head>
 <body>
@@ -152,6 +169,7 @@ main{padding-top:6px}
     <div class="outils">
       <button class="rond" id="btn-recherche" aria-label="Rechercher" aria-pressed="false" aria-controls="recherche"></button>
       <button class="rond" id="btn-maj" aria-label="Actualiser"></button>
+      <button class="rond" id="btn-mode"></button>
     </div>
   </header>
 </div>
@@ -173,6 +191,8 @@ const PAGE = 30;
 const ICONES = {
   recherche:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>',
   maj:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 5v6h-6"/></svg>',
+  telephone:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>',
+  ecran:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="12.5" rx="2"/><path d="M8 20.5h8M12 16.5v4"/></svg>',
   fav:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-4-6 4V5a1 1 0 0 1 1-1z"/></svg>'
 };
 let data = null, vue = "Tout", requete = "", limite = PAGE;
@@ -339,7 +359,7 @@ function rendre() {
     zone.append(b);
   }
   const nbSources = new Set(tous().map(a => a.source)).size;
-  zone.append(el("p", "pied-page", `${nbSources} sources · mis à jour chaque matin`));
+  zone.append(el("p", "pied-page", `${nbSources} sources · mis à jour chaque matin`), piedVersions());
 }
 
 function squelette() {
@@ -374,6 +394,31 @@ async function charger() {
   b.classList.remove("tourne");
 }
 
+/* Version PC / mobile */
+const modeActuel = () => document.documentElement.dataset.mode;
+function changerMode(m) {
+  document.documentElement.dataset.mode = m;
+  ecrire("actus:mode", m);
+  majBoutonMode();
+  if (data) rendre();
+}
+function majBoutonMode() {
+  const b = document.getElementById("btn-mode");
+  const cible = modeActuel() === "pc" ? "mobile" : "pc";
+  b.replaceChildren(svg(cible === "pc" ? "ecran" : "telephone"));
+  const t = cible === "pc" ? "Passer à la version PC" : "Passer à la version mobile";
+  b.setAttribute("aria-label", t); b.title = t;
+}
+function piedVersions() {
+  const d = el("div", "versions"); d.append("Version :");
+  for (const [m, nom] of [["mobile", "Mobile"], ["pc", "PC"]]) {
+    const b = el("button", "", nom); b.type = "button"; b.setAttribute("aria-pressed", modeActuel() === m);
+    b.onclick = () => { changerMode(m); window.scrollTo({top: 0}); };
+    d.append(b);
+  }
+  return d;
+}
+
 /* Mise en route */
 document.getElementById("date").textContent = (t => t.charAt(0).toUpperCase() + t.slice(1))(
   new Date().toLocaleDateString("fr-FR", {weekday: "long", day: "numeric", month: "long"}));
@@ -381,6 +426,13 @@ const btnR = document.getElementById("btn-recherche"), formR = document.getEleme
 btnR.append(svg("recherche"));
 document.getElementById("btn-maj").append(svg("maj"));
 document.getElementById("btn-maj").onclick = charger;
+document.getElementById("btn-mode").onclick = () => changerMode(modeActuel() === "pc" ? "mobile" : "pc");
+majBoutonMode();
+/* La molette de la souris fait défiler la barre des catégories (version mobile sur PC) */
+document.getElementById("onglets").addEventListener("wheel", e => {
+  const n = e.currentTarget;
+  if (n.scrollWidth > n.clientWidth && Math.abs(e.deltaY) > Math.abs(e.deltaX)) { n.scrollLeft += e.deltaY; e.preventDefault(); }
+}, {passive: false});
 btnR.onclick = () => {
   const ouvrir = formR.hidden; formR.hidden = !ouvrir; btnR.setAttribute("aria-pressed", ouvrir);
   if (ouvrir) champ.focus(); else { champ.value = ""; requete = ""; limite = PAGE; if (data) rendre(); }
