@@ -1,24 +1,8 @@
-Rapport du 2026-10-11T19:35:27.965213+00:00
-Politique: 28/28 sources OK | High Tech: 26/29 sources OK | Cinéma: 26/35 sources OK | Aéronautique: 10/15 sources OK | Finance: 27/32 sources OK
+Rapport du 2026-10-11T19:36:56.233249+00:00
+Politique: 28/28 sources OK | High Tech: 26/27 sources OK | Cinéma: 26/27 sources OK | Aéronautique: 10/11 sources OK | Finance: 27/27 sources OK
 KO   [Aéronautique] BFM Business Aéro - https://www.bfmtv.com/rss/economie/entreprises/transports/ - HTTPError: HTTP Error 502: Bad Gateway
-KO   [Aéronautique] L'Usine Nouvelle Industrie - https://www.usinenouvelle.com/rss/industrie - HTTPError: HTTP Error 404: Not Found
-KO   [Aéronautique] Mer et Marine - https://www.meretmarine.com/fr/rss.xml - ParseError: not well-formed (invalid token): line 86, column 61
-KO   [Aéronautique] Meta-defense - https://www.meta-defense.fr/feed/ - HTTPError: HTTP Error 410: Gone
 KO   [Cinéma] Actucine - https://www.actucine.com/feed/ - TimeoutError: The read operation timed out
-KO   [Cinéma] Allociné Bandes-annonces - https://www.allocine.fr/rss/news-bandes-annonces.xml - HTTPError: HTTP Error 404: Not Found
-KO   [Cinéma] CNC - https://www.cnc.fr/rss - ParseError: mismatched tag: line 832, column 2
-KO   [Cinéma] Ciné-Ressources - https://www.cineressources.net/rss.xml - URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1010)>
-KO   [Cinéma] Le Film français - https://www.lefilmfrancais.com/rss - ParseError: not well-formed (invalid token): line 70, column 72
-KO   [Cinéma] Purebreak - https://www.purebreak.com/rss - HTTPError: HTTP Error 404: Not Found
-KO   [Cinéma] Slate Culture - https://www.slate.fr/rss/culture.xml - HTTPError: HTTP Error 404: Not Found
-KO   [Cinéma] Unifrance - https://www.unifrance.org/rss - HTTPError: HTTP Error 403: Forbidden
-KO   [Finance] BFM Bourse - https://www.bfmtv.com/rss/bourse/ - HTTPError: HTTP Error 404: Not Found
-KO   [Finance] Finyear - https://www.finyear.com/spip.php?page=backend - HTTPError: HTTP Error 403: Forbidden
-KO   [Finance] Forbes France - https://www.forbes.fr/feed/ - URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
-KO   [Finance] Frenchweb Fintech - https://www.frenchweb.fr/category/fintech/feed - HTTPError: HTTP Error 404: Not Found
-KO   [Finance] Slate Économie - https://www.slate.fr/rss/economie.xml - HTTPError: HTTP Error 404: Not Found
 KO   [High Tech] Humanoïdes - https://www.humanoides.fr/feed/ - URLError: <urlopen error timed out>
-KO   [High Tech] iGeneration - https://www.igen.fr/rss - ParseError: not well-formed (invalid token): line 1, column 240
 OK   [Aéronautique] AeroMorning - 5 récent(s), 0 avec image
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
@@ -136,6 +120,3 @@ OK   [Politique] Slate - 12 récent(s), 12 avec image
 OK   [Politique] Sud Ouest - 12 récent(s), 0 avec image
 OK   [Politique] The Conversation - 12 récent(s), 12 avec image
 OK   [Politique] Valeurs actuelles - 10 récent(s), 1 avec image
-VIDE [Aéronautique] Air Journal Compagnies - https://www.air-journal.fr/category/transport-aerien/feed/ - aucun article lisible
-VIDE [Cinéma] Cinémateaser - https://www.cinemateaser.com/feed/ - aucun article lisible
-VIDE [High Tech] L'Usine Digitale - https://www.usine-digitale.fr/rss - aucun article lisible
