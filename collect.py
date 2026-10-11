@@ -159,6 +159,50 @@ def traiter(tache):
         return categorie, source, [], f"{type(e).__name__}: {e}"
 
 
+URL_TENDANCES = "https://trends.google.com/trending/rss?geo=FR"
+MAX_TENDANCES = 25
+
+
+def collecter_tendances():
+    """Sujets du moment en France d'après Google Trends (flux gratuit).
+    Un sujet = une carte : l'article de presse principal, avec le terme recherché
+    et le volume de recherches en extrait. Ordre du flux = ordre de popularité."""
+    req = urllib.request.Request(URL_TENDANCES, headers=ENTETES)
+    with urllib.request.urlopen(req, timeout=20) as r:
+        racine = ET.fromstring(r.read())
+    sujets = []
+    for item in racine.iter("item"):
+        terme = trafic = date = image = None
+        actus = []
+        for c in item:
+            k = nom_balise(c)
+            if k == "title":
+                terme = nettoyer(c.text)
+            elif k == "approx_traffic":
+                trafic = nettoyer(c.text)
+            elif k == "pubDate":
+                date = lire_date(c.text)
+            elif k == "picture":
+                image = image_valide(c.text)
+            elif k == "news_item":
+                f = {nom_balise(x): (x.text or "") for x in c}
+                if f.get("news_item_title") and f.get("news_item_url", "").startswith("http"):
+                    actus.append(f)
+        if not (terme and actus and date):
+            continue
+        premiere = actus[0]
+        extrait = f"Tendance Google France : « {terme} »" + (f", plus de {trafic.rstrip('+')} recherches" if trafic else "")
+        if len(actus) > 1:
+            extrait += ". À lire aussi : " + nettoyer(actus[1]["news_item_title"])
+        sujets.append({"source": nettoyer(premiere.get("news_item_source")) or "Google Trends",
+                       "titre": nettoyer(premiere["news_item_title"]),
+                       "lien": premiere["news_item_url"].strip(),
+                       "extrait": couper(extrait, LONGUEUR_EXTRAIT),
+                       "image": image_valide(premiere.get("news_item_picture")) or image,
+                       "date": date.isoformat()})
+    return sujets[:MAX_TENDANCES]
+
+
 def main():
     chemin = sys.argv[1] if len(sys.argv) > 1 else "sources.json"
     with open(chemin, encoding="utf-8") as f:
@@ -199,6 +243,21 @@ def main():
             uniques.append(a)
         sortie[categorie] = uniques[:MAX_PAR_CATEGORIE]
         total += len(sortie[categorie])
+
+    try:
+        sortie["Tendances"] = collecter_tendances()
+        etat = f"OK   [Tendances] Google Trends France - {len(sortie['Tendances'])} sujet(s)"
+        if not sortie["Tendances"]:
+            raise ValueError("aucun sujet lisible")
+    except Exception as e:
+        etat = f"KO   [Tendances] Google Trends France - {type(e).__name__}: {e}"
+        try:   # on garde les tendances de la dernière collecte réussie
+            with open("news.json", encoding="utf-8") as f:
+                sortie["Tendances"] = json.load(f)["categories"].get("Tendances", [])
+        except Exception:
+            sortie["Tendances"] = []
+    rapport.append(etat)
+    total += len(sortie["Tendances"])
 
     maintenant = datetime.now(timezone.utc).isoformat()
     resume = " | ".join(f"{c}: {ok_par_cat[c]}/{len(sources[c])} sources OK" for c in sources)
