@@ -1,25 +1,176 @@
-Rapport du 2026-10-11T19:17:38.459088+00:00
-KO  [Aéronautique] Air & Cosmos - https://air-cosmos.com/rss - HTTPError: HTTP Error 400: Bad Request
-KO  [Cinéma] Première - https://www.premiere.fr/rss - HTTPError: HTTP Error 403: Forbidden
-KO  [Finance] Les Echos - https://www.lesechos.fr/rss/rss_finance-marches.xml - HTTPError: HTTP Error 403: Forbidden
-OK  [Aéronautique] Aerobuzz - 9 article(s) récent(s)
-OK  [Aéronautique] Journal de l'Aviation - 10 article(s) récent(s)
-OK  [Aéronautique] Opex360 - 9 article(s) récent(s)
-OK  [Cinéma] Allociné - 19 article(s) récent(s)
-OK  [Cinéma] Le Figaro Cinéma - 7 article(s) récent(s)
-OK  [Cinéma] Le Monde Cinéma - 3 article(s) récent(s)
-OK  [Cinéma] Télérama Cinéma - 9 article(s) récent(s)
-OK  [Finance] BFM Business - 30 article(s) récent(s)
-OK  [Finance] Le Figaro Économie - 18 article(s) récent(s)
-OK  [Finance] Le Monde Économie - 20 article(s) récent(s)
-OK  [High Tech] Frandroid - 15 article(s) récent(s)
-OK  [High Tech] Journal du Geek - 30 article(s) récent(s)
-OK  [High Tech] Korben - 5 article(s) récent(s)
-OK  [High Tech] Le Monde Pixels - 14 article(s) récent(s)
-OK  [High Tech] Les Numériques - 40 article(s) récent(s)
-OK  [High Tech] Next - 14 article(s) récent(s)
-OK  [High Tech] Numerama - 15 article(s) récent(s)
-OK  [Politique] France Info - 18 article(s) récent(s)
-OK  [Politique] Le Figaro - 4 article(s) récent(s)
-OK  [Politique] Le Monde - 20 article(s) récent(s)
-OK  [Politique] Libération - 39 article(s) récent(s)
+Rapport du 2026-10-11T19:33:26.034326+00:00
+Politique: 28/36 sources OK | High Tech: 26/35 sources OK | Cinéma: 18/34 sources OK | Aéronautique: 9/34 sources OK | Finance: 16/35 sources OK
+KO   [Aéronautique] 20 Minutes Transports - https://www.20minutes.fr/feeds/rss-transports.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Aéronautique] Aerobuzz Hélico - https://www.aerobuzz.fr/category/helicopteres/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Aéronautique] Air & Cosmos - https://www.air-cosmos.com/rss - HTTPError: HTTP Error 400: Bad Request
+KO   [Aéronautique] Air Actualités - https://www.airactualites.com/feed/ - URLError: <urlopen error [Errno -2] Name or service not known>
+KO   [Aéronautique] Air Insiders - https://www.air-insiders.fr/feed/ - URLError: <urlopen error [Errno -2] Name or service not known>
+KO   [Aéronautique] Aviation Civile - https://www.aviation-civile.fr/feed/ - URLError: <urlopen error [Errno 111] Connection refused>
+KO   [Aéronautique] Aviation Voyage - https://www.aviationvoyage.com/feed/ - URLError: <urlopen error [Errno -2] Name or service not known>
+KO   [Aéronautique] Aérobuzz Business - https://www.aerobuzz.fr/category/aviation-daffaires/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Aéronautique] Aéroports Magazine - https://www.aeroportsmagazine.com/feed/ - URLError: <urlopen error [Errno -2] Name or service not known>
+KO   [Aéronautique] BFM Business Aéro - https://www.bfmtv.com/rss/economie/entreprises/transports/ - HTTPError: HTTP Error 502: Bad Gateway
+KO   [Aéronautique] Boursorama Aéro - https://www.boursorama.com/rss/actualites/aeronautique-defense/ - HTTPError: HTTP Error 404: Not Found
+KO   [Aéronautique] Challenges Aéro - https://www.challenges.fr/entreprise/aeronautique/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Aéronautique] Defens'Aero - https://www.defens-aero.com/feed/ - HTTPError: HTTP Error 403: Forbidden
+KO   [Aéronautique] Info-Aviation - https://www.info-aviation.com/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Aéronautique] L'Usine Nouvelle Aéro - https://www.usinenouvelle.com/rss/aeronautique - HTTPError: HTTP Error 404: Not Found
+KO   [Aéronautique] La Tribune Aéro - https://www.latribune.fr/entreprises-finance/industrie/aeronautique-defense/rss - HTTPError: HTTP Error 404: Not Found
+KO   [Aéronautique] Le Fana de l'Aviation - https://www.lefana.fr/feed/ - URLError: <urlopen error [Errno -2] Name or service not known>
+KO   [Aéronautique] Le Figaro Aéro - https://www.lefigaro.fr/rss/figaro_secteur_aeronautique-defense.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Aéronautique] Le Monde Aviation - https://www.lemonde.fr/aeronautique/rss_full.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Aéronautique] Le Parisien Aviation - https://www.leparisien.fr/arc/outboundfeeds/rss/category/economie/aeronautique/?outputType=xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Aéronautique] Les Echos Aéro - https://www.lesechos.fr/rss/rss_industrie-aeronautique.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Aéronautique] Mer et Marine - https://www.meretmarine.com/fr/rss.xml - ParseError: not well-formed (invalid token): line 86, column 61
+KO   [Aéronautique] Ouest-France Aviation - https://www.ouest-france.fr/economie/aeronautique/rss - HTTPError: HTTP Error 403: Forbidden
+KO   [Aéronautique] Pilote Privé - https://www.pilote-prive.fr/feed/ - URLError: <urlopen error [Errno -2] Name or service not known>
+KO   [Aéronautique] Zone Militaire - https://www.opex360.com/category/aeronautique/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Cinéma] Actucine - https://www.actucine.com/feed/ - HTTPError: HTTP Error 522: <none>
+KO   [Cinéma] Cahiers du cinéma - https://www.cahiersducinema.com/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Cinéma] Cineuropa - https://cineuropa.org/fr/rss/ - HTTPError: HTTP Error 403: Forbidden
+KO   [Cinéma] Ciné-Feed - https://cinefeed.fr/feed/ - URLError: <urlopen error [Errno -2] Name or service not known>
+KO   [Cinéma] Ciné-Ressources - https://www.cineressources.net/rss.xml - URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1010)>
+KO   [Cinéma] Cinéma Passion - https://www.cinema-passion.com/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Cinéma] Journal du Geek Cinéma - https://www.journaldugeek.com/cinema/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Cinéma] Le Film français - https://www.lefilmfrancais.com/rss - ParseError: not well-formed (invalid token): line 70, column 72
+KO   [Cinéma] Le Parisien Cinéma - https://www.leparisien.fr/arc/outboundfeeds/rss/category/culture-loisirs/cinema/?outputType=xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Cinéma] Le Point Cinéma - https://www.lepoint.fr/cinema/rss.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Cinéma] Les Inrocks Cinéma - https://www.lesinrocks.com/cinema/feed/ - ParseError: unbound prefix: line 46, column 2
+KO   [Cinéma] Mad Movies - https://www.madmovies.com/feed/ - URLError: <urlopen error [Errno 111] Connection refused>
+KO   [Cinéma] Ouest-France Cinéma - https://www.ouest-france.fr/culture/cinema/rss - HTTPError: HTTP Error 403: Forbidden
+KO   [Cinéma] Première - https://www.premiere.fr/rss/actu-cinema - HTTPError: HTTP Error 404: Not Found
+KO   [Cinéma] SensCritique - https://www.senscritique.com/rss/news - HTTPError: HTTP Error 404: Not Found
+KO   [Finance] ABC Bourse - https://www.abcbourse.com/rss/actualites - HTTPError: HTTP Error 404: Not Found
+KO   [Finance] Boursier.com - https://www.boursier.com/rss.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Finance] Boursorama - https://www.boursorama.com/rss/actualites/economie-france/ - HTTPError: HTTP Error 404: Not Found
+KO   [Finance] Capital - https://www.capital.fr/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Finance] Challenges Économie - https://www.challenges.fr/economie/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Finance] Europe 1 Économie - https://www.europe1.fr/rss/economie.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Finance] Investir - https://investir.lesechos.fr/rss/rss-une.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Finance] L'Agefi - https://www.agefi.fr/rss - HTTPError: HTTP Error 404: Not Found
+KO   [Finance] La Tribune - https://www.latribune.fr/rss/rubriques/finance.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Finance] Le Figaro Argent - https://www.lefigaro.fr/rss/figaro_impots.xml - URLError: <urlopen error _ssl.c:993: The handshake operation timed out>
+KO   [Finance] Le Parisien Économie - https://www.leparisien.fr/arc/outboundfeeds/rss/category/economie/?outputType=xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Finance] Le Point Économie - https://www.lepoint.fr/economie/rss.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Finance] Les Echos - https://www.lesechos.fr/rss/rss_finance-marches.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Finance] Les Echos Entreprises - https://www.lesechos.fr/rss/rss_finance.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Finance] Mieux Vivre Votre Argent - https://www.mieuxvivre-votreargent.fr/feed/ - HTTPError: HTTP Error 403: Forbidden
+KO   [Finance] Moneyvox - https://www.moneyvox.fr/rss/actualites.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Finance] Ouest-France Économie - https://www.ouest-france.fr/economie/rss - HTTPError: HTTP Error 403: Forbidden
+KO   [Finance] RTL Économie - https://www.rtl.fr/actu/economie/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Finance] Zonebourse - https://www.zonebourse.com/rss/actualites/ - HTTPError: HTTP Error 403: Forbidden
+KO   [High Tech] Café du Geek - https://cafedugeek.fr/feed/ - URLError: <urlopen error [Errno -2] Name or service not known>
+KO   [High Tech] Gizmodo - https://gizmodo.fr/feed/ - HTTPError: HTTP Error 403: Forbidden
+KO   [High Tech] Humanoïdes - https://www.humanoides.fr/feed/ - URLError: <urlopen error timed out>
+KO   [High Tech] Le Parisien Tech - https://www.leparisien.fr/arc/outboundfeeds/rss/category/high-tech/?outputType=xml - HTTPError: HTTP Error 403: Forbidden
+KO   [High Tech] LeMagIT - https://www.lemagit.fr/rss/ALL.xml - HTTPError: HTTP Error 404: Not Found
+KO   [High Tech] Les Echos Tech - https://www.lesechos.fr/rss/rss_tech-medias.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [High Tech] iGeneration - https://www.igen.fr/rss - ParseError: not well-formed (invalid token): line 1, column 240
+KO   [High Tech] Ère numérique - https://www.erenumerique.fr/feed - HTTPError: HTTP Error 404: Not Found
+KO   [Politique] Atlantico - https://atlantico.fr/rss - HTTPError: HTTP Error 404: Not Found
+KO   [Politique] Europe 1 - https://www.europe1.fr/rss/politique.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Politique] L'Opinion - https://www.lopinion.fr/feed - HTTPError: HTTP Error 404: Not Found
+KO   [Politique] Le Parisien - https://www.leparisien.fr/arc/outboundfeeds/rss/category/politique/?outputType=xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Politique] Le Point - https://www.lepoint.fr/politique/rss.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Politique] Marianne - https://www.marianne.net/rss_politique.xml - HTTPError: HTTP Error 405: Not Allowed
+KO   [Politique] RTL - https://www.rtl.fr/actu/politique/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Politique] TF1 Info - https://www.tf1info.fr/feeds/rss-politique.xml - HTTPError: HTTP Error 404: Not Found
+OK   [Aéronautique] AeroMorning - 5 récent(s), 0 avec image
+OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
+OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
+OK   [Aéronautique] Avions Légendaires - 9 récent(s), 9 avec image
+OK   [Aéronautique] Ciel & Espace - 0 récent(s), 0 avec image
+OK   [Aéronautique] Forces Opérations Blog - 1 récent(s), 0 avec image
+OK   [Aéronautique] Journal de l'Aviation - 10 récent(s), 0 avec image
+OK   [Aéronautique] L'Usine Nouvelle - 12 récent(s), 12 avec image
+OK   [Aéronautique] Opex360 - 9 récent(s), 0 avec image
+OK   [Cinéma] 20 Minutes Cinéma - 11 récent(s), 11 avec image
+OK   [Cinéma] Allociné - 12 récent(s), 12 avec image
+OK   [Cinéma] Allociné Cinéma - 12 récent(s), 12 avec image
+OK   [Cinéma] Allociné Séries - 12 récent(s), 12 avec image
+OK   [Cinéma] Critikat - 0 récent(s), 0 avec image
+OK   [Cinéma] France Info Cinéma - 12 récent(s), 12 avec image
+OK   [Cinéma] Konbini Cinéma - 11 récent(s), 11 avec image
+OK   [Cinéma] L'Obs Cinéma - 4 récent(s), 0 avec image
+OK   [Cinéma] Le Figaro Cinéma - 7 récent(s), 7 avec image
+OK   [Cinéma] Le Figaro Culture - 12 récent(s), 12 avec image
+OK   [Cinéma] Le Monde Cinéma - 3 récent(s), 3 avec image
+OK   [Cinéma] Le Monde Culture - 12 récent(s), 12 avec image
+OK   [Cinéma] Libération Cinéma - 5 récent(s), 0 avec image
+OK   [Cinéma] Numerama Ciné - 3 récent(s), 3 avec image
+OK   [Cinéma] Télérama Cinéma - 9 récent(s), 9 avec image
+OK   [Cinéma] Télérama Séries - 0 récent(s), 0 avec image
+OK   [Cinéma] aVoir-aLire - 10 récent(s), 10 avec image
+OK   [Cinéma] Écran Large - 12 récent(s), 12 avec image
+OK   [Finance] 20 Minutes Économie - 10 récent(s), 10 avec image
+OK   [Finance] Alternatives Économiques - 10 récent(s), 8 avec image
+OK   [Finance] BFM Business - 12 récent(s), 12 avec image
+OK   [Finance] Cryptoast - 12 récent(s), 0 avec image
+OK   [Finance] France Info Économie - 12 récent(s), 12 avec image
+OK   [Finance] Frenchweb - 3 récent(s), 0 avec image
+OK   [Finance] Journal du Coin - 10 récent(s), 10 avec image
+OK   [Finance] L'Express Économie - 10 récent(s), 10 avec image
+OK   [Finance] L'Obs Économie - 10 récent(s), 5 avec image
+OK   [Finance] Le Figaro Bourse - 3 récent(s), 3 avec image
+OK   [Finance] Le Figaro Économie - 12 récent(s), 12 avec image
+OK   [Finance] Le Monde Argent - 2 récent(s), 2 avec image
+OK   [Finance] Le Monde Économie - 12 récent(s), 12 avec image
+OK   [Finance] Le Revenu - 12 récent(s), 12 avec image
+OK   [Finance] Libération Économie - 10 récent(s), 0 avec image
+OK   [Finance] Maddyness Finance - 4 récent(s), 0 avec image
+OK   [High Tech] 01net - 12 récent(s), 12 avec image
+OK   [High Tech] 20 Minutes High-tech - 11 récent(s), 11 avec image
+OK   [High Tech] ActuIA - 3 récent(s), 3 avec image
+OK   [High Tech] BFM Tech - 12 récent(s), 12 avec image
+OK   [High Tech] Begeek - 10 récent(s), 10 avec image
+OK   [High Tech] Clubic - 12 récent(s), 12 avec image
+OK   [High Tech] Developpez.com - 12 récent(s), 0 avec image
+OK   [High Tech] Frandroid - 12 récent(s), 12 avec image
+OK   [High Tech] Génération NT - 12 récent(s), 12 avec image
+OK   [High Tech] Journal du Geek - 12 récent(s), 12 avec image
+OK   [High Tech] Journal du Net - 12 récent(s), 12 avec image
+OK   [High Tech] Korben - 5 récent(s), 5 avec image
+OK   [High Tech] Le Figaro Tech - 5 récent(s), 5 avec image
+OK   [High Tech] Le Monde Pixels - 12 récent(s), 12 avec image
+OK   [High Tech] Les Numériques - 12 récent(s), 12 avec image
+OK   [High Tech] Maddyness - 4 récent(s), 0 avec image
+OK   [High Tech] Next - 12 récent(s), 12 avec image
+OK   [High Tech] Numerama - 12 récent(s), 12 avec image
+OK   [High Tech] Numerama Pop culture - 12 récent(s), 12 avec image
+OK   [High Tech] Phonandroid - 12 récent(s), 12 avec image
+OK   [High Tech] Presse-citron - 12 récent(s), 12 avec image
+OK   [High Tech] Silicon - 5 récent(s), 5 avec image
+OK   [High Tech] Siècle Digital - 4 récent(s), 4 avec image
+OK   [High Tech] Tom's Guide - 7 récent(s), 7 avec image
+OK   [High Tech] Tom's Hardware - 4 récent(s), 4 avec image
+OK   [High Tech] ZDNet - 12 récent(s), 12 avec image
+OK   [Politique] 20 Minutes - 12 récent(s), 12 avec image
+OK   [Politique] BFM TV - 12 récent(s), 12 avec image
+OK   [Politique] Boulevard Voltaire - 12 récent(s), 12 avec image
+OK   [Politique] Causeur - 10 récent(s), 4 avec image
+OK   [Politique] Challenges - 12 récent(s), 12 avec image
+OK   [Politique] Courrier international - 12 récent(s), 12 avec image
+OK   [Politique] France Info - 12 récent(s), 12 avec image
+OK   [Politique] HuffPost - 12 récent(s), 12 avec image
+OK   [Politique] L'Express - 2 récent(s), 2 avec image
+OK   [Politique] L'Obs - 12 récent(s), 8 avec image
+OK   [Politique] LCP - 12 récent(s), 12 avec image
+OK   [Politique] La Croix - 12 récent(s), 12 avec image
+OK   [Politique] La Dépêche - 12 récent(s), 12 avec image
+OK   [Politique] Le Figaro - 4 récent(s), 4 avec image
+OK   [Politique] Le Figaro France - 12 récent(s), 12 avec image
+OK   [Politique] Le JDD - 12 récent(s), 12 avec image
+OK   [Politique] Le Monde - 12 récent(s), 12 avec image
+OK   [Politique] Le Monde Idées - 12 récent(s), 12 avec image
+OK   [Politique] Les Décodeurs - 6 récent(s), 6 avec image
+OK   [Politique] Libération - 12 récent(s), 0 avec image
+OK   [Politique] Mediapart - 10 récent(s), 9 avec image
+OK   [Politique] Ouest-France - 10 récent(s), 10 avec image
+OK   [Politique] Public Sénat - 9 récent(s), 9 avec image
+OK   [Politique] Reporterre - 12 récent(s), 12 avec image
+OK   [Politique] Slate - 12 récent(s), 12 avec image
+OK   [Politique] Sud Ouest - 12 récent(s), 0 avec image
+OK   [Politique] The Conversation - 12 récent(s), 12 avec image
+OK   [Politique] Valeurs actuelles - 10 récent(s), 1 avec image
+VIDE [Cinéma] Cinémateaser - https://www.cinemateaser.com/feed/ - aucun article lisible
+VIDE [High Tech] L'Usine Digitale - https://www.usine-digitale.fr/rss - aucun article lisible
