@@ -1,4 +1,4 @@
-Rapport du 2026-10-11T20:35:28.791764+00:00
+Rapport du 2026-10-11T20:36:47.216772+00:00
 Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
@@ -108,4 +108,4 @@ OK   [Sport] RMC Sport Ligue des champions - 1 récent(s), 1 avec image
 OK   [Sport] RMC Sport Premier League - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Transferts - 2 récent(s), 2 avec image
 OK   [Sport] So Foot - 12 récent(s), 12 avec image
-OK   [Tendances] Google Trends France - 5 sujet(s)
+OK   [Tendances] Google Trends France - 4 sujet(s)
