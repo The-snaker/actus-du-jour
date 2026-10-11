@@ -156,6 +156,27 @@ html[data-mode=pc] .carte h3{font-size:19px}
 .versions button{height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--filet);background:var(--carte)}
 .versions button[aria-pressed=true]{background:var(--encre);color:var(--fond);border-color:var(--encre)}
 @media (max-width:380px){.rond{width:40px;height:40px}.outils{gap:4px}}
+.rond:disabled{opacity:.6;cursor:progress}
+.lien-reglage{display:block;margin:6px auto 0;min-height:44px;padding:0 12px;border:0;background:none;color:var(--doux);
+  font-size:13px;text-decoration:underline;text-underline-offset:3px}
+#toast{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:20;
+  width:min(440px,calc(100vw - 24px));display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;
+  background:var(--encre);color:var(--fond);font-size:14.5px;line-height:1.35;box-shadow:0 8px 28px rgba(0,0,0,.28)}
+#toast[hidden]{display:none}
+#toast span{flex:1}
+#toast button{flex:none;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit}
+dialog{width:min(480px,calc(100vw - 24px));max-height:calc(100vh - 24px);overflow:auto;border:1px solid var(--filet);border-radius:18px;
+  padding:20px;background:var(--carte);color:var(--encre)}
+dialog::backdrop{background:rgba(8,10,16,.55)}
+dialog h2{margin:0 0 8px;font:700 22px/1.2 var(--serif)}
+dialog p,dialog li{font-size:14.5px;line-height:1.45;color:var(--doux)}
+dialog ol{margin:8px 0 12px;padding-left:20px}
+dialog li{margin-bottom:4px}
+dialog b{color:var(--encre)}
+dialog input{width:100%;height:46px;border-radius:12px;border:1px solid var(--filet);background:var(--fond);color:var(--encre);font:inherit;padding:0 12px}
+dialog .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+dialog .actions button{height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--filet);background:var(--carte)}
+dialog .actions .principal{background:var(--encre);color:var(--fond);border-color:var(--encre)}
 </style>
 </head>
 <body>
@@ -182,6 +203,27 @@ html[data-mode=pc] .carte h3{font-size:19px}
   </div>
 </div>
 <main class="cadre" id="liste" aria-live="polite"></main>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<dialog id="reglage" aria-labelledby="reglage-titre">
+  <form method="dialog" id="form-reglage">
+    <h2 id="reglage-titre">Actualisation instantanée</h2>
+    <p>Les actualités sont collectées automatiquement <b>toutes les 5 heures</b>. Le bouton d’actualisation recharge toujours les dernières données publiées.</p>
+    <p>Pour qu’il lance <b>une nouvelle collecte tout de suite</b> (environ 1 minute), colle ici un jeton GitHub limité à ce seul dépôt.</p>
+    <ol>
+      <li>Sur GitHub : <b>Settings</b> › <b>Developer settings</b> › <b>Personal access tokens</b> › <b>Fine-grained tokens</b> › <b>Generate new token</b>.</li>
+      <li><b>Repository access</b> : <b>Only select repositories</b>, puis <b>actus-du-jour</b>.</li>
+      <li><b>Permissions</b> › <b>Repository permissions</b> › <b>Actions</b> : <b>Read and write</b>.</li>
+      <li>Crée le jeton, copie-le et colle-le ci-dessous.</li>
+    </ol>
+    <p>Le jeton reste dans ce navigateur et n’est envoyé qu’à GitHub. À refaire sur chaque appareil.</p>
+    <input id="champ-jeton" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…" aria-label="Jeton GitHub">
+    <div class="actions">
+      <button type="submit" value="enregistrer" class="principal">Enregistrer</button>
+      <button type="submit" value="supprimer" id="btn-suppr-jeton">Supprimer le jeton</button>
+      <button type="submit" value="fermer">Fermer</button>
+    </div>
+  </form>
+</dialog>
 
 <script>
 const SLUG = {"Politique française":"pol","Jeux-Vidéo":"jeux","High-Tech":"tech","Cinéma":"cine","Sport":"sport","Québec":"qc","Aéronautique":"aero","Finance":"fin"};
@@ -359,7 +401,7 @@ function rendre() {
     zone.append(b);
   }
   const nbSources = new Set(tous().map(a => a.source)).size;
-  zone.append(el("p", "pied-page", `${nbSources} sources · mis à jour chaque matin`), piedVersions());
+  zone.append(el("p", "pied-page", `${nbSources} sources · mises à jour toutes les 5 h`), piedVersions(), lienReglage());
 }
 
 function squelette() {
@@ -372,26 +414,144 @@ function erreur() {
   const b = el("button", "", "Réessayer"); b.type = "button"; b.onclick = charger; e.append(el("br"), b);
   zone.append(e);
 }
+/* Collectes automatiques : toutes les 5 h (heures UTC 00, 05, 10, 15, 20, à la minute 7) */
+const HEURES_COLLECTE = [0, 5, 10, 15, 20];
+function prochaineCollecte() {
+  const now = new Date();
+  for (let j = 0; j < 2; j++) for (const h of HEURES_COLLECTE) {
+    const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + j, h, 7));
+    if (d > now) return d;
+  }
+}
+const heureLocale = d => d.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
+
 function afficherMaj() {
   const g = new Date(data.genere_le), h = (Date.now() - g) / 36e5;
   const p = document.getElementById("maj");
-  const heure = g.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
-  p.textContent = h > 36 ? `Dernière mise à jour : ${g.toLocaleDateString("fr-FR", {day: "numeric", month: "long"})} à ${heure}`
-                         : `Mis à jour à ${heure}`;
+  p.textContent = h > 36 ? `Dernière mise à jour : ${g.toLocaleDateString("fr-FR", {day: "numeric", month: "long"})} à ${heureLocale(g)}`
+                         : `Mis à jour à ${heureLocale(g)} · prochaine vers ${heureLocale(prochaineCollecte())}`;
   p.classList.toggle("vieux", h > 36);
 }
 
+/* Message d'état en bas de l'écran */
+let minuterieToast;
+function toast(message, {action, duree = 6000} = {}) {
+  const t = document.getElementById("toast"); clearTimeout(minuterieToast);
+  t.replaceChildren(el("span", "", message));
+  if (action) { const b = el("button", "", action.libelle); b.type = "button"; b.onclick = () => { t.hidden = true; action.fn(); }; t.append(b); }
+  t.hidden = false;
+  if (duree) minuterieToast = setTimeout(() => { t.hidden = true; }, duree);
+}
+const masquerToast = () => { clearTimeout(minuterieToast); document.getElementById("toast").hidden = true; };
+
+function appliquer(d) {
+  data = d;
+  if (vue !== "Tout" && vue !== "Favoris" && !data.categories[vue]) vue = "Tout";
+  afficherMaj(); onglets(); rendre();
+}
+async function lirePublie() {
+  const r = await fetch("news.json", {cache: "no-store"});
+  if (!r.ok) throw new Error(r.status);
+  return normaliser(await r.json());
+}
+/* Charge les données publiées. Retourne {etat: "premier" | "inchange" | "nouveau" | "erreur", n} */
 async function charger() {
-  const b = document.getElementById("btn-maj"); b.classList.add("tourne");
   if (!data) squelette();
   try {
-    const r = await fetch("news.json", {cache: "no-cache"});
-    if (!r.ok) throw new Error(r.status);
-    data = normaliser(await r.json());
-    if (vue !== "Tout" && vue !== "Favoris" && !data.categories[vue]) vue = "Tout";
-    afficherMaj(); onglets(); rendre();
-  } catch (e) { if (!data) erreur(); }
-  b.classList.remove("tourne");
+    const d = await lirePublie();
+    if (data && d.genere_le === data.genere_le) return {etat: "inchange", n: 0};
+    const avant = data ? new Set(tous().map(a => a.lien)) : null;
+    appliquer(d);
+    return avant ? {etat: "nouveau", n: tous().filter(a => !avant.has(a.lien)).length} : {etat: "premier", n: 0};
+  } catch (e) { if (!data) erreur(); return {etat: "erreur", n: 0}; }
+}
+const pluriel = n => n > 1 ? `${n} nouveaux articles` : "1 nouvel article";
+
+/* ----- Actualisation à la demande ----- */
+const cleJeton = "actus:jeton";
+function depot() {
+  const hote = location.hostname.endsWith(".github.io") ? location.hostname.split(".")[0] : "The-snaker";
+  const chemin = location.pathname.split("/").filter(Boolean)[0];
+  return {o: hote, r: chemin && !chemin.includes(".") ? chemin : "actus-du-jour"};
+}
+const pause = ms => new Promise(ok => setTimeout(ok, ms));
+
+async function collecteInstantanee(jeton) {
+  const {o, r} = depot(), api = `https://api.github.com/repos/${o}/${r}`;
+  const h = {Authorization: `Bearer ${jeton}`, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"};
+  const listeRuns = async () => {
+    const q = await fetch(`${api}/actions/workflows/daily.yml/runs?event=workflow_dispatch&per_page=10`, {headers: h});
+    if (!q.ok) throw new Error("runs " + q.status);
+    return (await q.json()).workflow_runs || [];
+  };
+  const anciens = new Set((await listeRuns()).map(x => x.id));
+  toast("Collecte en cours… environ 1 minute.", {duree: 0});
+  const rep = await fetch(`${api}/actions/workflows/daily.yml/dispatches`, {
+    method: "POST", headers: {...h, "Content-Type": "application/json"}, body: JSON.stringify({ref: "main"})});
+  if (rep.status !== 204) throw new Error("dispatch " + rep.status);
+  for (let i = 0; i < 60; i++) {                      /* 4 minutes au maximum */
+    await pause(4000);
+    let run; try { run = (await listeRuns()).find(x => !anciens.has(x.id)); } catch (e) { continue; }
+    if (run && run.status === "completed") {
+      if (run.conclusion !== "success") throw new Error("collecte " + run.conclusion);
+      const c = await fetch(`${api}/contents/news.json?ref=main`, {headers: {...h, Accept: "application/vnd.github.raw+json"}});
+      if (!c.ok) throw new Error("lecture " + c.status);
+      return normaliser(await c.json());
+    }
+  }
+  throw new Error("delai");
+}
+
+let actualisationEnCours = false;
+async function actualiser() {
+  if (actualisationEnCours) return;
+  actualisationEnCours = true;
+  const b = document.getElementById("btn-maj"); b.classList.add("tourne"); b.disabled = true;
+  const jeton = lire(cleJeton, null);
+  const reglage = {libelle: "Réglages", fn: ouvrirReglage};
+  try {
+    if (jeton) {
+      try {
+        const avant = new Set(tous().map(a => a.lien));
+        const d = await collecteInstantanee(jeton);
+        appliquer(d);
+        const n = tous().filter(a => !avant.has(a.lien)).length;
+        toast(n ? `Mis à jour : ${pluriel(n)}.` : "Collecte terminée : rien de nouveau pour le moment.");
+      } catch (e) {
+        const msg = String(e.message);
+        if (/^(dispatch|runs) (401|403|404)/.test(msg)) toast("GitHub a refusé le jeton. Vérifie qu’il couvre le dépôt avec la permission Actions : Read and write.", {action: reglage, duree: 12000});
+        else if (msg === "delai") toast("La collecte prend plus de temps que prévu. Réessaie dans quelques minutes.", {duree: 9000});
+        else toast("La collecte instantanée a échoué. Les dernières données publiées restent affichées.", {action: reglage, duree: 9000});
+        await charger();
+      }
+    } else {
+      const res = await charger();
+      const suivante = heureLocale(prochaineCollecte());
+      if (res.etat === "erreur") toast("Impossible de joindre le site. Vérifie ta connexion.", {duree: 6000});
+      else if (res.etat === "nouveau") toast(`Mis à jour : ${pluriel(res.n)}. Prochaine collecte automatique vers ${suivante}.`, {action: reglage, duree: 9000});
+      else toast(`Déjà à jour. Prochaine collecte automatique vers ${suivante}.`, {action: {libelle: "Actualiser maintenant", fn: ouvrirReglage}, duree: 9000});
+    }
+  } finally { actualisationEnCours = false; b.classList.remove("tourne"); b.disabled = false; }
+}
+
+/* Réglage du jeton */
+function ouvrirReglage() {
+  const d = document.getElementById("reglage"), champ = document.getElementById("champ-jeton");
+  champ.value = ""; champ.placeholder = lire(cleJeton, null) ? "Un jeton est déjà enregistré" : "github_pat_…";
+  document.getElementById("btn-suppr-jeton").hidden = !lire(cleJeton, null);
+  if (!d.open) d.showModal();
+}
+
+/* Vérification discrète toutes les 15 minutes et au retour sur l'onglet */
+let nouveautesEnAttente = null;
+async function verifierEnArriere() {
+  if (!data || document.hidden || actualisationEnCours) return;
+  try {
+    const d = await lirePublie();
+    if (d.genere_le === data.genere_le) return;
+    if (window.scrollY < 150) { appliquer(d); toast("Les actualités viennent d’être mises à jour."); }
+    else { nouveautesEnAttente = d; toast("De nouveaux articles sont disponibles.", {action: {libelle: "Afficher", fn: () => { appliquer(nouveautesEnAttente); window.scrollTo({top: 0}); }}, duree: 12000}); }
+  } catch (e) {}
 }
 
 /* Version PC / mobile */
@@ -409,6 +569,10 @@ function majBoutonMode() {
   const t = cible === "pc" ? "Passer à la version PC" : "Passer à la version mobile";
   b.setAttribute("aria-label", t); b.title = t;
 }
+function lienReglage() {
+  const b = el("button", "lien-reglage", lire(cleJeton, null) ? "Actualisation instantanée : activée" : "Activer l’actualisation instantanée");
+  b.type = "button"; b.onclick = ouvrirReglage; return b;
+}
 function piedVersions() {
   const d = el("div", "versions"); d.append("Version :");
   for (const [m, nom] of [["mobile", "Mobile"], ["pc", "PC"]]) {
@@ -425,7 +589,13 @@ document.getElementById("date").textContent = (t => t.charAt(0).toUpperCase() + 
 const btnR = document.getElementById("btn-recherche"), formR = document.getElementById("recherche"), champ = document.getElementById("q");
 btnR.append(svg("recherche"));
 document.getElementById("btn-maj").append(svg("maj"));
-document.getElementById("btn-maj").onclick = charger;
+document.getElementById("btn-maj").onclick = actualiser;
+document.getElementById("form-reglage").addEventListener("submit", e => {
+  const action = e.submitter && e.submitter.value, champ = document.getElementById("champ-jeton");
+  if (action === "enregistrer" && champ.value.trim()) { ecrire(cleJeton, champ.value.trim()); toast("Actualisation instantanée activée. Touche le bouton d’actualisation pour la lancer."); if (data) rendre(); }
+  else if (action === "supprimer") { try { localStorage.removeItem(cleJeton); } catch (x) {} toast("Jeton supprimé de cet appareil."); if (data) rendre(); }
+  champ.value = "";
+});
 document.getElementById("btn-mode").onclick = () => changerMode(modeActuel() === "pc" ? "mobile" : "pc");
 majBoutonMode();
 /* La molette de la souris fait défiler la barre des catégories (version mobile sur PC) */
@@ -441,6 +611,8 @@ formR.onsubmit = e => { e.preventDefault(); champ.blur(); };
 let minuteur;
 champ.oninput = () => { clearTimeout(minuteur); minuteur = setTimeout(() => { requete = champ.value.trim(); limite = PAGE; if (data) rendre(); }, 180); };
 charger();
+setInterval(verifierEnArriere, 15 * 60 * 1000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) verifierEnArriere(); });
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
 </script>
 </body>

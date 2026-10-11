@@ -9,7 +9,7 @@ Ce dossier contient tout : le collecteur quotidien, la liste de sources et l'app
 3. Clique sur « uploading an existing file », glisse **tout le contenu de ce dossier dézippé** (y compris le dossier caché `.github`), puis « Commit changes ».
    Si `.github` n'est pas accepté : « Add file » > « Create new file », tape comme nom `.github/workflows/daily.yml`, colle le contenu du fichier du même nom, puis « Commit ».
 4. Va dans **Settings > Pages**. Sous « Branch », choisis `main` et `/ (root)`, puis Save.
-5. Va dans l'onglet **Actions**, ouvre « Mise à jour quotidienne », clique sur « Run workflow ». Après 1 à 2 minutes, le fichier `news.json` apparaît dans le dépôt. Ensuite, la mise à jour se fait seule chaque jour vers 6 h/7 h (heure de Paris).
+5. Va dans l'onglet **Actions**, ouvre « Mise à jour des actualités », clique sur « Run workflow ». Après 1 à 2 minutes, le fichier `news.json` apparaît dans le dépôt. Ensuite, la mise à jour se fait seule toutes les 5 h (à 00h07, 05h07, 10h07, 15h07 et 20h07 UTC). Le bouton d'actualisation du site recharge les données ; avec un jeton GitHub (Réglages), il lance aussi une collecte immédiate.
 6. Ton site est à l'adresse `https://TON-PSEUDO.github.io/actus-du-jour/`.
 
 ## Installer sur Android

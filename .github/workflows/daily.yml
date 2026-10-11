@@ -1,14 +1,18 @@
-name: Mise à jour quotidienne
+name: Mise à jour des actualités
 on:
   push:
     paths:
       - sources.json
       - collect.py
   schedule:
-    - cron: "0 5 * * *"
+    # 5 collectes par jour, toutes les 5 h (heures UTC : 00h07, 05h07, 10h07, 15h07, 20h07)
+    - cron: "7 */5 * * *"
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: collecte
+  cancel-in-progress: false
 jobs:
   collecte:
     runs-on: ubuntu-latest
@@ -23,5 +27,6 @@ jobs:
           git config user.name "actus-bot"
           git config user.email "actus-bot@users.noreply.github.com"
           git add news.json rapport.txt
-          git diff --cached --quiet || git commit -m "Mise à jour $(date -u +%F)"
+          git diff --cached --quiet || git commit -m "Mise à jour $(date -u +%F' '%H:%M) UTC"
+          git pull --rebase origin main
           git push
