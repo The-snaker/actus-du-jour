@@ -1,15 +1,5 @@
-Rapport du 2026-10-11T22:04:18.808910+00:00
-Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 10/22 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
-KO   [Esport] Breakflip (flux) - https://www.breakflip.com/rss/ - HTTPError: HTTP Error 500: Internal Server Error
-KO   [Esport] Dexerto FR Counter-Strike - https://www.dexerto.fr/counter-strike/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Esport] Dexerto FR Esports - https://www.dexerto.fr/esports/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Esport] Dexerto FR League of Legends - https://www.dexerto.fr/league-of-legends/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Esport] Dexerto FR Valorant - https://www.dexerto.fr/valorant/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Esport] JeuxActu Esport - https://www.jeuxactu.com/rss/esport.rss - HTTPError: HTTP Error 404: Not Found
-KO   [Esport] Journal du Gamer Esport (tag) - https://www.journaldugamer.com/tag/esport/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Esport] Journal du Geek Esport - https://www.journaldugeek.com/tag/esport/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Esport] Korben Esport - https://korben.info/tag/esport/feed - ParseError: syntax error: line 1, column 0
-KO   [Esport] Millenium (flux) - https://www.millenium.org/rss/ - HTTPError: HTTP Error 404: Not Found
+Rapport du 2026-10-11T22:06:17.230447+00:00
+Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 17/17 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
 OK   [Aéronautique] Aviation Magazine - 1 récent(s), 0 avec image
@@ -32,16 +22,23 @@ OK   [Cinéma] Numerama Ciné - 3 récent(s), 3 avec image
 OK   [Cinéma] Télérama Cinéma - 9 récent(s), 9 avec image
 OK   [Cinéma] aVoir-aLire - 10 récent(s), 10 avec image
 OK   [Cinéma] Écran Large - 12 récent(s), 12 avec image
-OK   [Esport] Actugaming Esport (tag) - 0 récent(s), 0 avec image
-OK   [Esport] Clubic Esport - 12 récent(s), 12 avec image
-OK   [Esport] Dexerto FR - 5 récent(s), 5 avec image
-OK   [Esport] Eclypsia (flux) - 0 récent(s), 0 avec image
-OK   [Esport] Frandroid Esport (tag) - 0 récent(s), 0 avec image
-OK   [Esport] Gamergen Esport - 0 récent(s), 0 avec image
-OK   [Esport] Les Numériques Esport - 12 récent(s), 12 avec image
-OK   [Esport] Next Esport - 12 récent(s), 12 avec image
-OK   [Esport] Numerama Esport (tag) - 0 récent(s), 0 avec image
-OK   [Esport] Presse-citron Esport - 0 récent(s), 0 avec image
+OK   [Esport] Actugaming - 0 récent(s), 0 avec image
+OK   [Esport] Clubic - 0 récent(s), 0 avec image
+OK   [Esport] Dexerto FR - 0 récent(s), 0 avec image
+OK   [Esport] France Info Sport - 0 récent(s), 0 avec image
+OK   [Esport] Gameblog - 0 récent(s), 0 avec image
+OK   [Esport] Gamekult - 3 récent(s), 3 avec image
+OK   [Esport] Gamergen - 1 récent(s), 1 avec image
+OK   [Esport] IGN France - 0 récent(s), 0 avec image
+OK   [Esport] JeuxActu - 0 récent(s), 0 avec image
+OK   [Esport] Jeuxvideo.com - 0 récent(s), 0 avec image
+OK   [Esport] Journal du Gamer - 1 récent(s), 1 avec image
+OK   [Esport] Le Monde Jeux vidéo - 1 récent(s), 1 avec image
+OK   [Esport] Le Monde Sport - 0 récent(s), 0 avec image
+OK   [Esport] Les Numériques - 0 récent(s), 0 avec image
+OK   [Esport] Next - 0 récent(s), 0 avec image
+OK   [Esport] Numerama Jeux vidéo - 0 récent(s), 0 avec image
+OK   [Esport] Xboxygen - 0 récent(s), 0 avec image
 OK   [Finance] 20 Minutes Économie - 10 récent(s), 10 avec image
 OK   [Finance] Alternatives Économiques - 10 récent(s), 8 avec image
 OK   [Finance] BFM Business - 12 récent(s), 12 avec image
@@ -129,5 +126,3 @@ OK   [Sport] RMC Sport Premier League - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Transferts - 2 récent(s), 2 avec image
 OK   [Sport] So Foot - 12 récent(s), 12 avec image
 OK   [Tendances Youtube] YouTube Tendances France - 100 sujet(s)
-VIDE [Esport] Konbini Esport - https://www.konbini.com/tag/esport/feed/ - aucun article lisible
-VIDE [Esport] Le Parisien Esport - https://www.leparisien.fr/esport/rss.xml - aucun article lisible
