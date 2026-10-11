@@ -29,7 +29,6 @@
     {"nom": "Numerama Jeux vidéo", "url": "https://www.numerama.com/pop-culture/jeux-video/feed/"},
     {"nom": "Le Monde Jeux vidéo", "url": "https://www.lemonde.fr/jeux-video/rss_full.xml"},
     {"nom": "01net Jeux vidéo", "url": "https://www.01net.com/jeux-video/feed/"},
-    {"nom": "Gamekyo", "url": "https://www.gamekyo.com/rss.php"},
     {"nom": "Xboxygen", "url": "https://www.xboxygen.com/spip.php?page=backend"}
   ],
   "High-Tech": [
@@ -72,27 +71,16 @@
     {"nom": "90min", "url": "https://www.90min.com/fr/posts.rss"},
     {"nom": "But! Football Club", "url": "https://www.butfootballclub.fr/rss"},
     {"nom": "Le Monde Sport", "url": "https://www.lemonde.fr/sport/rss_full.xml"},
-    {"nom": "Le Figaro Sport", "url": "https://www.lefigaro.fr/rss/figaro_sports.xml"},
     {"nom": "France Info Sport", "url": "https://www.francetvinfo.fr/sports.rss"},
     {"nom": "20 Minutes Sport", "url": "https://www.20minutes.fr/feeds/rss-sport.xml"},
-    {"nom": "Libération Sports", "url": "https://www.liberation.fr/arc/outboundfeeds/rss-all/category/sports/?outputType=xml"},
-    {"nom": "Sud Ouest Sport", "url": "https://www.sudouest.fr/sport/rss.xml"},
     {"nom": "RMC Sport Ligue 1", "url": "https://rmcsport.bfmtv.com/rss/football/ligue-1/"},
     {"nom": "RMC Sport Ligue des champions", "url": "https://rmcsport.bfmtv.com/rss/football/ligue-des-champions/"},
     {"nom": "RMC Sport Premier League", "url": "https://rmcsport.bfmtv.com/rss/football/premier-league/"},
-    {"nom": "RMC Sport Liga", "url": "https://rmcsport.bfmtv.com/rss/football/liga/"},
-    {"nom": "RMC Sport Serie A", "url": "https://rmcsport.bfmtv.com/rss/football/serie-a/"},
-    {"nom": "RMC Sport Bundesliga", "url": "https://rmcsport.bfmtv.com/rss/football/bundesliga/"},
     {"nom": "RMC Sport Transferts", "url": "https://rmcsport.bfmtv.com/rss/football/transferts/"},
     {"nom": "20 Minutes Football", "url": "https://www.20minutes.fr/feeds/rss-football.xml"},
     {"nom": "Le Monde Football", "url": "https://www.lemonde.fr/football/rss_full.xml"},
     {"nom": "France Info Foot", "url": "https://www.francetvinfo.fr/sports/foot.rss"},
-    {"nom": "Eurosport", "url": "https://www.eurosport.fr/rss.xml"},
-    {"nom": "So Foot", "url": "https://www.sofoot.com/rss/"},
-    {"nom": "Goal France", "url": "https://www.goal.com/fr/feeds/news?fmt=rss"},
-    {"nom": "Onze Mondial", "url": "https://www.onzemondial.com/rss.xml"},
-    {"nom": "Culture PSG", "url": "https://culturepsg.com/feed/"},
-    {"nom": "Maxifoot", "url": "https://www.maxifoot.fr/rss.xml"}
+    {"nom": "So Foot", "url": "https://www.sofoot.com/rss/"}
   ],
   "Québec": [
     {"nom": "La Presse", "url": "https://www.lapresse.ca/actualites/rss"},
@@ -107,11 +95,7 @@
     {"nom": "Métro", "url": "https://journalmetro.com/feed/"},
     {"nom": "Métro Montréal", "url": "https://journalmetro.com/actualites/montreal/feed/"},
     {"nom": "L'actualité", "url": "https://lactualite.com/feed/"},
-    {"nom": "Le Devoir Société", "url": "https://www.ledevoir.com/rss/section/societe.xml"},
-    {"nom": "Le Devoir Économie", "url": "https://www.ledevoir.com/rss/section/economie.xml"},
-    {"nom": "La Presse Politique", "url": "https://www.lapresse.ca/actualites/politique/rss"},
-    {"nom": "La Presse Société", "url": "https://www.lapresse.ca/actualites/societe/rss"},
-    {"nom": "La Presse Affaires", "url": "https://www.lapresse.ca/affaires/rss"}
+    {"nom": "La Presse Politique", "url": "https://www.lapresse.ca/actualites/politique/rss"}
   ],
   "Aéronautique": [
     {"nom": "Aerobuzz", "url": "https://www.aerobuzz.fr/feed/"},
