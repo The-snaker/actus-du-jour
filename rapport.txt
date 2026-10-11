@@ -1,122 +1,129 @@
-Rapport du 2026-10-11T19:36:56.233249+00:00
-Politique: 28/28 sources OK | High Tech: 26/27 sources OK | Cinéma: 26/27 sources OK | Aéronautique: 10/11 sources OK | Finance: 27/27 sources OK
-KO   [Aéronautique] BFM Business Aéro - https://www.bfmtv.com/rss/economie/entreprises/transports/ - HTTPError: HTTP Error 502: Bad Gateway
-KO   [Cinéma] Actucine - https://www.actucine.com/feed/ - TimeoutError: The read operation timed out
-KO   [High Tech] Humanoïdes - https://www.humanoides.fr/feed/ - URLError: <urlopen error timed out>
-OK   [Aéronautique] AeroMorning - 5 récent(s), 0 avec image
+Rapport du 2026-10-11T19:58:29.586919+00:00
+Politique française: 15/15 sources OK | Jeux-Vidéo: 12/18 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 10/22 sources OK | Québec: 12/19 sources OK | Aéronautique: 7/8 sources OK | Finance: 15/15 sources OK
+KO   [Aéronautique] AeroMorning - https://www.aeromorning.com/feed/ - TimeoutError: The read operation timed out
+KO   [Jeux-Vidéo] 20 Minutes Jeux vidéo - https://www.20minutes.fr/feeds/rss-jeux-video.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Jeux-Vidéo] Journal du Geek Jeux vidéo - https://www.journaldugeek.com/jeux-video/feed/ - ParseError: syntax error: line 1, column 0
+KO   [Jeux-Vidéo] Konbini Gaming - https://www.konbini.com/gaming/feed/ - ParseError: not well-formed (invalid token): line 35, column 2269
+KO   [Jeux-Vidéo] Millenium - https://www.millenium.org/rss/news.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Jeux-Vidéo] PSthc - https://www.psthc.fr/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Jeux-Vidéo] Presse-citron Jeux vidéo - https://www.presse-citron.net/pop-culture/jeux-video/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Québec] 98,5 FM - https://www.985fm.ca/feed/ - HTTPError: HTTP Error 404: not found
+KO   [Québec] Le Devoir Montréal - https://www.ledevoir.com/rss/section/montreal.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Québec] Le Droit - https://www.ledroit.com/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Québec] Le Nouvelliste - https://www.lenouvelliste.ca/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Québec] Le Soleil - https://www.lesoleil.com/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Québec] Noovo Info - https://www.noovo.info/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Québec] Radio-Canada Montréal - https://ici.radio-canada.ca/rss/6933 - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] BFM Sport - https://www.bfmtv.com/rss/sport/ - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] Eurosport Football - https://www.eurosport.fr/football/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] Foot01 - https://www.foot01.com/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] Get Football News France - https://www.getfootballnewsfrance.com/feed/ - ParseError: mismatched tag: line 1, column 166
+KO   [Sport] Goal - https://www.goal.com/feeds/fr/news - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] L'Équipe - https://www.lequipe.fr/rss/actu_rss.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Sport] L'Équipe Football - https://www.lequipe.fr/rss/actu_rss_Football.xml - HTTPError: HTTP Error 403: Forbidden
+KO   [Sport] Le 10 Sport - https://www.le10sport.com/rss - ParseError: mismatched tag: line 73, column 14
+KO   [Sport] Onze Mondial - https://www.onzemondial.com/feed - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] So Foot - https://www.sofoot.com/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] Transfermarkt - https://www.transfermarkt.fr/rss/news - ParseError: no element found: line 1, column 0
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
 OK   [Aéronautique] Aviation Magazine - 1 récent(s), 0 avec image
 OK   [Aéronautique] Avions Légendaires - 9 récent(s), 9 avec image
-OK   [Aéronautique] Ciel & Espace - 0 récent(s), 0 avec image
 OK   [Aéronautique] Forces Opérations Blog - 1 récent(s), 0 avec image
 OK   [Aéronautique] Journal de l'Aviation - 10 récent(s), 0 avec image
-OK   [Aéronautique] L'Usine Nouvelle - 12 récent(s), 12 avec image
 OK   [Aéronautique] Opex360 - 9 récent(s), 0 avec image
-OK   [Cinéma] 20 Minutes Cinéma - 11 récent(s), 11 avec image
-OK   [Cinéma] Allociné - 12 récent(s), 12 avec image
+OK   [Cinéma] 20 Minutes Cinéma - 12 récent(s), 12 avec image
 OK   [Cinéma] Allociné Cinéma - 12 récent(s), 12 avec image
-OK   [Cinéma] Allociné Séries - 12 récent(s), 12 avec image
-OK   [Cinéma] Brain Damaged - 2 récent(s), 0 avec image
 OK   [Cinéma] Cinéséries - 4 récent(s), 4 avec image
-OK   [Cinéma] Critikat - 0 récent(s), 0 avec image
 OK   [Cinéma] France Info Cinéma - 12 récent(s), 12 avec image
-OK   [Cinéma] France Info Culture - 12 récent(s), 12 avec image
-OK   [Cinéma] Konbini - 11 récent(s), 11 avec image
 OK   [Cinéma] Konbini Cinéma - 11 récent(s), 11 avec image
 OK   [Cinéma] L'Obs Cinéma - 4 récent(s), 0 avec image
 OK   [Cinéma] Le Bleu du Miroir - 3 récent(s), 0 avec image
 OK   [Cinéma] Le Figaro Cinéma - 7 récent(s), 7 avec image
-OK   [Cinéma] Le Figaro Culture - 12 récent(s), 12 avec image
-OK   [Cinéma] Le Mag du Ciné - 0 récent(s), 0 avec image
 OK   [Cinéma] Le Monde Cinéma - 3 récent(s), 3 avec image
-OK   [Cinéma] Le Monde Culture - 12 récent(s), 12 avec image
 OK   [Cinéma] Les Inrocks Cinéma - 3 récent(s), 3 avec image
 OK   [Cinéma] Libération Cinéma - 5 récent(s), 0 avec image
 OK   [Cinéma] Numerama Ciné - 3 récent(s), 3 avec image
 OK   [Cinéma] Télérama Cinéma - 9 récent(s), 9 avec image
-OK   [Cinéma] Télérama Séries - 0 récent(s), 0 avec image
 OK   [Cinéma] aVoir-aLire - 10 récent(s), 10 avec image
 OK   [Cinéma] Écran Large - 12 récent(s), 12 avec image
-OK   [Cinéma] Écran Large Séries - 10 récent(s), 0 avec image
 OK   [Finance] 20 Minutes Économie - 10 récent(s), 10 avec image
 OK   [Finance] Alternatives Économiques - 10 récent(s), 8 avec image
 OK   [Finance] BFM Business - 12 récent(s), 12 avec image
-OK   [Finance] BFM Crypto - 0 récent(s), 0 avec image
-OK   [Finance] BFM Immobilier - 1 récent(s), 1 avec image
 OK   [Finance] Cryptoast - 12 récent(s), 0 avec image
 OK   [Finance] France Info Économie - 12 récent(s), 12 avec image
-OK   [Finance] Frenchweb - 3 récent(s), 0 avec image
 OK   [Finance] Journal du Coin - 10 récent(s), 10 avec image
 OK   [Finance] L'Express Économie - 10 récent(s), 10 avec image
 OK   [Finance] L'Obs Économie - 10 récent(s), 5 avec image
-OK   [Finance] Le Figaro Argent - 0 récent(s), 0 avec image
 OK   [Finance] Le Figaro Bourse - 3 récent(s), 3 avec image
 OK   [Finance] Le Figaro Conjoncture - 12 récent(s), 12 avec image
-OK   [Finance] Le Figaro Entreprises - 8 récent(s), 8 avec image
-OK   [Finance] Le Figaro Immobilier - 6 récent(s), 5 avec image
 OK   [Finance] Le Figaro Économie - 12 récent(s), 12 avec image
 OK   [Finance] Le Monde Argent - 2 récent(s), 2 avec image
-OK   [Finance] Le Monde Emploi - 5 récent(s), 5 avec image
 OK   [Finance] Le Monde Entreprises - 12 récent(s), 12 avec image
-OK   [Finance] Le Monde Immobilier - 1 récent(s), 1 avec image
 OK   [Finance] Le Monde Économie - 12 récent(s), 12 avec image
-OK   [Finance] Le Monde Économie française - 4 récent(s), 4 avec image
 OK   [Finance] Le Revenu - 12 récent(s), 12 avec image
-OK   [Finance] Libération Économie - 10 récent(s), 0 avec image
-OK   [Finance] Maddyness Finance - 4 récent(s), 0 avec image
-OK   [Finance] The Conversation Économie - 3 récent(s), 3 avec image
-OK   [High Tech] 01net - 12 récent(s), 12 avec image
-OK   [High Tech] 20 Minutes High-tech - 11 récent(s), 11 avec image
-OK   [High Tech] ActuIA - 3 récent(s), 3 avec image
-OK   [High Tech] BFM Tech - 12 récent(s), 12 avec image
-OK   [High Tech] Begeek - 10 récent(s), 10 avec image
-OK   [High Tech] Clubic - 12 récent(s), 12 avec image
-OK   [High Tech] Developpez.com - 12 récent(s), 0 avec image
-OK   [High Tech] Frandroid - 12 récent(s), 12 avec image
-OK   [High Tech] Génération NT - 12 récent(s), 12 avec image
-OK   [High Tech] Journal du Geek - 12 récent(s), 12 avec image
-OK   [High Tech] Journal du Net - 12 récent(s), 12 avec image
-OK   [High Tech] Korben - 5 récent(s), 5 avec image
-OK   [High Tech] Le Figaro Tech - 5 récent(s), 5 avec image
-OK   [High Tech] Le Monde Pixels - 12 récent(s), 12 avec image
-OK   [High Tech] Les Numériques - 12 récent(s), 12 avec image
-OK   [High Tech] Maddyness - 4 récent(s), 0 avec image
-OK   [High Tech] Next - 12 récent(s), 12 avec image
-OK   [High Tech] Numerama - 12 récent(s), 12 avec image
-OK   [High Tech] Numerama Pop culture - 12 récent(s), 12 avec image
-OK   [High Tech] Phonandroid - 12 récent(s), 12 avec image
-OK   [High Tech] Presse-citron - 12 récent(s), 12 avec image
-OK   [High Tech] Silicon - 5 récent(s), 5 avec image
-OK   [High Tech] Siècle Digital - 4 récent(s), 4 avec image
-OK   [High Tech] Tom's Guide - 7 récent(s), 7 avec image
-OK   [High Tech] Tom's Hardware - 4 récent(s), 4 avec image
-OK   [High Tech] ZDNet - 12 récent(s), 12 avec image
-OK   [Politique] 20 Minutes - 12 récent(s), 12 avec image
-OK   [Politique] BFM TV - 12 récent(s), 12 avec image
-OK   [Politique] Boulevard Voltaire - 12 récent(s), 12 avec image
-OK   [Politique] Causeur - 10 récent(s), 4 avec image
-OK   [Politique] Challenges - 12 récent(s), 12 avec image
-OK   [Politique] Courrier international - 12 récent(s), 12 avec image
-OK   [Politique] France Info - 12 récent(s), 12 avec image
-OK   [Politique] HuffPost - 12 récent(s), 12 avec image
-OK   [Politique] L'Express - 2 récent(s), 2 avec image
-OK   [Politique] L'Obs - 12 récent(s), 8 avec image
-OK   [Politique] LCP - 12 récent(s), 12 avec image
-OK   [Politique] La Croix - 12 récent(s), 12 avec image
-OK   [Politique] La Dépêche - 12 récent(s), 12 avec image
-OK   [Politique] Le Figaro - 4 récent(s), 4 avec image
-OK   [Politique] Le Figaro France - 12 récent(s), 12 avec image
-OK   [Politique] Le JDD - 12 récent(s), 12 avec image
-OK   [Politique] Le Monde - 12 récent(s), 12 avec image
-OK   [Politique] Le Monde Idées - 12 récent(s), 12 avec image
-OK   [Politique] Les Décodeurs - 6 récent(s), 6 avec image
-OK   [Politique] Libération - 12 récent(s), 0 avec image
-OK   [Politique] Mediapart - 10 récent(s), 8 avec image
-OK   [Politique] Ouest-France - 10 récent(s), 10 avec image
-OK   [Politique] Public Sénat - 9 récent(s), 9 avec image
-OK   [Politique] Reporterre - 12 récent(s), 12 avec image
-OK   [Politique] Slate - 12 récent(s), 12 avec image
-OK   [Politique] Sud Ouest - 12 récent(s), 0 avec image
-OK   [Politique] The Conversation - 12 récent(s), 12 avec image
-OK   [Politique] Valeurs actuelles - 10 récent(s), 1 avec image
+OK   [High-Tech] 01net - 12 récent(s), 12 avec image
+OK   [High-Tech] BFM Tech - 12 récent(s), 12 avec image
+OK   [High-Tech] Clubic - 12 récent(s), 12 avec image
+OK   [High-Tech] Frandroid - 12 récent(s), 12 avec image
+OK   [High-Tech] Génération NT - 12 récent(s), 12 avec image
+OK   [High-Tech] Journal du Geek - 12 récent(s), 12 avec image
+OK   [High-Tech] Korben - 5 récent(s), 5 avec image
+OK   [High-Tech] Le Monde Pixels - 12 récent(s), 12 avec image
+OK   [High-Tech] Les Numériques - 12 récent(s), 12 avec image
+OK   [High-Tech] Next - 12 récent(s), 12 avec image
+OK   [High-Tech] Numerama - 12 récent(s), 12 avec image
+OK   [High-Tech] Phonandroid - 12 récent(s), 12 avec image
+OK   [High-Tech] Presse-citron - 12 récent(s), 12 avec image
+OK   [High-Tech] Tom's Hardware - 4 récent(s), 4 avec image
+OK   [High-Tech] ZDNet - 12 récent(s), 12 avec image
+OK   [Jeux-Vidéo] 01net Jeux vidéo - 0 récent(s), 0 avec image
+OK   [Jeux-Vidéo] Actugaming - 10 récent(s), 10 avec image
+OK   [Jeux-Vidéo] Gameblog - 12 récent(s), 12 avec image
+OK   [Jeux-Vidéo] Gamekult - 12 récent(s), 12 avec image
+OK   [Jeux-Vidéo] Gamergen - 4 récent(s), 4 avec image
+OK   [Jeux-Vidéo] IGN France - 12 récent(s), 12 avec image
+OK   [Jeux-Vidéo] JeuxActu - 0 récent(s), 0 avec image
+OK   [Jeux-Vidéo] Jeuxvideo.com - 12 récent(s), 12 avec image
+OK   [Jeux-Vidéo] Journal du Gamer - 12 récent(s), 12 avec image
+OK   [Jeux-Vidéo] Le Monde Jeux vidéo - 0 récent(s), 0 avec image
+OK   [Jeux-Vidéo] Nintendo-Town - 10 récent(s), 3 avec image
+OK   [Jeux-Vidéo] Numerama Jeux vidéo - 8 récent(s), 8 avec image
+OK   [Politique française] 20 Minutes - 12 récent(s), 12 avec image
+OK   [Politique française] BFM TV - 12 récent(s), 12 avec image
+OK   [Politique française] France Info - 12 récent(s), 12 avec image
+OK   [Politique française] L'Express - 2 récent(s), 2 avec image
+OK   [Politique française] L'Obs - 12 récent(s), 8 avec image
+OK   [Politique française] LCP - 12 récent(s), 12 avec image
+OK   [Politique française] Le Figaro - 4 récent(s), 4 avec image
+OK   [Politique française] Le JDD - 12 récent(s), 12 avec image
+OK   [Politique française] Le Monde - 12 récent(s), 12 avec image
+OK   [Politique française] Les Décodeurs - 6 récent(s), 6 avec image
+OK   [Politique française] Libération - 12 récent(s), 0 avec image
+OK   [Politique française] Mediapart - 10 récent(s), 9 avec image
+OK   [Politique française] Public Sénat - 9 récent(s), 9 avec image
+OK   [Politique française] Sud Ouest - 12 récent(s), 0 avec image
+OK   [Politique française] Valeurs actuelles - 10 récent(s), 1 avec image
+OK   [Québec] 24 heures - 12 récent(s), 12 avec image
+OK   [Québec] L'actualité - 10 récent(s), 10 avec image
+OK   [Québec] La Presse - 10 récent(s), 10 avec image
+OK   [Québec] La Presse Grand Montréal - 6 récent(s), 6 avec image
+OK   [Québec] Le Devoir - 12 récent(s), 0 avec image
+OK   [Québec] Le Devoir Politique - 10 récent(s), 0 avec image
+OK   [Québec] Le Journal de Montréal - 12 récent(s), 12 avec image
+OK   [Québec] Le Journal de Québec - 12 récent(s), 12 avec image
+OK   [Québec] Métro - 4 récent(s), 4 avec image
+OK   [Québec] Métro Montréal - 0 récent(s), 0 avec image
+OK   [Québec] Radio-Canada - 12 récent(s), 12 avec image
+OK   [Québec] TVA Nouvelles - 12 récent(s), 12 avec image
+OK   [Sport] 20 Minutes Sport - 12 récent(s), 11 avec image
+OK   [Sport] 90min - 0 récent(s), 0 avec image
+OK   [Sport] But! Football Club - 12 récent(s), 0 avec image
+OK   [Sport] Foot Mercato - 12 récent(s), 12 avec image
+OK   [Sport] France Info Sport - 12 récent(s), 11 avec image
+OK   [Sport] Le Figaro Sport - 0 récent(s), 0 avec image
+OK   [Sport] Le Monde Sport - 12 récent(s), 12 avec image
+OK   [Sport] Libération Sports - 8 récent(s), 0 avec image
+OK   [Sport] RMC Sport Football - 12 récent(s), 12 avec image
+OK   [Sport] Sud Ouest Sport - 12 récent(s), 0 avec image
+VIDE [Sport] France Info Football - https://www.francetvinfo.fr/sports/football.rss - aucun article lisible
