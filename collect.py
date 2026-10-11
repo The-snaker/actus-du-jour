@@ -32,7 +32,7 @@ FILTRE_ESPORT_MINUSCULES = re.compile(
     r"e-?sport|league of legends|valorant|counter-?strike|rocket league|karmine|team vitality|gentle mates|"
     r"riot games|dota 2|overwatch champions|call of duty league|rainbow six (?:siege )?(?:major|tournoi|pro league)|"
     r"worlds 20\d\d|tournoi (?:pro|international)|ligue pro|lan party|\bcs ?2\b|\bt1 faker\b|\bfaker\b", re.I)
-FILTRE_ESPORT_CASSE = re.compile(r"\b(?:LoL|LEC|LCK|LCS|VCT|IEM|BLAST|ESL|EWC|CS2|CS:GO|LFL\b")
+FILTRE_ESPORT_CASSE = re.compile(r"\b(?:LoL|LEC|LCK|LCS|VCT|IEM|BLAST|ESL|EWC|CS2|CS:GO|LFL)\b")
 FENETRE_FILTRE_HEURES = 168   # les flux filtrés sont rares : on remonte à 7 jours
 
 
