@@ -1,6 +1,5 @@
-Rapport du 2026-10-11T20:53:24.250600+00:00
+Rapport du 2026-10-11T20:59:00.058712+00:00
 Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
-KO   [Tendances] YouTube Tendances France - ValueError: clé YT_API_KEY absente (secret GitHub non configuré)
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
 OK   [Aéronautique] Aviation Magazine - 1 récent(s), 0 avec image
@@ -63,7 +62,7 @@ OK   [Jeux-Vidéo] JeuxActu - 0 récent(s), 0 avec image
 OK   [Jeux-Vidéo] Jeuxvideo.com - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] Journal du Gamer - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] Le Monde Jeux vidéo - 0 récent(s), 0 avec image
-OK   [Jeux-Vidéo] Nintendo-Town - 10 récent(s), 3 avec image
+OK   [Jeux-Vidéo] Nintendo-Town - 10 récent(s), 5 avec image
 OK   [Jeux-Vidéo] Numerama Jeux vidéo - 8 récent(s), 8 avec image
 OK   [Jeux-Vidéo] Xboxygen - 12 récent(s), 12 avec image
 OK   [Politique française] 20 Minutes - 12 récent(s), 12 avec image
@@ -109,3 +108,4 @@ OK   [Sport] RMC Sport Ligue des champions - 1 récent(s), 1 avec image
 OK   [Sport] RMC Sport Premier League - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Transferts - 2 récent(s), 2 avec image
 OK   [Sport] So Foot - 12 récent(s), 12 avec image
+OK   [Tendances] YouTube Tendances France - 100 sujet(s)
