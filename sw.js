@@ -1,4 +1,4 @@
-const V = "actus-v11";
+const V = "actus-v12";
 const BASE = ["./", "index.html", "manifest.json", "icon-192.png", "icon-512.png"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(BASE)));

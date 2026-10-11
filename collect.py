@@ -205,7 +205,7 @@ def collecter_tendances():
         sortie.append({"source": sn.get("channelTitle") or "YouTube",
                        "titre": nettoyer(sn["title"]),
                        "lien": "https://www.youtube.com/watch?v=" + v["id"],
-                       "extrait": couper(vues + nettoyer(sn.get("description")), LONGUEUR_EXTRAIT),
+                       "extrait": couper(vues + re.sub(r"\s+", " ", re.sub(r"https?://\S+", "", nettoyer(sn.get("description")))).strip(), LONGUEUR_EXTRAIT),
                        "image": image_valide(image),
                        "date": date.isoformat()})
     return sortie
