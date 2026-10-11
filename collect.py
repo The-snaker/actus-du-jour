@@ -199,7 +199,7 @@ def collecter_tendances():
         if not (v.get("id") and sn.get("title") and date):
             continue
         miniatures = sn.get("thumbnails", {})
-        image = next((miniatures[k]["url"] for k in ("maxres", "standard", "high", "medium", "default")
+        image = next((miniatures[k]["url"] for k in ("high", "medium", "standard", "default")
                       if k in miniatures), None)
         vues = f"{format_vues(st['viewCount'])} de vues · " if st.get("viewCount") else ""
         sortie.append({"source": sn.get("channelTitle") or "YouTube",

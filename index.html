@@ -323,6 +323,7 @@ function boutonFavori(a) {
   return b;
 }
 function image(src, alt) {
+  src = src.replace(/\/maxresdefault\.jpg$/, "/hqdefault.jpg");   /* hqdefault existe toujours, pas maxres */
   const i = new Image(); i.loading = "lazy"; i.decoding = "async"; i.alt = alt || "";
   i.referrerPolicy = "no-referrer"; i.src = src;
   return i;
@@ -348,7 +349,11 @@ function carte(a, afficherCat) {
   const vign = el("div", "vignette");
   if (httpsOk(a.image)) {
     const img = image(a.image, "");
-    img.onerror = () => { vign.replaceChildren(a.source.charAt(0).toUpperCase()); vign.classList.add("vide"); };
+    img.onerror = () => {
+      const repli = img.src.replace(/\/(maxres|sd)default\.jpg$/, "/hqdefault.jpg");   /* miniature YouTube de secours */
+      if (repli !== img.src) { img.src = repli; return; }
+      vign.replaceChildren(a.source.charAt(0).toUpperCase()); vign.classList.add("vide");
+    };
     vign.append(img);
   } else { vign.classList.add("vide"); vign.textContent = a.source.charAt(0).toUpperCase(); }
   corps.append(texte, vign);
