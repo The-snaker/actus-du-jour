@@ -50,8 +50,6 @@
     {"nom": "Next", "url": "https://next.ink/feed/", "filtre": "esport"},
     {"nom": "Clubic", "url": "https://www.clubic.com/feed/news.rss", "filtre": "esport"},
     {"nom": "Breakflip", "url": "https://www.breakflip.com/feed", "filtre": "esport"},
-    {"nom": "Millenium", "url": "https://www.millenium.org/feed", "filtre": "esport"},
-    {"nom": "Journal du Geek Jeux vidéo", "url": "https://www.journaldugeek.com/jeux-video/feed/", "filtre": "esport"},
     {"nom": "Begeek", "url": "https://www.begeek.fr/feed", "filtre": "esport"},
     {"nom": "Frandroid", "url": "https://www.frandroid.com/feed", "filtre": "esport"},
     {"nom": "Korben", "url": "https://korben.info/feed", "filtre": "esport"},
@@ -61,8 +59,7 @@
     {"nom": "20 Minutes Sport", "url": "https://www.20minutes.fr/feeds/rss-sport.xml", "filtre": "esport"},
     {"nom": "Konbini", "url": "https://www.konbini.com/feed/", "filtre": "esport"},
     {"nom": "Tom's Hardware", "url": "https://www.tomshardware.fr/feed/", "filtre": "esport"},
-    {"nom": "Eclypsia", "url": "https://www.eclypsia.com/feed/", "filtre": "esport"},
-    {"nom": "Dexerto FR Esports", "url": "https://www.dexerto.fr/esports/feed/", "filtre": "esport"}
+    {"nom": "Eclypsia", "url": "https://www.eclypsia.com/feed/", "filtre": "esport"}
   ],
   "High-Tech": [
     {"nom": "Numerama", "url": "https://www.numerama.com/feed/"},
