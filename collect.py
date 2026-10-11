@@ -253,19 +253,19 @@ def main():
         total += len(sortie[categorie])
 
     try:
-        sortie["Tendances"] = collecter_tendances()
-        etat = f"OK   [Tendances] YouTube Tendances France - {len(sortie['Tendances'])} sujet(s)"
-        if not sortie["Tendances"]:
+        sortie["Tendances Youtube"] = collecter_tendances()
+        etat = f"OK   [Tendances Youtube] YouTube Tendances France - {len(sortie['Tendances'])} sujet(s)"
+        if not sortie["Tendances Youtube"]:
             raise ValueError("aucun sujet lisible")
     except Exception as e:
-        etat = f"KO   [Tendances] YouTube Tendances France - {type(e).__name__}: {e}"
+        etat = f"KO   [Tendances Youtube] YouTube Tendances France - {type(e).__name__}: {e}"
         try:   # on garde les tendances de la dernière collecte réussie
             with open("news.json", encoding="utf-8") as f:
-                sortie["Tendances"] = json.load(f)["categories"].get("Tendances", [])
+                sortie["Tendances Youtube"] = json.load(f)["categories"].get("Tendances Youtube", [])
         except Exception:
-            sortie["Tendances"] = []
+            sortie["Tendances Youtube"] = []
     rapport.append(etat)
-    total += len(sortie["Tendances"])
+    total += len(sortie["Tendances Youtube"])
 
     maintenant = datetime.now(timezone.utc).isoformat()
     resume = " | ".join(f"{c}: {ok_par_cat[c]}/{len(sources[c])} sources OK" for c in sources)

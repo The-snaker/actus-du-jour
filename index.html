@@ -228,9 +228,9 @@ dialog .actions .principal{background:var(--encre);color:var(--fond);border-colo
 </dialog>
 
 <script>
-const SLUG = {"Politique française":"pol","Jeux-Vidéo":"jeux","High-Tech":"tech","Cinéma":"cine","Sport":"sport","Québec":"qc","Aéronautique":"aero","Finance":"fin","Tendances":"tend"};
+const SLUG = {"Politique française":"pol","Jeux-Vidéo":"jeux","High-Tech":"tech","Cinéma":"cine","Sport":"sport","Québec":"qc","Aéronautique":"aero","Finance":"fin","Tendances Youtube":"tend"};
 const ORDRE = Object.keys(SLUG);                       /* ordre des onglets */
-const ANCIENS_NOMS = {"Politique":"Politique française","High Tech":"High-Tech"};   /* anciens noms de catégories */
+const ANCIENS_NOMS = {"Tendances":"Tendances Youtube","Politique":"Politique française","High Tech":"High-Tech"};   /* anciens noms de catégories */
 const PAGE = 30;
 const ICONES = {
   recherche:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>',
@@ -278,7 +278,7 @@ function ilYA(d) {
   return d.toLocaleTimeString("fr-FR", {hour: "2-digit", minute: "2-digit"});
 }
 function tous() {
-  return Object.entries(data.categories).filter(([cat]) => cat !== "Tendances")   /* les tendances ont leur propre onglet */
+  return Object.entries(data.categories).filter(([cat]) => cat !== "Tendances Youtube")   /* les tendances ont leur propre onglet */
     .flatMap(([cat, l]) => l.map(a => ({...a, cat})))
     .sort((a, b) => b.date.localeCompare(a.date));
 }
@@ -384,7 +384,7 @@ function rendre() {
     else e.append(el("b", "", "Rien pour le moment"), "Aucun article récent dans cette catégorie.");
     zone.append(e); return;
   }
-  const classement = vue === "Tendances";   /* garde l'ordre de YouTube : pas de regroupement par jour */
+  const classement = vue === "Tendances Youtube";   /* garde l'ordre de YouTube : pas de regroupement par jour */
   const accueil = !requete && vue !== "Favoris" && !classement;
   if (accueil) {
     const i = arts.findIndex(a => httpsOk(a.image) && Date.now() - new Date(a.date) < 36 * 36e5);
