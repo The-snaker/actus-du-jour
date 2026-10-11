@@ -368,8 +368,18 @@ function carte(a, afficherCat) {
   if (httpsOk(a.image)) {
     const img = image(a.image, "");
     img.onerror = () => {
-      const repli = img.src.replace(/\/(maxres|sd)default\.jpg$/, "/hqdefault.jpg");   /* miniature YouTube de secours */
-      if (repli !== img.src) { img.src = repli; return; }
+      /* Miniatures YouTube : on essaie d'autres adresses avant d'abandonner (réseau ou bloqueur qui filtre un domaine) */
+      const m = img.src.match(/^https:\/\/(?:i\.ytimg\.com|img\.youtube\.com)\/(vi|vi_webp)\/([\w-]+)\/(\w+)\.(jpg|webp)/);
+      if (m) {
+        const n = +(img.dataset.essai || 0) + 1;
+        if (n < 4) {
+          img.dataset.essai = n;
+          img.src = n === 1 ? `https://img.youtube.com/vi/${m[2]}/hqdefault.jpg`
+                  : n === 2 ? `https://i.ytimg.com/vi/${m[2]}/mqdefault.jpg`
+                  : `https://img.youtube.com/vi/${m[2]}/mqdefault.jpg`;
+          return;
+        }
+      }
       vign.replaceChildren(a.source.charAt(0).toUpperCase()); vign.classList.add("vide");
     };
     vign.append(img);
