@@ -98,10 +98,29 @@ def trouver_image(el, html_brut):
     return None
 
 
+def reparer(contenu):
+    """Tente de rendre lisible un flux mal formé (esperluettes, caractères
+    interdits, préfixes XML non déclarés, déclaration d'encodage fausse)."""
+    texte = contenu.decode("utf-8", "replace")
+    texte = re.sub(r"^\s*<\?xml[^>]*\?>", "", texte)
+    texte = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", texte)
+    texte = re.sub(r"&(?!(?:[a-zA-Z][a-zA-Z0-9]*|#\d+|#x[0-9a-fA-F]+);)", "&amp;", texte)
+    declares = set(re.findall(r"xmlns:(\w+)\s*=", texte))
+    utilises = set(re.findall(r"</?(\w+):\w", texte)) - {"xml", "xmlns"}
+    for p in utilises - declares:
+        texte = re.sub(rf"(</?){p}:", rf"\1{p}_", texte)
+        texte = re.sub(rf"(\s){p}:(\w+\s*=)", rf"\1{p}_\2", texte)
+    return texte.encode("utf-8")
+
+
 def analyser(contenu):
     """Retourne la liste des articles d'un flux RSS ou Atom."""
     articles = []
-    for el in ET.fromstring(contenu).iter():
+    try:
+        racine = ET.fromstring(contenu)
+    except ET.ParseError:
+        racine = ET.fromstring(reparer(contenu))
+    for el in racine.iter():
         if nom_balise(el) not in ("item", "entry"):
             continue
         champs, lien = {}, None
