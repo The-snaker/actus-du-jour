@@ -22,6 +22,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: python collect.py
+        env:
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
       - name: Enregistrer les résultats
         run: |
           git config user.name "actus-bot"

@@ -4,6 +4,7 @@ et écrit news.json (pour l'appli) et rapport.txt (état de chaque source).
 Aucune dépendance externe."""
 import html
 import json
+import os
 import re
 import sys
 import urllib.request
@@ -159,71 +160,55 @@ def traiter(tache):
         return categorie, source, [], f"{type(e).__name__}: {e}"
 
 
-URL_TENDANCES = "https://trends.google.com/trending/rss?geo=FR"
-MAX_TENDANCES = 25
+MAX_TENDANCES = 100
 
 
-MOTS_FR = {"le","la","les","des","du","de","un","une","et","en","est","pour","que","qui","dans","sur",
-           "au","aux","ce","son","sa","ses","par","avec","pas","plus","après","il","elle","ont","se","l","d"}
-MOTS_AUTRES = {"the","of","and","to","in","for","is","on","with","at","as","after","from","por","em","do","da",
-               "los","las","el","der","die","und","del","che","tem","nos","na","os","uma","não","para","com","no","é","ao","são","foi","será"}
-
-
-def est_francais(actu):
-    """Heuristique simple : domaine francophone ou mots français dominants dans le titre."""
-    titre = actu["news_item_title"].lower()
-    mots = re.findall(r"[a-zàâçéèêëîïôûùüÿœ]+", titre)
-    fr = sum(m in MOTS_FR for m in mots)
-    autre = sum(m in MOTS_AUTRES - MOTS_FR for m in mots)
-    domaine = re.sub(r"^https?://([^/]+).*", r"\1", actu.get("news_item_url", "")).lower()
-    if re.search(r"\.(br|pt|es|it|de|uk)$", domaine) or ".com.br" in domaine:
-        return False
-    if re.search(r"\.(fr|be|ch|lu|qc\.ca)$", domaine) or domaine.endswith((".ca",)):
-        fr += 2
-    return fr > autre and fr >= 1
+def format_vues(n):
+    n = int(n)
+    if n >= 1_000_000:
+        return f"{n / 1_000_000:.1f}".replace(".", ",").replace(",0", "") + " M"
+    if n >= 1000:
+        return f"{n // 1000} k"
+    return str(n)
 
 
 def collecter_tendances():
-    """Sujets du moment en France d'après Google Trends (flux gratuit).
-    Un sujet = une carte : l'article de presse principal, avec le terme recherché
-    et le volume de recherches en extrait. Ordre du flux = ordre de popularité."""
-    req = urllib.request.Request(URL_TENDANCES, headers=ENTETES)
-    with urllib.request.urlopen(req, timeout=20) as r:
-        racine = ET.fromstring(r.read())
-    sujets = []
-    for item in racine.iter("item"):
-        terme = trafic = date = image = None
-        actus = []
-        for c in item:
-            k = nom_balise(c)
-            if k == "title":
-                terme = nettoyer(c.text)
-            elif k == "approx_traffic":
-                trafic = nettoyer(c.text)
-            elif k == "pubDate":
-                date = lire_date(c.text)
-            elif k == "picture":
-                image = image_valide(c.text)
-            elif k == "news_item":
-                f = {nom_balise(x): (x.text or "") for x in c}
-                if f.get("news_item_title") and f.get("news_item_url", "").startswith("http"):
-                    actus.append(f)
-        if not (terme and actus and date):
+    """Vidéos tendance de YouTube en France (API officielle, gratuite avec une clé).
+    La clé est lue dans la variable d'environnement YT_API_KEY (secret GitHub).
+    L'ordre est celui de YouTube : le classement « Tendances »."""
+    cle = os.environ.get("YT_API_KEY", "").strip()
+    if not cle:
+        raise ValueError("clé YT_API_KEY absente (secret GitHub non configuré)")
+    videos, jeton = [], ""
+    while len(videos) < MAX_TENDANCES:
+        url = ("https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics"
+               "&chart=mostPopular&regionCode=FR&maxResults=50&hl=fr&key=" + cle + jeton)
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=ENTETES), timeout=20) as r:
+                rep = json.load(r)
+        except urllib.error.HTTPError as e:
+            raise ValueError(f"YouTube a répondu {e.code}") from None   # n'affiche jamais la clé
+        videos += rep.get("items", [])
+        if not rep.get("nextPageToken"):
+            break
+        jeton = "&pageToken=" + rep["nextPageToken"]
+    sortie = []
+    for v in videos[:MAX_TENDANCES]:
+        sn, st = v.get("snippet", {}), v.get("statistics", {})
+        date = lire_date(sn.get("publishedAt"))
+        if not (v.get("id") and sn.get("title") and date):
             continue
-        actus = [a for a in actus if est_francais(a)]
-        if not actus:
-            continue
-        premiere = actus[0]
-        extrait = f"Tendance Google France : « {terme} »" + (f", plus de {trafic.rstrip('+')} recherches" if trafic else "")
-        if len(actus) > 1:
-            extrait += ". À lire aussi : " + nettoyer(actus[1]["news_item_title"])
-        sujets.append({"source": nettoyer(premiere.get("news_item_source")) or "Google Trends",
-                       "titre": nettoyer(premiere["news_item_title"]),
-                       "lien": premiere["news_item_url"].strip(),
-                       "extrait": couper(extrait, LONGUEUR_EXTRAIT),
-                       "image": image_valide(premiere.get("news_item_picture")) or image,
+        miniatures = sn.get("thumbnails", {})
+        image = next((miniatures[k]["url"] for k in ("maxres", "standard", "high", "medium", "default")
+                      if k in miniatures), None)
+        vues = f"{format_vues(st['viewCount'])} de vues · " if st.get("viewCount") else ""
+        sortie.append({"source": sn.get("channelTitle") or "YouTube",
+                       "titre": nettoyer(sn["title"]),
+                       "lien": "https://www.youtube.com/watch?v=" + v["id"],
+                       "extrait": couper(vues + nettoyer(sn.get("description")), LONGUEUR_EXTRAIT),
+                       "image": image_valide(image),
                        "date": date.isoformat()})
-    return sujets[:MAX_TENDANCES]
+    return sortie
 
 
 def main():
@@ -269,11 +254,11 @@ def main():
 
     try:
         sortie["Tendances"] = collecter_tendances()
-        etat = f"OK   [Tendances] Google Trends France - {len(sortie['Tendances'])} sujet(s)"
+        etat = f"OK   [Tendances] YouTube Tendances France - {len(sortie['Tendances'])} sujet(s)"
         if not sortie["Tendances"]:
             raise ValueError("aucun sujet lisible")
     except Exception as e:
-        etat = f"KO   [Tendances] Google Trends France - {type(e).__name__}: {e}"
+        etat = f"KO   [Tendances] YouTube Tendances France - {type(e).__name__}: {e}"
         try:   # on garde les tendances de la dernière collecte réussie
             with open("news.json", encoding="utf-8") as f:
                 sortie["Tendances"] = json.load(f)["categories"].get("Tendances", [])

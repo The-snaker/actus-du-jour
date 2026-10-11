@@ -384,7 +384,8 @@ function rendre() {
     else e.append(el("b", "", "Rien pour le moment"), "Aucun article récent dans cette catégorie.");
     zone.append(e); return;
   }
-  const accueil = !requete && vue !== "Favoris";
+  const classement = vue === "Tendances";   /* garde l'ordre de YouTube : pas de regroupement par jour */
+  const accueil = !requete && vue !== "Favoris" && !classement;
   if (accueil) {
     const i = arts.findIndex(a => httpsOk(a.image) && Date.now() - new Date(a.date) < 36 * 36e5);
     if (i >= 0) { zone.append(carteHero(arts[i])); arts = arts.filter((_, k) => k !== i); }
@@ -393,7 +394,7 @@ function rendre() {
   let jour = "", grille = null;
   for (const a of visibles) {
     if (!httpsOk(a.lien)) continue;
-    const d = new Date(a.date), j = etiquetteJour(d);
+    const d = new Date(a.date), j = classement ? "Tendances YouTube en France" : etiquetteJour(d);
     if (j !== jour) { zone.append(el("h2", "jour", j)); grille = el("div", "grille"); zone.append(grille); jour = j; }
     grille.append(carte(a, vue === "Tout" || vue === "Favoris"));
   }
