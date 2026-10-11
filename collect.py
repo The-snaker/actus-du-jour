@@ -166,7 +166,7 @@ MAX_TENDANCES = 25
 MOTS_FR = {"le","la","les","des","du","de","un","une","et","en","est","pour","que","qui","dans","sur",
            "au","aux","ce","son","sa","ses","par","avec","pas","plus","après","il","elle","ont","se","l","d"}
 MOTS_AUTRES = {"the","of","and","to","in","for","is","on","with","at","as","after","from","por","em","do","da",
-               "los","las","el","der","die","und","del","che","il"}
+               "los","las","el","der","die","und","del","che","tem","nos","na","os","uma","não","para","com","no","é","ao","são","foi","será"}
 
 
 def est_francais(actu):
@@ -176,6 +176,8 @@ def est_francais(actu):
     fr = sum(m in MOTS_FR for m in mots)
     autre = sum(m in MOTS_AUTRES - MOTS_FR for m in mots)
     domaine = re.sub(r"^https?://([^/]+).*", r"\1", actu.get("news_item_url", "")).lower()
+    if re.search(r"\.(br|pt|es|it|de|uk)$", domaine) or ".com.br" in domaine:
+        return False
     if re.search(r"\.(fr|be|ch|lu|qc\.ca)$", domaine) or domaine.endswith((".ca",)):
         fr += 2
     return fr > autre and fr >= 1
