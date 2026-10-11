@@ -163,6 +163,24 @@ URL_TENDANCES = "https://trends.google.com/trending/rss?geo=FR"
 MAX_TENDANCES = 25
 
 
+MOTS_FR = {"le","la","les","des","du","de","un","une","et","en","est","pour","que","qui","dans","sur",
+           "au","aux","ce","son","sa","ses","par","avec","pas","plus","après","il","elle","ont","se","l","d"}
+MOTS_AUTRES = {"the","of","and","to","in","for","is","on","with","at","as","after","from","por","em","do","da",
+               "los","las","el","der","die","und","del","che","il"}
+
+
+def est_francais(actu):
+    """Heuristique simple : domaine francophone ou mots français dominants dans le titre."""
+    titre = actu["news_item_title"].lower()
+    mots = re.findall(r"[a-zàâçéèêëîïôûùüÿœ]+", titre)
+    fr = sum(m in MOTS_FR for m in mots)
+    autre = sum(m in MOTS_AUTRES - MOTS_FR for m in mots)
+    domaine = re.sub(r"^https?://([^/]+).*", r"\1", actu.get("news_item_url", "")).lower()
+    if re.search(r"\.(fr|be|ch|lu|qc\.ca)$", domaine) or domaine.endswith((".ca",)):
+        fr += 2
+    return fr > autre and fr >= 1
+
+
 def collecter_tendances():
     """Sujets du moment en France d'après Google Trends (flux gratuit).
     Un sujet = une carte : l'article de presse principal, avec le terme recherché
@@ -189,6 +207,9 @@ def collecter_tendances():
                 if f.get("news_item_title") and f.get("news_item_url", "").startswith("http"):
                     actus.append(f)
         if not (terme and actus and date):
+            continue
+        actus = [a for a in actus if est_francais(a)]
+        if not actus:
             continue
         premiere = actus[0]
         extrait = f"Tendance Google France : « {terme} »" + (f", plus de {trafic.rstrip('+')} recherches" if trafic else "")
