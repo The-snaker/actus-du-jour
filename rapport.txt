@@ -1,30 +1,16 @@
-Rapport du 2026-10-11T19:58:29.586919+00:00
-Politique française: 15/15 sources OK | Jeux-Vidéo: 12/18 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 10/22 sources OK | Québec: 12/19 sources OK | Aéronautique: 7/8 sources OK | Finance: 15/15 sources OK
+Rapport du 2026-10-11T20:02:50.938299+00:00
+Politique française: 15/15 sources OK | Jeux-Vidéo: 13/14 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 18/26 sources OK | Québec: 15/17 sources OK | Aéronautique: 7/8 sources OK | Finance: 15/15 sources OK
 KO   [Aéronautique] AeroMorning - https://www.aeromorning.com/feed/ - TimeoutError: The read operation timed out
-KO   [Jeux-Vidéo] 20 Minutes Jeux vidéo - https://www.20minutes.fr/feeds/rss-jeux-video.xml - HTTPError: HTTP Error 403: Forbidden
-KO   [Jeux-Vidéo] Journal du Geek Jeux vidéo - https://www.journaldugeek.com/jeux-video/feed/ - ParseError: syntax error: line 1, column 0
-KO   [Jeux-Vidéo] Konbini Gaming - https://www.konbini.com/gaming/feed/ - ParseError: not well-formed (invalid token): line 35, column 2269
-KO   [Jeux-Vidéo] Millenium - https://www.millenium.org/rss/news.xml - HTTPError: HTTP Error 404: Not Found
-KO   [Jeux-Vidéo] PSthc - https://www.psthc.fr/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Jeux-Vidéo] Presse-citron Jeux vidéo - https://www.presse-citron.net/pop-culture/jeux-video/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Québec] 98,5 FM - https://www.985fm.ca/feed/ - HTTPError: HTTP Error 404: not found
-KO   [Québec] Le Devoir Montréal - https://www.ledevoir.com/rss/section/montreal.xml - HTTPError: HTTP Error 404: Not Found
-KO   [Québec] Le Droit - https://www.ledroit.com/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Québec] Le Nouvelliste - https://www.lenouvelliste.ca/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Québec] Le Soleil - https://www.lesoleil.com/feed/ - HTTPError: HTTP Error 404: Not Found
-KO   [Québec] Noovo Info - https://www.noovo.info/rss.xml - HTTPError: HTTP Error 404: Not Found
-KO   [Québec] Radio-Canada Montréal - https://ici.radio-canada.ca/rss/6933 - HTTPError: HTTP Error 404: Not Found
-KO   [Sport] BFM Sport - https://www.bfmtv.com/rss/sport/ - HTTPError: HTTP Error 404: Not Found
-KO   [Sport] Eurosport Football - https://www.eurosport.fr/football/rss.xml - HTTPError: HTTP Error 404: Not Found
-KO   [Sport] Foot01 - https://www.foot01.com/rss.xml - HTTPError: HTTP Error 404: Not Found
-KO   [Sport] Get Football News France - https://www.getfootballnewsfrance.com/feed/ - ParseError: mismatched tag: line 1, column 166
-KO   [Sport] Goal - https://www.goal.com/feeds/fr/news - HTTPError: HTTP Error 404: Not Found
-KO   [Sport] L'Équipe - https://www.lequipe.fr/rss/actu_rss.xml - HTTPError: HTTP Error 403: Forbidden
-KO   [Sport] L'Équipe Football - https://www.lequipe.fr/rss/actu_rss_Football.xml - HTTPError: HTTP Error 403: Forbidden
-KO   [Sport] Le 10 Sport - https://www.le10sport.com/rss - ParseError: mismatched tag: line 73, column 14
-KO   [Sport] Onze Mondial - https://www.onzemondial.com/feed - HTTPError: HTTP Error 404: Not Found
-KO   [Sport] So Foot - https://www.sofoot.com/rss.xml - HTTPError: HTTP Error 404: Not Found
-KO   [Sport] Transfermarkt - https://www.transfermarkt.fr/rss/news - ParseError: no element found: line 1, column 0
+KO   [Jeux-Vidéo] Gamekyo - https://www.gamekyo.com/rss.php - HTTPError: HTTP Error 404: Not Found
+KO   [Québec] La Presse Société - https://www.lapresse.ca/actualites/societe/rss - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] Culture PSG - https://culturepsg.com/feed/ - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] Eurosport - https://www.eurosport.fr/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] Goal France - https://www.goal.com/fr/feeds/news?fmt=rss - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] Maxifoot - https://www.maxifoot.fr/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] Onze Mondial - https://www.onzemondial.com/rss.xml - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] RMC Sport Bundesliga - https://rmcsport.bfmtv.com/rss/football/bundesliga/ - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] RMC Sport Liga - https://rmcsport.bfmtv.com/rss/football/liga/ - HTTPError: HTTP Error 404: Not Found
+KO   [Sport] RMC Sport Serie A - https://rmcsport.bfmtv.com/rss/football/serie-a/ - HTTPError: HTTP Error 404: Not Found
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
 OK   [Aéronautique] Aviation Magazine - 1 récent(s), 0 avec image
@@ -89,6 +75,7 @@ OK   [Jeux-Vidéo] Journal du Gamer - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] Le Monde Jeux vidéo - 0 récent(s), 0 avec image
 OK   [Jeux-Vidéo] Nintendo-Town - 10 récent(s), 3 avec image
 OK   [Jeux-Vidéo] Numerama Jeux vidéo - 8 récent(s), 8 avec image
+OK   [Jeux-Vidéo] Xboxygen - 12 récent(s), 12 avec image
 OK   [Politique française] 20 Minutes - 12 récent(s), 12 avec image
 OK   [Politique française] BFM TV - 12 récent(s), 12 avec image
 OK   [Politique française] France Info - 12 récent(s), 12 avec image
@@ -107,23 +94,34 @@ OK   [Politique française] Valeurs actuelles - 10 récent(s), 1 avec image
 OK   [Québec] 24 heures - 12 récent(s), 12 avec image
 OK   [Québec] L'actualité - 10 récent(s), 10 avec image
 OK   [Québec] La Presse - 10 récent(s), 10 avec image
+OK   [Québec] La Presse Affaires - 10 récent(s), 10 avec image
 OK   [Québec] La Presse Grand Montréal - 6 récent(s), 6 avec image
+OK   [Québec] La Presse Politique - 9 récent(s), 9 avec image
 OK   [Québec] Le Devoir - 12 récent(s), 0 avec image
 OK   [Québec] Le Devoir Politique - 10 récent(s), 0 avec image
+OK   [Québec] Le Devoir Économie - 10 récent(s), 0 avec image
 OK   [Québec] Le Journal de Montréal - 12 récent(s), 12 avec image
 OK   [Québec] Le Journal de Québec - 12 récent(s), 12 avec image
 OK   [Québec] Métro - 4 récent(s), 4 avec image
 OK   [Québec] Métro Montréal - 0 récent(s), 0 avec image
 OK   [Québec] Radio-Canada - 12 récent(s), 12 avec image
 OK   [Québec] TVA Nouvelles - 12 récent(s), 12 avec image
+OK   [Sport] 20 Minutes Football - 12 récent(s), 10 avec image
 OK   [Sport] 20 Minutes Sport - 12 récent(s), 11 avec image
 OK   [Sport] 90min - 0 récent(s), 0 avec image
 OK   [Sport] But! Football Club - 12 récent(s), 0 avec image
 OK   [Sport] Foot Mercato - 12 récent(s), 12 avec image
+OK   [Sport] France Info Foot - 10 récent(s), 9 avec image
 OK   [Sport] France Info Sport - 12 récent(s), 11 avec image
 OK   [Sport] Le Figaro Sport - 0 récent(s), 0 avec image
+OK   [Sport] Le Monde Football - 6 récent(s), 6 avec image
 OK   [Sport] Le Monde Sport - 12 récent(s), 12 avec image
 OK   [Sport] Libération Sports - 8 récent(s), 0 avec image
 OK   [Sport] RMC Sport Football - 12 récent(s), 12 avec image
+OK   [Sport] RMC Sport Ligue 1 - 12 récent(s), 12 avec image
+OK   [Sport] RMC Sport Ligue des champions - 1 récent(s), 1 avec image
+OK   [Sport] RMC Sport Premier League - 12 récent(s), 11 avec image
+OK   [Sport] RMC Sport Transferts - 3 récent(s), 3 avec image
+OK   [Sport] So Foot - 12 récent(s), 12 avec image
 OK   [Sport] Sud Ouest Sport - 12 récent(s), 0 avec image
-VIDE [Sport] France Info Football - https://www.francetvinfo.fr/sports/football.rss - aucun article lisible
+VIDE [Québec] Le Devoir Société - https://www.ledevoir.com/rss/section/societe.xml - aucun article lisible
