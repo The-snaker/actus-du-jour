@@ -1,6 +1,7 @@
-Rapport du 2026-10-11T22:18:42.165010+00:00
-Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 28/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
+Rapport du 2026-10-11T22:20:20.636170+00:00
+Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 28/29 sources OK | High-Tech: 14/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 KO   [Esport] Breakflip - https://www.breakflip.com/feed - HTTPError: HTTP Error 500: Internal Server Error
+KO   [High-Tech] BFM Tech - https://www.bfmtv.com/rss/tech/ - HTTPError: HTTP Error 502: Bad Gateway
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 9 avec image
 OK   [Aéronautique] Aviation Magazine - 1 récent(s), 0 avec image
@@ -16,7 +17,7 @@ OK   [Cinéma] Konbini Cinéma - 11 récent(s), 11 avec image
 OK   [Cinéma] L'Obs Cinéma - 4 récent(s), 0 avec image
 OK   [Cinéma] Le Bleu du Miroir - 3 récent(s), 0 avec image
 OK   [Cinéma] Le Figaro Cinéma - 7 récent(s), 7 avec image
-OK   [Cinéma] Le Monde Cinéma - 3 récent(s), 3 avec image
+OK   [Cinéma] Le Monde Cinéma - 4 récent(s), 4 avec image
 OK   [Cinéma] Les Inrocks Cinéma - 3 récent(s), 3 avec image
 OK   [Cinéma] Libération Cinéma - 5 récent(s), 0 avec image
 OK   [Cinéma] Numerama Ciné - 3 récent(s), 3 avec image
@@ -48,7 +49,7 @@ OK   [Esport] Next - 0 récent(s), 0 avec image
 OK   [Esport] Numerama Jeux vidéo - 0 récent(s), 0 avec image
 OK   [Esport] Phonandroid - 0 récent(s), 0 avec image
 OK   [Esport] Presse-citron - 0 récent(s), 0 avec image
-OK   [Esport] Team aAa - 12 récent(s), 0 avec image
+OK   [Esport] Team aAa - 20 récent(s), 0 avec image
 OK   [Esport] Tom's Hardware - 0 récent(s), 0 avec image
 OK   [Esport] Xboxygen - 0 récent(s), 0 avec image
 OK   [Finance] 20 Minutes Économie - 10 récent(s), 10 avec image
@@ -67,7 +68,6 @@ OK   [Finance] Le Monde Entreprises - 12 récent(s), 12 avec image
 OK   [Finance] Le Monde Économie - 12 récent(s), 12 avec image
 OK   [Finance] Le Revenu - 12 récent(s), 12 avec image
 OK   [High-Tech] 01net - 12 récent(s), 12 avec image
-OK   [High-Tech] BFM Tech - 12 récent(s), 12 avec image
 OK   [High-Tech] Clubic - 12 récent(s), 12 avec image
 OK   [High-Tech] Frandroid - 12 récent(s), 12 avec image
 OK   [High-Tech] Génération NT - 12 récent(s), 12 avec image
