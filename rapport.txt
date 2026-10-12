@@ -1,7 +1,6 @@
-Rapport du 2026-10-11T22:20:20.636170+00:00
-Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 28/29 sources OK | High-Tech: 14/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
+Rapport du 2026-10-12T00:28:34.824680+00:00
+Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 28/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 KO   [Esport] Breakflip - https://www.breakflip.com/feed - HTTPError: HTTP Error 500: Internal Server Error
-KO   [High-Tech] BFM Tech - https://www.bfmtv.com/rss/tech/ - HTTPError: HTTP Error 502: Bad Gateway
 OK   [Aéronautique] Aerobuzz - 9 récent(s), 0 avec image
 OK   [Aéronautique] Air Journal - 12 récent(s), 9 avec image
 OK   [Aéronautique] Aviation Magazine - 1 récent(s), 0 avec image
@@ -68,6 +67,7 @@ OK   [Finance] Le Monde Entreprises - 12 récent(s), 12 avec image
 OK   [Finance] Le Monde Économie - 12 récent(s), 12 avec image
 OK   [Finance] Le Revenu - 12 récent(s), 12 avec image
 OK   [High-Tech] 01net - 12 récent(s), 12 avec image
+OK   [High-Tech] BFM Tech - 12 récent(s), 12 avec image
 OK   [High-Tech] Clubic - 12 récent(s), 12 avec image
 OK   [High-Tech] Frandroid - 12 récent(s), 12 avec image
 OK   [High-Tech] Génération NT - 12 récent(s), 12 avec image
@@ -113,7 +113,7 @@ OK   [Québec] 24 heures - 12 récent(s), 12 avec image
 OK   [Québec] L'actualité - 10 récent(s), 10 avec image
 OK   [Québec] La Presse - 10 récent(s), 10 avec image
 OK   [Québec] La Presse Grand Montréal - 6 récent(s), 6 avec image
-OK   [Québec] La Presse Politique - 10 récent(s), 10 avec image
+OK   [Québec] La Presse Politique - 8 récent(s), 8 avec image
 OK   [Québec] Le Devoir - 12 récent(s), 0 avec image
 OK   [Québec] Le Devoir Politique - 9 récent(s), 0 avec image
 OK   [Québec] Le Journal de Montréal - 12 récent(s), 12 avec image
@@ -122,8 +122,8 @@ OK   [Québec] Métro - 4 récent(s), 4 avec image
 OK   [Québec] Métro Montréal - 0 récent(s), 0 avec image
 OK   [Québec] Radio-Canada - 12 récent(s), 12 avec image
 OK   [Québec] TVA Nouvelles - 12 récent(s), 12 avec image
-OK   [Sport] 20 Minutes Football - 12 récent(s), 10 avec image
-OK   [Sport] 20 Minutes Sport - 12 récent(s), 11 avec image
+OK   [Sport] 20 Minutes Football - 12 récent(s), 11 avec image
+OK   [Sport] 20 Minutes Sport - 12 récent(s), 12 avec image
 OK   [Sport] 90min - 0 récent(s), 0 avec image
 OK   [Sport] But! Football Club - 12 récent(s), 0 avec image
 OK   [Sport] Foot Mercato - 12 récent(s), 12 avec image
