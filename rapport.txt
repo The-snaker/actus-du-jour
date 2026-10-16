@@ -1,9 +1,8 @@
-Rapport du 2026-10-16T00:35:02.573857+00:00
-Politique française: 14/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 28/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
+Rapport du 2026-10-16T05:28:35.669550+00:00
+Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 28/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 KO   [Esport] Breakflip - https://www.breakflip.com/feed - HTTPError: HTTP Error 500: Internal Server Error
-KO   [Politique française] Le Figaro - https://www.lefigaro.fr/rss/figaro_politique.xml - URLError: <urlopen error _ssl.c:993: The handshake operation timed out>
 OK   [Aéronautique] Aerobuzz - 0 récent(s), 0 avec image
-OK   [Aéronautique] Air Journal - 12 récent(s), 8 avec image
+OK   [Aéronautique] Air Journal - 12 récent(s), 9 avec image
 OK   [Aéronautique] Aviation Magazine - 4 récent(s), 2 avec image
 OK   [Aéronautique] Avions Légendaires - 9 récent(s), 9 avec image
 OK   [Aéronautique] Forces Opérations Blog - 2 récent(s), 0 avec image
@@ -16,7 +15,7 @@ OK   [Cinéma] France Info Cinéma - 12 récent(s), 12 avec image
 OK   [Cinéma] Konbini Cinéma - 12 récent(s), 12 avec image
 OK   [Cinéma] L'Obs Cinéma - 12 récent(s), 0 avec image
 OK   [Cinéma] Le Bleu du Miroir - 1 récent(s), 0 avec image
-OK   [Cinéma] Le Figaro Cinéma - 12 récent(s), 12 avec image
+OK   [Cinéma] Le Figaro Cinéma - 11 récent(s), 11 avec image
 OK   [Cinéma] Le Monde Cinéma - 12 récent(s), 12 avec image
 OK   [Cinéma] Les Inrocks Cinéma - 9 récent(s), 9 avec image
 OK   [Cinéma] Libération Cinéma - 11 récent(s), 0 avec image
@@ -53,14 +52,14 @@ OK   [Esport] Team aAa - 20 récent(s), 0 avec image
 OK   [Esport] Tom's Hardware - 0 récent(s), 0 avec image
 OK   [Esport] Xboxygen - 0 récent(s), 0 avec image
 OK   [Finance] 20 Minutes Économie - 12 récent(s), 10 avec image
-OK   [Finance] Alternatives Économiques - 10 récent(s), 7 avec image
+OK   [Finance] Alternatives Économiques - 8 récent(s), 6 avec image
 OK   [Finance] BFM Business - 12 récent(s), 12 avec image
 OK   [Finance] Cryptoast - 12 récent(s), 0 avec image
 OK   [Finance] France Info Économie - 12 récent(s), 12 avec image
 OK   [Finance] Journal du Coin - 10 récent(s), 7 avec image
 OK   [Finance] L'Express Économie - 12 récent(s), 12 avec image
 OK   [Finance] L'Obs Économie - 9 récent(s), 4 avec image
-OK   [Finance] Le Figaro Bourse - 4 récent(s), 4 avec image
+OK   [Finance] Le Figaro Bourse - 5 récent(s), 5 avec image
 OK   [Finance] Le Figaro Conjoncture - 12 récent(s), 12 avec image
 OK   [Finance] Le Figaro Économie - 12 récent(s), 12 avec image
 OK   [Finance] Le Monde Argent - 7 récent(s), 7 avec image
@@ -70,7 +69,7 @@ OK   [Finance] Le Revenu - 12 récent(s), 12 avec image
 OK   [High-Tech] 01net - 12 récent(s), 12 avec image
 OK   [High-Tech] BFM Tech - 12 récent(s), 12 avec image
 OK   [High-Tech] Clubic - 12 récent(s), 12 avec image
-OK   [High-Tech] Frandroid - 12 récent(s), 12 avec image
+OK   [High-Tech] Frandroid - 12 récent(s), 11 avec image
 OK   [High-Tech] Génération NT - 12 récent(s), 12 avec image
 OK   [High-Tech] Journal du Geek - 12 récent(s), 11 avec image
 OK   [High-Tech] Korben - 12 récent(s), 12 avec image
@@ -101,21 +100,22 @@ OK   [Politique française] France Info - 12 récent(s), 12 avec image
 OK   [Politique française] L'Express - 7 récent(s), 7 avec image
 OK   [Politique française] L'Obs - 12 récent(s), 7 avec image
 OK   [Politique française] LCP - 12 récent(s), 12 avec image
+OK   [Politique française] Le Figaro - 7 récent(s), 6 avec image
 OK   [Politique française] Le JDD - 12 récent(s), 12 avec image
 OK   [Politique française] Le Monde - 12 récent(s), 12 avec image
-OK   [Politique française] Les Décodeurs - 1 récent(s), 1 avec image
+OK   [Politique française] Les Décodeurs - 2 récent(s), 2 avec image
 OK   [Politique française] Libération - 12 récent(s), 0 avec image
 OK   [Politique française] Mediapart - 10 récent(s), 10 avec image
 OK   [Politique française] Public Sénat - 12 récent(s), 12 avec image
 OK   [Politique française] Sud Ouest - 12 récent(s), 0 avec image
 OK   [Politique française] Valeurs actuelles - 10 récent(s), 2 avec image
 OK   [Québec] 24 heures - 12 récent(s), 12 avec image
-OK   [Québec] L'actualité - 10 récent(s), 10 avec image
+OK   [Québec] L'actualité - 12 récent(s), 12 avec image
 OK   [Québec] La Presse - 10 récent(s), 10 avec image
 OK   [Québec] La Presse Grand Montréal - 10 récent(s), 10 avec image
 OK   [Québec] La Presse Politique - 10 récent(s), 10 avec image
 OK   [Québec] Le Devoir - 12 récent(s), 0 avec image
-OK   [Québec] Le Devoir Politique - 0 récent(s), 0 avec image
+OK   [Québec] Le Devoir Politique - 9 récent(s), 0 avec image
 OK   [Québec] Le Journal de Montréal - 12 récent(s), 12 avec image
 OK   [Québec] Le Journal de Québec - 12 récent(s), 12 avec image
 OK   [Québec] Métro - 7 récent(s), 7 avec image
@@ -134,7 +134,7 @@ OK   [Sport] Le Monde Sport - 12 récent(s), 12 avec image
 OK   [Sport] RMC Sport Football - 12 récent(s), 12 avec image
 OK   [Sport] RMC Sport Ligue 1 - 10 récent(s), 9 avec image
 OK   [Sport] RMC Sport Ligue des champions - 12 récent(s), 12 avec image
-OK   [Sport] RMC Sport Premier League - 10 récent(s), 7 avec image
+OK   [Sport] RMC Sport Premier League - 11 récent(s), 8 avec image
 OK   [Sport] RMC Sport Transferts - 3 récent(s), 2 avec image
 OK   [Sport] So Foot - 12 récent(s), 12 avec image
 OK   [Tendances Youtube] YouTube Tendances France - 100 sujet(s)
