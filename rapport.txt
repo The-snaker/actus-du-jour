@@ -1,8 +1,8 @@
-Rapport du 2026-10-17T20:23:14.070915+00:00
+Rapport du 2026-10-18T00:35:08.622926+00:00
 Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 28/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 KO   [Esport] Breakflip - https://www.breakflip.com/feed - HTTPError: HTTP Error 500: Internal Server Error
 OK   [Aéronautique] Aerobuzz - 0 récent(s), 0 avec image
-OK   [Aéronautique] Air Journal - 12 récent(s), 9 avec image
+OK   [Aéronautique] Air Journal - 12 récent(s), 8 avec image
 OK   [Aéronautique] Aviation Magazine - 2 récent(s), 0 avec image
 OK   [Aéronautique] Avions Légendaires - 9 récent(s), 9 avec image
 OK   [Aéronautique] Forces Opérations Blog - 1 récent(s), 0 avec image
@@ -58,7 +58,7 @@ OK   [Finance] Cryptoast - 12 récent(s), 0 avec image
 OK   [Finance] France Info Économie - 12 récent(s), 12 avec image
 OK   [Finance] Journal du Coin - 10 récent(s), 8 avec image
 OK   [Finance] L'Express Économie - 10 récent(s), 10 avec image
-OK   [Finance] L'Obs Économie - 11 récent(s), 7 avec image
+OK   [Finance] L'Obs Économie - 12 récent(s), 8 avec image
 OK   [Finance] Le Figaro Bourse - 5 récent(s), 5 avec image
 OK   [Finance] Le Figaro Conjoncture - 12 récent(s), 12 avec image
 OK   [Finance] Le Figaro Économie - 12 récent(s), 12 avec image
@@ -79,7 +79,7 @@ OK   [High-Tech] Next - 12 récent(s), 12 avec image
 OK   [High-Tech] Numerama - 12 récent(s), 12 avec image
 OK   [High-Tech] Phonandroid - 12 récent(s), 12 avec image
 OK   [High-Tech] Presse-citron - 12 récent(s), 12 avec image
-OK   [High-Tech] Tom's Hardware - 9 récent(s), 9 avec image
+OK   [High-Tech] Tom's Hardware - 8 récent(s), 8 avec image
 OK   [High-Tech] ZDNet - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] 01net Jeux vidéo - 1 récent(s), 1 avec image
 OK   [Jeux-Vidéo] Actugaming - 10 récent(s), 8 avec image
@@ -126,15 +126,15 @@ OK   [Sport] 20 Minutes Football - 12 récent(s), 12 avec image
 OK   [Sport] 20 Minutes Sport - 12 récent(s), 12 avec image
 OK   [Sport] 90min - 0 récent(s), 0 avec image
 OK   [Sport] But! Football Club - 12 récent(s), 0 avec image
-OK   [Sport] Foot Mercato - 12 récent(s), 11 avec image
+OK   [Sport] Foot Mercato - 12 récent(s), 12 avec image
 OK   [Sport] France Info Foot - 12 récent(s), 12 avec image
 OK   [Sport] France Info Sport - 12 récent(s), 12 avec image
-OK   [Sport] Le Monde Football - 7 récent(s), 7 avec image
-OK   [Sport] Le Monde Sport - 11 récent(s), 11 avec image
+OK   [Sport] Le Monde Football - 6 récent(s), 6 avec image
+OK   [Sport] Le Monde Sport - 10 récent(s), 10 avec image
 OK   [Sport] RMC Sport Football - 12 récent(s), 12 avec image
-OK   [Sport] RMC Sport Ligue 1 - 12 récent(s), 11 avec image
+OK   [Sport] RMC Sport Ligue 1 - 12 récent(s), 12 avec image
 OK   [Sport] RMC Sport Ligue des champions - 12 récent(s), 12 avec image
-OK   [Sport] RMC Sport Premier League - 5 récent(s), 5 avec image
+OK   [Sport] RMC Sport Premier League - 9 récent(s), 9 avec image
 OK   [Sport] RMC Sport Transferts - 2 récent(s), 1 avec image
 OK   [Sport] So Foot - 12 récent(s), 12 avec image
 OK   [Tendances Youtube] YouTube Tendances France - 100 sujet(s)
