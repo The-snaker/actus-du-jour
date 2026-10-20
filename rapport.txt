@@ -1,8 +1,8 @@
-Rapport du 2026-10-19T20:30:00.415033+00:00
+Rapport du 2026-10-20T00:37:52.020469+00:00
 Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 28/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 KO   [Esport] Breakflip - https://www.breakflip.com/feed - HTTPError: HTTP Error 500: Internal Server Error
 OK   [Aéronautique] Aerobuzz - 0 récent(s), 0 avec image
-OK   [Aéronautique] Air Journal - 12 récent(s), 11 avec image
+OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
 OK   [Aéronautique] Aviation Magazine - 0 récent(s), 0 avec image
 OK   [Aéronautique] Avions Légendaires - 9 récent(s), 9 avec image
 OK   [Aéronautique] Forces Opérations Blog - 2 récent(s), 0 avec image
@@ -14,7 +14,7 @@ OK   [Cinéma] Cinéséries - 3 récent(s), 3 avec image
 OK   [Cinéma] France Info Cinéma - 6 récent(s), 6 avec image
 OK   [Cinéma] Konbini Cinéma - 12 récent(s), 12 avec image
 OK   [Cinéma] L'Obs Cinéma - 0 récent(s), 0 avec image
-OK   [Cinéma] Le Bleu du Miroir - 6 récent(s), 0 avec image
+OK   [Cinéma] Le Bleu du Miroir - 7 récent(s), 0 avec image
 OK   [Cinéma] Le Figaro Cinéma - 3 récent(s), 3 avec image
 OK   [Cinéma] Le Monde Cinéma - 2 récent(s), 2 avec image
 OK   [Cinéma] Les Inrocks Cinéma - 4 récent(s), 4 avec image
@@ -113,9 +113,9 @@ OK   [Québec] 24 heures - 12 récent(s), 12 avec image
 OK   [Québec] L'actualité - 2 récent(s), 2 avec image
 OK   [Québec] La Presse - 10 récent(s), 10 avec image
 OK   [Québec] La Presse Grand Montréal - 10 récent(s), 10 avec image
-OK   [Québec] La Presse Politique - 9 récent(s), 9 avec image
+OK   [Québec] La Presse Politique - 10 récent(s), 10 avec image
 OK   [Québec] Le Devoir - 12 récent(s), 0 avec image
-OK   [Québec] Le Devoir Politique - 2 récent(s), 0 avec image
+OK   [Québec] Le Devoir Politique - 1 récent(s), 0 avec image
 OK   [Québec] Le Journal de Montréal - 12 récent(s), 12 avec image
 OK   [Québec] Le Journal de Québec - 12 récent(s), 12 avec image
 OK   [Québec] Métro - 7 récent(s), 7 avec image
@@ -127,14 +127,14 @@ OK   [Sport] 20 Minutes Sport - 12 récent(s), 11 avec image
 OK   [Sport] 90min - 0 récent(s), 0 avec image
 OK   [Sport] But! Football Club - 12 récent(s), 0 avec image
 OK   [Sport] Foot Mercato - 12 récent(s), 12 avec image
-OK   [Sport] France Info Foot - 10 récent(s), 10 avec image
+OK   [Sport] France Info Foot - 11 récent(s), 11 avec image
 OK   [Sport] France Info Sport - 12 récent(s), 12 avec image
 OK   [Sport] Le Monde Football - 5 récent(s), 5 avec image
 OK   [Sport] Le Monde Sport - 11 récent(s), 11 avec image
-OK   [Sport] RMC Sport Football - 12 récent(s), 12 avec image
+OK   [Sport] RMC Sport Football - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Ligue 1 - 12 récent(s), 12 avec image
 OK   [Sport] RMC Sport Ligue des champions - 12 récent(s), 12 avec image
-OK   [Sport] RMC Sport Premier League - 12 récent(s), 11 avec image
+OK   [Sport] RMC Sport Premier League - 11 récent(s), 11 avec image
 OK   [Sport] RMC Sport Transferts - 1 récent(s), 1 avec image
 OK   [Sport] So Foot - 12 récent(s), 12 avec image
 OK   [Tendances Youtube] YouTube Tendances France - 100 sujet(s)
