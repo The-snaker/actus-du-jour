@@ -1,8 +1,8 @@
-Rapport du 2026-10-20T20:28:13.305597+00:00
+Rapport du 2026-10-21T00:36:01.266733+00:00
 Politique française: 15/15 sources OK | Jeux-Vidéo: 13/13 sources OK | Esport: 28/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 KO   [Esport] Breakflip - https://www.breakflip.com/feed - HTTPError: HTTP Error 500: Internal Server Error
 OK   [Aéronautique] Aerobuzz - 0 récent(s), 0 avec image
-OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
+OK   [Aéronautique] Air Journal - 12 récent(s), 9 avec image
 OK   [Aéronautique] Aviation Magazine - 0 récent(s), 0 avec image
 OK   [Aéronautique] Avions Légendaires - 9 récent(s), 9 avec image
 OK   [Aéronautique] Forces Opérations Blog - 3 récent(s), 0 avec image
@@ -18,8 +18,8 @@ OK   [Cinéma] Le Bleu du Miroir - 8 récent(s), 0 avec image
 OK   [Cinéma] Le Figaro Cinéma - 9 récent(s), 9 avec image
 OK   [Cinéma] Le Monde Cinéma - 9 récent(s), 9 avec image
 OK   [Cinéma] Les Inrocks Cinéma - 10 récent(s), 10 avec image
-OK   [Cinéma] Libération Cinéma - 7 récent(s), 0 avec image
-OK   [Cinéma] Numerama Ciné - 6 récent(s), 6 avec image
+OK   [Cinéma] Libération Cinéma - 8 récent(s), 0 avec image
+OK   [Cinéma] Numerama Ciné - 7 récent(s), 7 avec image
 OK   [Cinéma] Télérama Cinéma - 12 récent(s), 11 avec image
 OK   [Cinéma] aVoir-aLire - 10 récent(s), 10 avec image
 OK   [Cinéma] Écran Large - 12 récent(s), 12 avec image
@@ -129,11 +129,11 @@ OK   [Sport] But! Football Club - 12 récent(s), 0 avec image
 OK   [Sport] Foot Mercato - 12 récent(s), 12 avec image
 OK   [Sport] France Info Foot - 11 récent(s), 11 avec image
 OK   [Sport] France Info Sport - 12 récent(s), 12 avec image
-OK   [Sport] Le Monde Football - 5 récent(s), 5 avec image
-OK   [Sport] Le Monde Sport - 11 récent(s), 11 avec image
-OK   [Sport] RMC Sport Football - 12 récent(s), 12 avec image
+OK   [Sport] Le Monde Football - 6 récent(s), 6 avec image
+OK   [Sport] Le Monde Sport - 12 récent(s), 12 avec image
+OK   [Sport] RMC Sport Football - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Ligue 1 - 12 récent(s), 12 avec image
-OK   [Sport] RMC Sport Ligue des champions - 12 récent(s), 12 avec image
+OK   [Sport] RMC Sport Ligue des champions - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Premier League - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Transferts - 4 récent(s), 4 avec image
 OK   [Sport] So Foot - 12 récent(s), 12 avec image
