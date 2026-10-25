@@ -1,10 +1,10 @@
-Rapport du 2026-10-24T20:22:31.876315+00:00
+Rapport du 2026-10-25T00:31:57.401456+00:00
 Politique française: 15/15 sources OK | Jeux-Vidéo: 12/13 sources OK | Esport: 27/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 KO   [Esport] Breakflip - https://www.breakflip.com/feed - HTTPError: HTTP Error 500: Internal Server Error
 KO   [Esport] JeuxActu - https://www.jeuxactu.com/rss/news.rss - HTTPError: HTTP Error 503: Service Temporarily Unavailable
 KO   [Jeux-Vidéo] JeuxActu - https://www.jeuxactu.com/rss/news.rss - HTTPError: HTTP Error 503: Service Temporarily Unavailable
 OK   [Aéronautique] Aerobuzz - 12 récent(s), 0 avec image
-OK   [Aéronautique] Air Journal - 12 récent(s), 11 avec image
+OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
 OK   [Aéronautique] Aviation Magazine - 1 récent(s), 1 avec image
 OK   [Aéronautique] Avions Légendaires - 9 récent(s), 9 avec image
 OK   [Aéronautique] Forces Opérations Blog - 3 récent(s), 0 avec image
@@ -23,7 +23,7 @@ OK   [Cinéma] Les Inrocks Cinéma - 6 récent(s), 6 avec image
 OK   [Cinéma] Libération Cinéma - 4 récent(s), 0 avec image
 OK   [Cinéma] Numerama Ciné - 10 récent(s), 10 avec image
 OK   [Cinéma] Télérama Cinéma - 11 récent(s), 11 avec image
-OK   [Cinéma] aVoir-aLire - 10 récent(s), 10 avec image
+OK   [Cinéma] aVoir-aLire - 9 récent(s), 9 avec image
 OK   [Cinéma] Écran Large - 12 récent(s), 12 avec image
 OK   [Esport] 20 Minutes Sport - 0 récent(s), 0 avec image
 OK   [Esport] Actugaming - 0 récent(s), 0 avec image
@@ -59,7 +59,7 @@ OK   [Finance] Cryptoast - 12 récent(s), 0 avec image
 OK   [Finance] France Info Économie - 12 récent(s), 11 avec image
 OK   [Finance] Journal du Coin - 10 récent(s), 10 avec image
 OK   [Finance] L'Express Économie - 6 récent(s), 6 avec image
-OK   [Finance] L'Obs Économie - 12 récent(s), 10 avec image
+OK   [Finance] L'Obs Économie - 12 récent(s), 9 avec image
 OK   [Finance] Le Figaro Bourse - 4 récent(s), 4 avec image
 OK   [Finance] Le Figaro Conjoncture - 12 récent(s), 12 avec image
 OK   [Finance] Le Figaro Économie - 12 récent(s), 12 avec image
@@ -86,7 +86,7 @@ OK   [Jeux-Vidéo] 01net Jeux vidéo - 0 récent(s), 0 avec image
 OK   [Jeux-Vidéo] Actugaming - 10 récent(s), 8 avec image
 OK   [Jeux-Vidéo] Gameblog - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] Gamekult - 12 récent(s), 12 avec image
-OK   [Jeux-Vidéo] Gamergen - 3 récent(s), 3 avec image
+OK   [Jeux-Vidéo] Gamergen - 2 récent(s), 2 avec image
 OK   [Jeux-Vidéo] IGN France - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] Jeuxvideo.com - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] Journal du Gamer - 12 récent(s), 11 avec image
@@ -127,11 +127,11 @@ OK   [Sport] 20 Minutes Sport - 12 récent(s), 12 avec image
 OK   [Sport] 90min - 0 récent(s), 0 avec image
 OK   [Sport] But! Football Club - 12 récent(s), 1 avec image
 OK   [Sport] Foot Mercato - 12 récent(s), 12 avec image
-OK   [Sport] France Info Foot - 12 récent(s), 12 avec image
+OK   [Sport] France Info Foot - 11 récent(s), 11 avec image
 OK   [Sport] France Info Sport - 12 récent(s), 12 avec image
-OK   [Sport] Le Monde Football - 3 récent(s), 3 avec image
+OK   [Sport] Le Monde Football - 2 récent(s), 2 avec image
 OK   [Sport] Le Monde Sport - 12 récent(s), 12 avec image
-OK   [Sport] RMC Sport Football - 12 récent(s), 12 avec image
+OK   [Sport] RMC Sport Football - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Ligue 1 - 12 récent(s), 12 avec image
 OK   [Sport] RMC Sport Ligue des champions - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Premier League - 9 récent(s), 8 avec image
