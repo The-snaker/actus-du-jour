@@ -1,4 +1,4 @@
-Rapport du 2026-10-28T20:38:03.879367+00:00
+Rapport du 2026-10-29T00:46:02.036532+00:00
 Politique française: 15/15 sources OK | Jeux-Vidéo: 11/13 sources OK | Esport: 26/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 KO   [Esport] Breakflip - https://www.breakflip.com/feed - HTTPError: HTTP Error 500: Internal Server Error
 KO   [Esport] Gamergen - https://www.gamergen.com/rss - HTTPError: HTTP Error 503: Service Temporarily Unavailable
@@ -6,7 +6,7 @@ KO   [Esport] JeuxActu - https://www.jeuxactu.com/rss/news.rss - HTTPError: HTTP
 KO   [Jeux-Vidéo] Gamergen - https://www.gamergen.com/rss - HTTPError: HTTP Error 503: Service Temporarily Unavailable
 KO   [Jeux-Vidéo] JeuxActu - https://www.jeuxactu.com/rss/news.rss - HTTPError: HTTP Error 503: Service Temporarily Unavailable
 OK   [Aéronautique] Aerobuzz - 12 récent(s), 0 avec image
-OK   [Aéronautique] Air Journal - 12 récent(s), 11 avec image
+OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
 OK   [Aéronautique] Aviation Magazine - 10 récent(s), 0 avec image
 OK   [Aéronautique] Avions Légendaires - 9 récent(s), 9 avec image
 OK   [Aéronautique] Forces Opérations Blog - 1 récent(s), 0 avec image
@@ -69,7 +69,7 @@ OK   [Finance] Le Monde Entreprises - 12 récent(s), 12 avec image
 OK   [Finance] Le Monde Économie - 12 récent(s), 12 avec image
 OK   [Finance] Le Revenu - 12 récent(s), 12 avec image
 OK   [High-Tech] 01net - 12 récent(s), 11 avec image
-OK   [High-Tech] BFM Tech - 12 récent(s), 11 avec image
+OK   [High-Tech] BFM Tech - 12 récent(s), 12 avec image
 OK   [High-Tech] Clubic - 12 récent(s), 12 avec image
 OK   [High-Tech] Frandroid - 12 récent(s), 11 avec image
 OK   [High-Tech] Génération NT - 12 récent(s), 12 avec image
@@ -131,10 +131,10 @@ OK   [Sport] France Info Foot - 12 récent(s), 12 avec image
 OK   [Sport] France Info Sport - 12 récent(s), 12 avec image
 OK   [Sport] Le Monde Football - 12 récent(s), 12 avec image
 OK   [Sport] Le Monde Sport - 12 récent(s), 12 avec image
-OK   [Sport] RMC Sport Football - 12 récent(s), 12 avec image
+OK   [Sport] RMC Sport Football - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Ligue 1 - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Ligue des champions - 2 récent(s), 2 avec image
-OK   [Sport] RMC Sport Premier League - 2 récent(s), 2 avec image
-OK   [Sport] RMC Sport Transferts - 2 récent(s), 2 avec image
+OK   [Sport] RMC Sport Premier League - 3 récent(s), 2 avec image
+OK   [Sport] RMC Sport Transferts - 3 récent(s), 3 avec image
 OK   [Sport] So Foot - 12 récent(s), 12 avec image
 OK   [Tendances Youtube] YouTube Tendances France - 100 sujet(s)
