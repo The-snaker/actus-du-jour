@@ -1,11 +1,12 @@
-Rapport du 2026-10-30T20:34:53.665357+00:00
-Politique française: 15/15 sources OK | Jeux-Vidéo: 12/13 sources OK | Esport: 27/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 14/15 sources OK
+Rapport du 2026-10-31T00:52:42.009117+00:00
+Politique française: 15/15 sources OK | Jeux-Vidéo: 11/13 sources OK | Esport: 26/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 KO   [Esport] Breakflip - https://www.breakflip.com/feed - HTTPError: HTTP Error 500: Internal Server Error
+KO   [Esport] Gamergen - https://www.gamergen.com/rss - HTTPError: HTTP Error 503: Service Temporarily Unavailable
 KO   [Esport] JeuxActu - https://www.jeuxactu.com/rss/news.rss - HTTPError: HTTP Error 503: Service Temporarily Unavailable
-KO   [Finance] Cryptoast - https://cryptoast.fr/feed/ - HTTPError: HTTP Error 500: Internal Server Error
+KO   [Jeux-Vidéo] Gamergen - https://www.gamergen.com/rss - HTTPError: HTTP Error 503: Service Temporarily Unavailable
 KO   [Jeux-Vidéo] JeuxActu - https://www.jeuxactu.com/rss/news.rss - HTTPError: HTTP Error 503: Service Temporarily Unavailable
 OK   [Aéronautique] Aerobuzz - 12 récent(s), 0 avec image
-OK   [Aéronautique] Air Journal - 12 récent(s), 11 avec image
+OK   [Aéronautique] Air Journal - 12 récent(s), 10 avec image
 OK   [Aéronautique] Aviation Magazine - 10 récent(s), 1 avec image
 OK   [Aéronautique] Avions Légendaires - 10 récent(s), 10 avec image
 OK   [Aéronautique] Forces Opérations Blog - 2 récent(s), 0 avec image
@@ -19,7 +20,7 @@ OK   [Cinéma] Konbini Cinéma - 12 récent(s), 12 avec image
 OK   [Cinéma] L'Obs Cinéma - 3 récent(s), 2 avec image
 OK   [Cinéma] Le Bleu du Miroir - 4 récent(s), 0 avec image
 OK   [Cinéma] Le Figaro Cinéma - 9 récent(s), 9 avec image
-OK   [Cinéma] Le Monde Cinéma - 5 récent(s), 5 avec image
+OK   [Cinéma] Le Monde Cinéma - 4 récent(s), 4 avec image
 OK   [Cinéma] Les Inrocks Cinéma - 8 récent(s), 8 avec image
 OK   [Cinéma] Libération Cinéma - 6 récent(s), 0 avec image
 OK   [Cinéma] Numerama Ciné - 12 récent(s), 12 avec image
@@ -36,7 +37,6 @@ OK   [Esport] France Info Sport - 0 récent(s), 0 avec image
 OK   [Esport] Frandroid - 0 récent(s), 0 avec image
 OK   [Esport] Gameblog - 0 récent(s), 0 avec image
 OK   [Esport] Gamekult - 0 récent(s), 0 avec image
-OK   [Esport] Gamergen - 0 récent(s), 0 avec image
 OK   [Esport] IGN France - 1 récent(s), 1 avec image
 OK   [Esport] Jeuxvideo.com - 0 récent(s), 0 avec image
 OK   [Esport] Journal du Gamer - 0 récent(s), 0 avec image
@@ -53,9 +53,10 @@ OK   [Esport] Presse-citron - 0 récent(s), 0 avec image
 OK   [Esport] Team aAa - 20 récent(s), 0 avec image
 OK   [Esport] Tom's Hardware - 0 récent(s), 0 avec image
 OK   [Esport] Xboxygen - 0 récent(s), 0 avec image
-OK   [Finance] 20 Minutes Économie - 12 récent(s), 12 avec image
+OK   [Finance] 20 Minutes Économie - 12 récent(s), 11 avec image
 OK   [Finance] Alternatives Économiques - 10 récent(s), 8 avec image
 OK   [Finance] BFM Business - 12 récent(s), 12 avec image
+OK   [Finance] Cryptoast - 12 récent(s), 0 avec image
 OK   [Finance] France Info Économie - 12 récent(s), 12 avec image
 OK   [Finance] Journal du Coin - 10 récent(s), 10 avec image
 OK   [Finance] L'Express Économie - 11 récent(s), 11 avec image
@@ -86,19 +87,18 @@ OK   [Jeux-Vidéo] 01net Jeux vidéo - 0 récent(s), 0 avec image
 OK   [Jeux-Vidéo] Actugaming - 10 récent(s), 10 avec image
 OK   [Jeux-Vidéo] Gameblog - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] Gamekult - 12 récent(s), 12 avec image
-OK   [Jeux-Vidéo] Gamergen - 7 récent(s), 7 avec image
 OK   [Jeux-Vidéo] IGN France - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] Jeuxvideo.com - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] Journal du Gamer - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] Le Monde Jeux vidéo - 1 récent(s), 1 avec image
-OK   [Jeux-Vidéo] Nintendo-Town - 10 récent(s), 2 avec image
+OK   [Jeux-Vidéo] Nintendo-Town - 10 récent(s), 3 avec image
 OK   [Jeux-Vidéo] Numerama Jeux vidéo - 12 récent(s), 12 avec image
 OK   [Jeux-Vidéo] Xboxygen - 12 récent(s), 12 avec image
 OK   [Politique française] 20 Minutes - 12 récent(s), 12 avec image
 OK   [Politique française] BFM TV - 12 récent(s), 12 avec image
 OK   [Politique française] France Info - 12 récent(s), 12 avec image
 OK   [Politique française] L'Express - 9 récent(s), 9 avec image
-OK   [Politique française] L'Obs - 12 récent(s), 6 avec image
+OK   [Politique française] L'Obs - 12 récent(s), 5 avec image
 OK   [Politique française] LCP - 12 récent(s), 12 avec image
 OK   [Politique française] Le Figaro - 7 récent(s), 7 avec image
 OK   [Politique française] Le JDD - 12 récent(s), 12 avec image
@@ -119,7 +119,7 @@ OK   [Québec] Le Devoir Politique - 10 récent(s), 0 avec image
 OK   [Québec] Le Journal de Montréal - 12 récent(s), 12 avec image
 OK   [Québec] Le Journal de Québec - 12 récent(s), 12 avec image
 OK   [Québec] Métro - 7 récent(s), 7 avec image
-OK   [Québec] Métro Montréal - 5 récent(s), 5 avec image
+OK   [Québec] Métro Montréal - 6 récent(s), 6 avec image
 OK   [Québec] Radio-Canada - 12 récent(s), 12 avec image
 OK   [Québec] TVA Nouvelles - 12 récent(s), 12 avec image
 OK   [Sport] 20 Minutes Football - 12 récent(s), 12 avec image
@@ -134,7 +134,7 @@ OK   [Sport] Le Monde Sport - 6 récent(s), 6 avec image
 OK   [Sport] RMC Sport Football - 12 récent(s), 11 avec image
 OK   [Sport] RMC Sport Ligue 1 - 12 récent(s), 12 avec image
 OK   [Sport] RMC Sport Ligue des champions - 2 récent(s), 2 avec image
-OK   [Sport] RMC Sport Premier League - 5 récent(s), 4 avec image
-OK   [Sport] RMC Sport Transferts - 3 récent(s), 3 avec image
+OK   [Sport] RMC Sport Premier League - 4 récent(s), 3 avec image
+OK   [Sport] RMC Sport Transferts - 4 récent(s), 4 avec image
 OK   [Sport] So Foot - 12 récent(s), 12 avec image
 OK   [Tendances Youtube] YouTube Tendances France - 100 sujet(s)
