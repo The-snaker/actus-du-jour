@@ -1,4 +1,4 @@
-Rapport du 2026-11-14T19:51:05.316821+00:00
+Rapport du 2026-11-14T23:48:00.740870+00:00
 Politique française: 15/15 sources OK | Jeux-Vidéo: 12/13 sources OK | Esport: 27/29 sources OK | High-Tech: 15/15 sources OK | Cinéma: 15/15 sources OK | Sport: 15/15 sources OK | Québec: 13/13 sources OK | Aéronautique: 7/7 sources OK | Finance: 15/15 sources OK
 KO   [Esport] Breakflip - https://www.breakflip.com/feed - HTTPError: HTTP Error 500: Internal Server Error
 KO   [Esport] JeuxActu - https://www.jeuxactu.com/rss/news.rss - HTTPError: HTTP Error 503: Service Temporarily Unavailable
@@ -13,7 +13,7 @@ OK   [Aéronautique] Opex360 - 10 récent(s), 0 avec image
 OK   [Cinéma] 20 Minutes Cinéma - 12 récent(s), 11 avec image
 OK   [Cinéma] Allociné Cinéma - 12 récent(s), 12 avec image
 OK   [Cinéma] Cinéséries - 6 récent(s), 6 avec image
-OK   [Cinéma] France Info Cinéma - 9 récent(s), 9 avec image
+OK   [Cinéma] France Info Cinéma - 10 récent(s), 10 avec image
 OK   [Cinéma] Konbini Cinéma - 12 récent(s), 12 avec image
 OK   [Cinéma] L'Obs Cinéma - 0 récent(s), 0 avec image
 OK   [Cinéma] Le Bleu du Miroir - 5 récent(s), 0 avec image
@@ -37,7 +37,7 @@ OK   [Esport] Gameblog - 0 récent(s), 0 avec image
 OK   [Esport] Gamekult - 0 récent(s), 0 avec image
 OK   [Esport] Gamergen - 0 récent(s), 0 avec image
 OK   [Esport] IGN France - 0 récent(s), 0 avec image
-OK   [Esport] Jeuxvideo.com - 0 récent(s), 0 avec image
+OK   [Esport] Jeuxvideo.com - 1 récent(s), 1 avec image
 OK   [Esport] Journal du Gamer - 0 récent(s), 0 avec image
 OK   [Esport] Konbini - 1 récent(s), 1 avec image
 OK   [Esport] Korben - 0 récent(s), 0 avec image
@@ -115,11 +115,11 @@ OK   [Québec] La Presse - 10 récent(s), 10 avec image
 OK   [Québec] La Presse Grand Montréal - 10 récent(s), 10 avec image
 OK   [Québec] La Presse Politique - 10 récent(s), 10 avec image
 OK   [Québec] Le Devoir - 12 récent(s), 0 avec image
-OK   [Québec] Le Devoir Politique - 1 récent(s), 0 avec image
+OK   [Québec] Le Devoir Politique - 0 récent(s), 0 avec image
 OK   [Québec] Le Journal de Montréal - 12 récent(s), 12 avec image
 OK   [Québec] Le Journal de Québec - 12 récent(s), 12 avec image
 OK   [Québec] Métro - 7 récent(s), 7 avec image
-OK   [Québec] Métro Montréal - 5 récent(s), 5 avec image
+OK   [Québec] Métro Montréal - 4 récent(s), 4 avec image
 OK   [Québec] Radio-Canada - 12 récent(s), 12 avec image
 OK   [Québec] TVA Nouvelles - 12 récent(s), 12 avec image
 OK   [Sport] 20 Minutes Football - 12 récent(s), 10 avec image
